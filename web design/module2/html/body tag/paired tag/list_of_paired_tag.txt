@@ -1,0 +1,46 @@
+quotation tag
+paragraph
+mark tag
+italic tag (italic)
+marquee
+cite(italic)
+bold tag
+strong
+html_list tag
+data_term/ 
+data_defination/ 
+data_list
+heading
+
+form
+button
+textarea
+map
+svg
+canvas
+area
+
+
+legend
+field_Set
+table
+        cell padding
+        cell spacing
+        rowspan
+        colspan
+        
+image tag
+span
+div
+details
+        summary
+
+emphasized tag(italic)
+
+frameset
+anchor
+adress
+select
+caption
+
+datalist(dropdown)
