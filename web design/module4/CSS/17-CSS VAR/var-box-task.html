@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <style>
+        :root {
+            --backgroundImg: url('images/wave.svg');
+            --img-height: 50vh;
+            --img-width: 100%;
+            --background-size: cover;
+            --box-width:26%;
+            --box-height:auto;
+            --paddingSize:50px;
+
+        }
+        body 
+        {
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        #header {
+            background-image: var(--backgroundImg);
+            margin: 0px;
+            padding: 0px;
+            width: var(--img-width);
+            height: var(--img-height);
+            background-size: var(--background-size);
+            color: white;
+            font-size: 30px;
+            padding: var(--paddingSize);
+        }
+
+        #content {
+            width:100%;
+            height: auto;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1{
+            margin: auto;
+        }
+
+        .box1,.box2, .box3 {
+            width: var(--box-width);
+            height: var(--box-height);
+            margin: 40px;
+            padding: 2px;
+            box-shadow: 2px 2px 2px 2px orange;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <h1 align="center">Box Parcel Services</h1>
+    </section>
+    <div id="content">
+        <div class="box1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint reprehenderit itaque modi tenetur iste dolor odio velit ipsam quos corporis, asperiores, laudantium amet dolorum architecto accusamus cum soluta earum doloribus?
+        </div>
+        <div class="box2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde accusantium nesciunt, repellendus labore quasi quidem consectetur aperiam maiores corporis ipsam dicta amet, iste soluta debitis quibusdam rem voluptates voluptatem quis.</div>
+        <div class="box3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur soluta eum, totam a amet accusamus pariatur aliquam, modi similique quaerat delectus minus animi eos in nobis, voluptatibus rerum facere! Quas.</div>
+    </div>
+</body>
+
+</html>
