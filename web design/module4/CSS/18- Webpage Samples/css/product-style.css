@@ -1,0 +1,36 @@
+.items
+{
+    width: 100%;
+    height: auto;
+   
+    box-shadow: 5px rgba(105, 102, 102, 0.2);
+    margin:60px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    
+}
+.items button
+{
+    width: 100px;
+    height: auto;
+    padding: 15px;
+    background-color: #49274A;
+    color: #f8eee7;
+    border: none;
+    border-radius: 10px;
+}
+.items .Products
+{
+    width: 100%;
+    height: auto;
+    text-align: justify;
+    margin: 50px;
+    
+    
+
+}
+.items .Products img{
+    width: 200px;
+    height: 300px;
+   
+}

@@ -1,0 +1,365 @@
+@import url('product-style.css');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    background-color: #94618E;
+}
+
+#shraddha-header {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+
+    color: #F4DECB;
+
+}
+
+.call-us {
+    width: 20%;
+    height: auto;
+    margin: 2px;
+    padding: 5px;
+    display: inline-block;
+    font-size: 20px;
+
+}
+
+
+.search-box {
+    width: 50%;
+    height: auto;
+    margin: 2px;
+    padding: 15px;
+    display: inline-block;
+
+}
+
+.search-box input {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: #94618E;
+    border-bottom: solid 1px #F4DECB;
+}
+
+.search-box input.search-query {
+
+    color: #F4DECB;
+    font-size: 18px;
+}
+
+.search-box input::placeholder {
+
+    color: #F4DECB;
+    font-size: 18px;
+
+}
+
+.social-media {
+    width: 20%;
+    height: auto;
+    margin: 2px;
+    padding: 5px;
+    display: inline-block;
+    font-size: 17px;
+
+}
+
+#shraddha-navbar {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    background-color: #F4DECB;
+    color: #49274A;
+}
+
+.logo {
+    width: 30%;
+    height: auto;
+    margin: 2px;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.nav {
+    width: 65%;
+    height: auto;
+    margin: 2px;
+    padding: 5px;
+    margin-left: 25px;
+    display: inline-block;
+
+}
+
+.nav ul li {
+    display: inline;
+    padding: 1px 10px;
+
+
+}
+
+.nav a {
+    color: #49274A;
+    text-decoration: none;
+    font-size: 17px;
+    list-style-type: none;
+    font-weight: bold;
+}
+
+#shraddha-content {
+    width: 100%;
+    height: auto;
+    padding: 30px 30px;
+
+    /* display: grid;
+    grid-template-columns: 40% 70%; */
+
+}
+
+#shraddha-content .update-profile {
+    width: 250px;
+    height: auto;
+    padding: 15px;
+    background-color: #49274A;
+    color: #f8eee7;
+    border: none;
+    border-radius: 10px;
+    font-size: 19px;
+}
+
+
+#shraddha-content h1 {
+
+    border-bottom: solid 2px #f8eee7;
+
+    width: 60%;
+
+    color: #2f1330;
+
+
+}
+
+#shraddha-content h3 {
+
+
+    font-size: 30px;
+
+    color: #2f1330;
+
+
+}
+
+.content-sidebar {
+
+    width: 25%;
+    height: 300px;
+
+
+    margin-top: 5px;
+    margin-right: 5px;
+    padding: 25px;
+    color: #f8eee7;
+    font-size: 20px;
+
+    float: left;
+
+
+
+}
+
+.content-sidebar ul li {
+
+
+    padding: 10px;
+    font-size: 20px;
+    list-style-type: none;
+    text-decoration: none;
+
+
+}
+
+.content-sidebar a {
+
+
+    color: #f8eee7;
+
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+.content-sidebar a:hover {
+    color: #49274A;
+
+}
+
+.content-sidebar button {
+    width: 100px;
+    height: auto;
+    padding: 15px;
+    background-color: #49274A;
+    color: #f8eee7;
+    border: none;
+    border-radius: 10px;
+
+
+}
+
+.content-form {
+    width: 60%;
+    height: auto;
+
+
+    margin: 0px;
+    padding: 20px;
+    float: left;
+
+
+
+}
+
+.content-form i {
+    
+   
+    font-size: 100px;
+    color: #49274A;
+}
+
+.content-form input {
+
+    width: 50%;
+    padding: 10px;
+    margin: 2px;
+    font-size: 18px;
+
+    color: #f8eee7;
+    border: none;
+    outline: none;
+    background-color: #94618E;
+    border-bottom: solid 3px #49274a;
+    border-radius: 5px;
+
+
+}
+
+.content-form input[type="file"] {
+    display: none;
+
+
+}
+
+.content-form .custom-file-upload {
+
+    width: 100px;
+    height: auto;
+    padding: 15px;
+    background-color: #49274A;
+    outline: none;
+    color: #f8eee7;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+.content-form textarea {
+    width: 50%;
+    padding: 10px;
+    margin: 2px;
+    font-size: 18px;
+
+    color: #f8eee7;
+    border: none;
+    outline: none;
+    background-color: #94618E;
+    border-bottom: solid 3px #49274A;
+    border-radius: 5px;
+
+
+}
+
+.content-form button {
+    width: 100px;
+    height: auto;
+    padding: 15px;
+    margin: 10px;
+
+    background-color: #49274A;
+    color: #f8eee7;
+    border: none;
+    border-radius: 10px;
+}
+
+.content-form input::placeholder {
+
+    color: #f8eee7;
+    font-size: 18px;
+
+}
+
+.content-form textarea::placeholder {
+
+    color: #f8eee7;
+    font-size: 18px;
+
+}
+
+.clearfix {
+    clear: both !important;
+}
+
+#shraddha-footer {
+    width: 150%;
+    height: 250px;
+    background-color: #F4DECB;
+    margin: -29px;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 19% 19% 19% 19%;
+}
+
+.footer1 ul li {
+    padding: 10px 5px;
+    margin: auto;
+    list-style-type: none;
+    font-weight: bold;
+    color: #49274A;
+
+}
+
+.footer2 ul li {
+    padding: 10px 5px;
+    margin: auto;
+    list-style-type: none;
+    font-weight: bold;
+    color: #49274A;
+
+}
+
+.footer3 ul li {
+    padding: 10px 5px;
+    margin: auto;
+    list-style-type: none;
+    font-weight: bold;
+    color: #49274A;
+
+}
+
+.footer4 ul li {
+    padding: 10px 5px;
+    margin: auto;
+    list-style-type: none;
+    font-weight: bold;
+    color: #49274A;
+
+}
