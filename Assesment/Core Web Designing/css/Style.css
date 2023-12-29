@@ -1,0 +1,209 @@
+body,
+html {
+    width: 100%;
+
+    margin: 0;
+    
+}
+
+.dreamplus-container {
+   display: flex;
+   flex-direction: row;
+} 
+.dreamplus-container .dreamplus-sidebar{
+    width: 20%;
+    height: 735px;
+    padding: 20px;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.468);
+    /* Fallback color */
+    background: rgba(0, 0, 0, 0.468);
+    color: #f1f1f1;
+    
+    
+
+}
+.dreamplus-container .dreamplus-content
+{
+    width: 70%;
+    height: auto;
+}
+
+.dreamplus-image img {
+
+    position: absolute;
+    width: 100%;
+    height: 776px;
+    vertical-align: middle;
+    filter: blur(2px);
+    z-index: -1;
+
+}
+
+.dreamplus-sidebar {
+    /* 
+    position: absolute; */
+/*     
+    bottom: 0;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.468);
+    background: rgba(0, 0, 0, 0.468);
+    color: #f1f1f1;
+    width: 20%;
+    padding: 20px; */
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    left: 20px;
+    top: 30px;
+
+}
+
+div.outer-line {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    border: 1px solid white;
+}
+
+div.inner-line {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    left: 10px;
+    width: 250px;
+    height: 150px;
+    border: 1px solid white;
+}
+
+.logo-text {
+    position: relative;
+    margin: auto;
+
+    padding: 35px;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    text-align: center;
+
+
+}
+
+.side-menu {
+    width: 100%;
+    height: auto;
+    margin: auto;
+
+}
+
+.side-menu ul li {
+
+    position: relative;
+    font-size: 20px;
+    padding: 10px;
+    text-align: right;
+    right: 110px;
+    top: 120px;
+    list-style-type: none;
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+
+
+
+}
+
+.side-menu a {
+
+    color: #f8eee7;
+
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+.sidebar-footer {
+
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 20px;
+}
+
+.social-media {
+
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 60%;
+    padding: 20px 65px;
+
+}
+
+.fa {
+    padding: 5px;
+    font-size: 5px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+
+    background: white;
+    color: black;
+    border-radius: 20%;
+
+}
+
+.copyright {
+    position: relative;
+    text-align: center;
+    margin: auto;
+    font-size: 10px;
+    right: 20px;
+
+}
+
+/* .dreamplus-content {
+
+    width: 100%;
+
+    height: auto;
+    
+} */
+
+.dreamplus-intro {
+    position: absolute;
+    width: 350px;
+    height: 250px;
+    padding: 35px;
+
+    bottom: 0;
+    top: 30%;
+    left: 70%;
+
+    background: rgba(255, 255, 255, 0.374);
+    /* Fallback color */
+    background: rgba(255, 255, 255, 0.374);
+    /* Black background with 0.5 opacity */
+    border: 1px solid white;
+
+
+}
+
+.dreamplus-intro h2 {
+    text-align: center;
+    color: rgb(77, 195, 206);
+
+}
+
+.dreamplus-intro p {
+    color: black;
+}
