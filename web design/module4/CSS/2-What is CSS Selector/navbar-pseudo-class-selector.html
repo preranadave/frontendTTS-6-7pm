@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        /* navbar */
+
+        #navbar {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            background-color: #012363;
+        }
+
+        #navbar ul li {
+            display: inline-block;
+            padding: 5px 25px;
+        }
+
+        #navbar a {
+            color: white;
+            text-decoration: none;
+            list-style-type: none;
+            font-size: 22px;
+        }
+
+        /* pseudo class selector */
+
+        #navbar a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        /* #navbar a:visited 
+        {
+            color: yellow;
+        } */
+
+        #navbar a:link {
+            color: black !important;
+        }
+
+        #navbar a:active {
+            color: blue;
+        }
+
+        .form {
+            width: 50%;
+            height: auto;
+            margin: auto;
+            background-color: lightblue;
+            padding: 25px;
+            margin-top: 5%;
+        }
+
+        .form input[type="text"] {
+            width: 250px;
+            height: auto;
+            padding: 8px;
+        }
+
+        .form input[type="submit"] {
+            width: 266px;
+            height: auto;
+            padding: 8px;
+            border: none;
+            background-color: red;
+
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            background-color: #012363;
+            width: 250px;
+            display: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="navbar">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Our Team</a></li>
+            <li><a href="">Services</a></li>
+            <li class="dropdown"><a href="">Products</a>
+                <ul class="dropdown-menu">
+                    <li><a href="">Kids Items</a></li>
+                    <li><a href="">Mens Items</a></li>
+                    <li><a href="">Womens Items</a></li>
+                </ul>
+
+            </li>
+            <li><a href="">Our blogs</a></li>
+            <li class="dropdown"><a href="">Account</a>
+                <ul class="dropdown-menu">
+                    <li><a href="">Customer Login</a></li>
+                    <li><a href="">Customer Register</a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li><a href="">Feedback</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </section>
+
+    <!-- content -->
+
+    <div class="form">
+        <form>
+            <input type="text" name="name" placeholder="Name *">
+            <br><br>
+
+            <input type="text" name="name" placeholder="Name *">
+            <br><br>
+
+            <input type="submit" name="login" value="SignIn">
+            <br><br>
+        </form>
+    </div>
+</body>
+
+</html>

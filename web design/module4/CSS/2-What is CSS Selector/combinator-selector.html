@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        /* combinator selector */
+
+
+        /* adjacent */
+        /* that is used to provides all paragraph of color or style red */
+        /* .content p 
+    {
+     background-color: yellow;   
+     color: red;
+    } */
+
+        /* 
+    div p 
+    {
+     background-color: yellow;   
+     color: red;
+    } */
+
+
+
+
+        /* child selector */
+
+        /* .parent > p 
+    {
+        background-color: yellow;
+        color: blue;
+        padding: 5px;
+    } */
+
+        /* child selector 
+    all the child of parent sections applied css
+    
+    */
+
+        /* .parent > p 
+    {
+        background-color: yellow;
+        color: blue;
+        padding: 5px;
+    } */
+
+
+
+        /* adjacent sibling selector
+     add style after parent section of first child elements 
+    
+    */
+
+        /* .parent + p 
+     {
+        background-color: yellow;
+        color: blue;
+        padding: 5px;
+     } */
+
+
+
+        /* general sibling selector  ~
+     
+      add style after parent section of next sibling of elements child elements 
+    
+     
+     */
+
+
+        .parent~p {
+            background-color: yellow;
+            color: blue;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="parent">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe molestiae nesciunt similique voluptates?
+            Soluta, veritatis? Labore, ipsam vel? Aut nisi necessitatibus dolores optio asperiores totam aperiam
+            excepturi molestias illo at?</p>
+
+        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque dolores saepe sapiente sit optio corporis,
+            eveniet, dignissimos libero dolore ea voluptate deserunt ab. Rem quasi eius voluptatibus similique
+            perspiciatis quos.</p>
+
+
+    </div>
+
+    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque dolores saepe sapiente sit optio corporis,
+        eveniet, dignissimos libero dolore ea voluptate deserunt ab. Rem quasi eius voluptatibus similique perspiciatis
+        quos.</p>
+
+    <code>I am just adding a sibling</code>
+
+    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque dolores saepe sapiente sit optio corporis,
+        eveniet, dignissimos libero dolore ea voluptate deserunt ab. Rem quasi eius voluptatibus similique perspiciatis
+        quos.</p>
+
+    <code>I am just adding a sibling</code>
+
+    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque dolores saepe sapiente sit optio corporis,
+        eveniet, dignissimos libero dolore ea voluptate deserunt ab. Rem quasi eius voluptatibus similique perspiciatis
+        quos.</p>
+
+    <code>I am just adding a sibling</code>
+
+    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque dolores saepe sapiente sit optio corporis,
+        eveniet, dignissimos libero dolore ea voluptate deserunt ab. Rem quasi eius voluptatibus similique perspiciatis
+        quos.</p>
+</body>
+
+</html>
