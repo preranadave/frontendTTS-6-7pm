@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+  
+        body 
+        {
+            margin: 0;
+            padding: 0;
+            background-color: lightgray;
+            -webkit-animation: 8s  anim infinite;
+            -moz-animation: 8s  anim infinite;
+            -o-animation: 8s  anim infinite;
+            animation: 8s  anim infinite;
+        }
+        @keyframes anim {
+            10% 
+            {
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: red;
+            }
+            30% 
+            {
+
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: yellow;
+            }
+            50% 
+            {
+
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: cadetblue;
+            }
+            60% 
+            {
+
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: blue;
+            }
+            80% 
+            {
+
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: aqua;
+            }      
+            
+        }
+
+        #content 
+        {
+            width: 80%;
+            height: 400px;
+            margin-left: 10%;
+            margin-top: 5%;
+            background-color: transparent;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+
+        }
+        .box1 
+        {
+        width: 50%;
+        height: 400px;
+        background: url('https://img.freepik.com/premium-vector/hand-painted-abstract-watercolor-background_521516-18.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705363200&semt=ais') no-repeat;
+        background-size: cover;
+        position: relative;
+        }
+        .box2
+        {
+          width: 50%;
+          height: 400px;
+          background-color: white;
+          /* background: -webkit-linear-gradient(aqua,lightgray,yellow,gray);
+          background: -moz-linear-gradient(aqua,lightgray,yellow,gray);
+          background: -o-linear-gradient(aqua,lightgray,yellow,gray);
+          background: linear-gradient(aqua,lightgray,yellow,gray); */
+
+          background: -webkit-radial-gradient(yellow,gray);
+          background: -moz-radial-gradient(yellow,gray);
+          background: -o-radial-gradient(yellow,gray);
+          background: radial-gradient(yellow,gray);
+        }
+        .text-overlay
+        {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(5,0,0,0.5);
+            position: absolute;
+            color: white;
+
+        }
+        .text-overlay h1,p
+        {
+            text-align: center;
+            padding: 5px;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="content">
+        <div class="box1">
+            <div class="text-overlay">
+                <h1>50% off on Selected Items</h1>
+                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro optio earum iste labore incidunt? Quia esse qui earum eum, nam, necessitatibus deleniti vitae quaerat architecto consectetur illo sapiente, iusto atque.</p>
+            </div>
+        </div>
+        <div class="box2"></div>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+body 
+{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+html ul li h1,h2,h3,h4,h5,h6  
+{
+    margin: 0;
+    padding: 0;
+}
+/* header start here */
+#car-pooling-header
+{
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    margin: 0px;
+    padding: 15px;
+    border-bottom:  inset 1px;
+    position: sticky;
+    top: 0;
+    z-index: 5 !important;
+}
+/* navbar start here */
+#car-pooling-navbar 
+{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    margin: 0px;
+    padding: 15px;
+    border-bottom:  inset 1px;
+    background-color: black;
+}
+/* slider start here */
+#car-pooling-slider 
+{
+    width: 96%;
+    height: 350px;
+    margin: 0;
+    padding: 0;
+    margin-left: 2%;
+    margin-top: 1%;
+    border-bottom:  inset 1px;
+ 
+}
+.slider img 
+{
+    width: 100%;
+    height: 350px;
+}
+
+/* content start here */
+
+#car-pooling-content
+{
+    width: 90%;
+    height: 850px;
+    background-color: white;
+    margin-left: 5%;
+    margin-top: 5%;
+    /* display: grid !important;
+    grid-template-columns: auto auto auto; */
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.car-pooling-leftsidebar
+{
+    width: 35%;
+    height: 600px;
+    margin: 5px;
+    box-shadow: 2px 2px 2px 2px;
+    background-color: white;
+    justify-content: space-evenly;
+}
+
+.car-pooling-rightsidebar
+{
+    width: 100%;
+    height: 600px;
+    margin: 5px;
+    box-shadow: 2px 2px 2px 2px;
+    background-color: white;
+}

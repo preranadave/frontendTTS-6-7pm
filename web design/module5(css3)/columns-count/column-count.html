@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+  
+        body 
+        {
+            margin: 0;
+            padding: 0;
+            background-color: lightgray;
+            -webkit-animation: 8s  anim infinite;
+            -moz-animation: 8s  anim infinite;
+            -o-animation: 8s  anim infinite;
+            animation: 8s  anim infinite;
+        }
+        @keyframes anim {
+            10% 
+            {
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: red;
+            }
+            30% 
+            {
+
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: lightgray;
+            }
+            50% 
+            {
+
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: cadetblue;
+            }
+            60% 
+            {
+
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: blue;
+            }
+            80% 
+            {
+
+              top: 0;
+              margin: 0;
+              left: 0;
+              background-color: aqua;
+            }      
+            
+        }
+
+        #content 
+        {
+            width: 80%;
+            height: 400px;
+            margin-left: 10%;
+            margin-top: 5%;
+            background-color: transparent;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+
+        }
+        .box1 
+        {
+        width: 50%;
+        height: 400px;
+        background: url('https://img.freepik.com/premium-vector/hand-painted-abstract-watercolor-background_521516-18.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705363200&semt=ais') no-repeat;
+        background-size: cover;
+        position: relative;
+        }
+        .box2
+        {
+          width: 50%;
+          height: 400px;
+          background-color: white;
+          background: -webkit-radial-gradient(lightgray,gray);
+          background: -moz-radial-gradient(lightgray,gray);
+          background: -o-radial-gradient(lightgray,gray);
+          background: radial-gradient(lightgray,gray);
+        }
+        .text-overlay
+        {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(5,0,0,0.5);
+            position: absolute;
+            color: white;
+
+        }
+        .text-overlay h1,p
+        {
+            text-align: center;
+            padding: 5px;
+            margin-top: 5%;
+        }
+        .box2 h1,p 
+        {
+            text-align: justify;
+            padding: 5px;
+
+        }
+        .box2 p 
+        {
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            -o-column-count: 2;
+            column-count: 2;
+            -webkit-column-gap: 40px;
+            -moz-column-gap: 40px;
+            column-gap: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="content">
+        <div class="box1">
+            <div class="text-overlay">
+                <h1>50% off on Selected Items</h1>
+                <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro optio earum iste labore incidunt? Quia esse qui earum eum, nam, necessitatibus deleniti vitae quaerat architecto consectetur illo sapiente, iusto atque.</p>
+            </div>
+        </div>
+        <div class="box2">
+            <h1>Columns gap</h1>
+            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime expedita ipsam, earum laboriosam blanditiis aut excepturi quam voluptates ratione velit consequuntur distinctio unde, quis, deserunt cupiditate magni error ipsum sed.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime expedita ipsam, earum laboriosam blanditiis aut excepturi quam voluptates ratione velit consequuntur distinctio unde, quis, deserunt cupiditate magni error ipsum sed.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime expedita ipsam, earum laboriosam blanditiis aut excepturi quam voluptates ratione velit consequuntur distinctio unde, quis, deserunt cupiditate magni error ipsum sed.</p>
+        </div>
+    </section>
+    
+</body>
+</html>

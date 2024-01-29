@@ -1,0 +1,242 @@
+body{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow-x:hidden ;
+}
+#navbar
+{
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    margin: auto;
+    background-color: rgba(193, 219, 250, 0.881);
+}
+.social-media
+{
+    width: 20%;
+    height: auto;
+
+    margin-left: 80%;
+    display: flex;
+    flex-direction: row;
+}
+.social
+{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 15px;
+    background-color: rgb(127, 177, 237);
+
+}
+#slider
+{
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.slider-content
+{
+    width: 95%;
+    height: 350px;
+    margin: 20px 35px;
+    background-color:  rgb(101, 148, 205); ;
+}
+#main-content
+{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+.left-content
+{
+    width: 30%;
+    height: 300px;
+    margin: 30px 35px;
+    background-color: rgb(239, 191, 30);
+}
+.right-content
+{
+    width: 70%;
+    height: 300px;
+    margin: 30px 35px;
+
+}
+.right-content >p{
+    
+    padding: 10px;
+    border-radius: 30px;
+    background-color: rgba(84, 49, 4, 0.484);
+}
+
+@media only screen and (min-width:320px) and (max-width:480px) {
+    
+
+    body{
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow-x:hidden ;
+    }
+    #navbar
+    {
+        width:329px;
+        height: auto;
+        padding: 5px;
+        margin: auto;
+        background-color: rgba(193, 219, 250, 0.881);
+        overflow-x:hidden ;
+    }
+    .social-media
+    {
+        /* width: 20%;
+        height: auto; */
+    
+        display: flex;
+        flex-direction: row;
+    }
+    .social
+    {
+        width:20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 5px;
+        background-color: rgb(127, 177, 237);
+    
+    }
+    #slider
+    {
+        width: auto;
+        height: auto;
+        margin: 10px;
+        
+    }
+    .slider-content
+    {
+        width: 270px;
+        height: 200px;
+        margin: 10px 27px;
+        background-color:  rgb(101, 148, 205); ;
+    }
+    #main-content
+    {
+        width: auto;
+        height: auto;
+        margin: auto;
+        display: block;
+        
+    }
+    .left-content
+    {
+        width: 270px;
+        height: 200px;
+        margin: 10px 36px;
+        background-color: rgb(239, 191, 30);
+        
+    }
+    .right-content
+    {
+        width:270px;
+        height: 300px;
+        margin: 30px 35px;
+        
+    
+    }
+    .right-content >p{
+        
+        padding: 30px;
+        border-radius: 30px;
+        background-color: rgba(84, 49, 4, 0.484);
+    }
+}
+@media only screen and (min-width:768px) and (max-width:1024px) {
+
+    
+
+    body{
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow-x:hidden ;
+    }
+    #navbar
+    {
+        width:800px;
+        height: auto;
+        padding: 5px;
+        margin: auto;
+        background-color: rgba(193, 219, 250, 0.881);
+        overflow-x:hidden ;
+    }
+    .social-media
+    {
+        /* width: 20%;
+        height: auto; */
+    
+        display: flex;
+        flex-direction: row;
+    }
+    .social
+    {
+        width:20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 5px;
+        background-color: rgb(127, 177, 237);
+    
+    }
+    #slider
+    {
+        width: auto;
+        height: auto;
+        margin: 10px;
+        
+    }
+    .slider-content
+    {
+        width: 670px;
+        height: 200px;
+        margin: 10px 27px;
+        background-color:  rgb(101, 148, 205); ;
+    }
+    #main-content
+    {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .left-content
+    {
+        width: 350px;
+        height: 200px;
+        margin: 10px 36px;
+        background-color: rgb(239, 191, 30);
+        
+    }
+    .tab-content
+    {
+        display: block;
+    }
+    .right-content
+    {
+        width:400px;
+        height: 300px;
+        margin: 5px 35px;
+        
+    
+    }
+    .right-content >p{
+        
+        padding: 30px;
+        border-radius: 30px;
+        background-color: rgba(84, 49, 4, 0.484);
+    }
+}
