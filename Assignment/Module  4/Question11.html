@@ -10,12 +10,13 @@
     <script src='main.js'></script>
     <style>
         .center {
-            height: 300px;
+            height: 500px;
             position: relative;
             border: 3px solid green;
         }
 
-        .center p {
+        .center >p {
+            height: 100px;
             margin: 0;
             position: absolute;
             top: 50%;
@@ -31,12 +32,12 @@
 
     <div class="center">
         <p>Block element can be centerd Horizontal and verticle.</p>
-        <p>
+        <p style="margin-top: 30px;">
             For Horizontal centering width of block elements should be given and after then setting marign left and
             right to
             auto will put element in center
         </p>
-        <p>
+        <p style="margin-top: 80px;">
             for verticle align
             setting height then applying
             padding
