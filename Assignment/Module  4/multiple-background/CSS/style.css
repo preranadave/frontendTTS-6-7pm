@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+}
+
+#leftside {
+    width: 50%;
+    height: 775px;
+    background-color: rgb(30, 30, 30);
+    text-align: right;
+    color: white;
+
+}
+.content
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    margin-top: 140px;
+}
+.heading{
+    margin-right: 100px;
+    margin-left: 500px;
+    display: flex;
+}
+.rectabgle
+{
+    width: 5px;
+    height: 50px;
+    background-color:  rgb(180, 5, 5);
+    margin-left: 32px;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+.content>.work
+{
+    display: flex;
+    flex-direction: row;
+    margin:10px;
+   
+}
+.description{
+    margin-right: 60px;
+}
+.description>h2{
+    
+    color: rgb(180, 5, 5);
+}
+.icon{
+    margin-top: 20px;
+    margin-right: -35px;
+}
+.icon>i{
+
+    padding: 25px;
+    background-color: white;
+    border-radius: 50%;
+    color: rgb(180, 5, 5);
+}
+#rigthside {
+    width: 50%;
+    height: 775px;
+    background-image: url('../images/our-work.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.8);
+    z-index: -1;
+}
