@@ -1,0 +1,14 @@
+<script>
+function test()
+{
+    if(confirm('You want to logout?'))
+    {
+        alert('Logged Out Successfully!');
+        window.location="https://www.w3schools.com";
+    }
+    else{
+        window.location="confirm.html";
+    }
+}
+</script>
+<button type="button"  onclick="test()">Click to logout</button>
