@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    JavaScript supports different kinds of loops:
+
+    for - loops through a block of code a number of times
+    for/in - loops through the properties of an object
+    for/of - loops through the values of an iterable object
+    while - loops through a block of code while a specified condition is true
+    do/while - also loops through a block of code while a specified condition is true
+    <p id="cars"></p>
+    <p id="name"></p>
+    <p id="fruits"></p>
+    
+    <p id="number"></p>
+    
+    <p id="dowhile"></p>
+    
+    
+    <script>
+        // for loop
+        const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+
+        let cartext = "";
+        for (let i = 0; i < cars.length; i++) {
+            cartext += cars[i] + "<br>";
+        }
+
+        document.getElementById("cars").innerHTML = cartext;
+
+        //for in
+        const person = { fname: "prerna", lname: "Dave", age: 25 };
+
+        let persontxt = "";
+        for (let x in person) {
+            persontxt += person[x] + " ";
+        }
+
+        document.getElementById("name").innerHTML = persontxt;
+
+        //for of
+        const fruits = ["banana", "apple", "pineapple"];
+
+        let fruittext = "";
+        for (let x of fruits) {
+            fruittext += x + "<br>";
+        }
+
+        document.getElementById("fruits").innerHTML = fruittext;
+
+
+        //while loop
+
+        number = "";
+        let b = 0;
+        while (b < 10) {
+            number += "<br>The number is " + b;
+            b++;
+        }
+        document.getElementById("number").innerHTML = number;
+
+
+        //do while
+
+        let a = ""
+        let c = 0;
+
+        do {
+            a += "<br>The number is " + c;
+            c++;
+        }
+        while (c < 10);
+
+        document.getElementById("dowhile").innerHTML = a;
+    </script>
+</body>
+
+</html>
