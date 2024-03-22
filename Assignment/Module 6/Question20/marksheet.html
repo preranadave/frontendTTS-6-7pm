@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <script src='main.js'></script>
+    <script src="js/marksheet.js"></script>
+</head>
+
+<body>
+    <section id="marksheet">
+        <div class="mark-form">
+            <h1>Marksheet for Information Technology</h1>
+            <div class="mark-input">
+                <div class="in">CSS <input type="text" id="css"></div>
+                <div class="in">C language <input type="text" id="c"></div>
+                <div class="in">C++ <input type="text" id="c++"></div>
+                <div class="in">Database <input type="text" id="database"></div>
+                <div class="in">HTML <input type="text" id="html"></div>
+                <div class="in">PHP<input type="text" id="php"></div>
+                <div class="in">Core Java <input type="text" id="java"></div>
+              
+
+            </div>
+            <button id="btn" onclick="calculatevalue()">Result</button>
+
+            <div class="answer">
+
+                <label>Total is: </label><label id="total"></label>/350
+                <label style="margin-left: 80px;">Percentage is:</label><label id="perc"></label>%
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

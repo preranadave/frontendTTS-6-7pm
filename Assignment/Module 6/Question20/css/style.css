@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 90px;
+    overflow-x: hidden;
+}
+
+#marksheet {
+    width: 40%;
+    height: 470px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid;
+
+}
+
+.mark-form {
+    width: 97%;
+    height: 390px;
+    padding: 20px;
+    margin: auto;
+
+}
+
+.mark-form h1 {
+    text-align: center;
+}
+/* 
+.mark-form .input {
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    
+} */
+.mark-form .in
+{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 120px;
+
+    
+}
+
+.mark-form input {
+    width: 150px;
+    height: 10px;
+    margin: auto;
+    margin-top: -20px;
+    margin-left: 90px;
+    padding: 5px;
+}
+
+.mark-form button {
+    width: 170px;
+    height: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-left: 40%;
+    padding: 15px 10px;
+
+}
+.mark-form .answer
+{
+    margin:25px 35px;
+    font-size: 20px;
+    
+}
+
+#total,#perc
+{
+    margin-left: 20px;
+    color: rgb(27, 27, 245);
+}
