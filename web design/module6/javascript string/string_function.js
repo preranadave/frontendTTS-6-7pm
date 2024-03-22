@@ -41,3 +41,13 @@ console.log(sliceresult);
 let trimstr="    hi i am"
 let trimresult=trimstr.trim();
 console.log(trimresult);
+
+var indstr='hi i am prerna';
+var indres=str.indexOf('rn');
+console.log(indres);
+
+var incstr='hi i am prerna';
+var incres=incstr.includes('hi');
+console.log(incres);
+
+

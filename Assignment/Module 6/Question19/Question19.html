@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <script src='main.js'></script>
+    <script src="js/calc.js"></script>
+</head>
+
+<body>
+    <section id="calculator">
+        <div class="calc-form">
+            <h1>Math operations</h1>
+            <div class="cal-input">
+                Enter 1st number: <input type="text" id="fnum">
+                Enter 2nd number: <input type="text" id="snum">
+            </div>
+            <div class="button">
+                <button id="btn" value="+" onclick="calculatevalue(this.value)">+</button>
+                <button id="btn" value="-" onclick="calculatevalue(this.value)">-</button>
+                <button id="btn" value="*" onclick="calculatevalue(this.value)">*</button>
+                <button id="btn" value="/" onclick="calculatevalue(this.value)">/</button>
+
+                <button id="btn" value="%" onclick="calculatevalue(this.value)">%</button>
+
+            </div>
+            <div class="answer">
+                Answer is: <label id="answers" ></label>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
