@@ -7,13 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
     
-    <script>
-     $(document).ready(function(){
-        $("button").click(function(){
-            $("#demo").load("text-file-to-load.txt");
-        })
-     })
-    </script>
+    
 
     <!-- <script>
         $(document).ready(function(){
@@ -25,8 +19,16 @@
         </script> -->
 </head>
 <body>
+    <button type="button" id="btn">click to load >></button>
     <p id="demo"></p>
-    <button type="button">click to load >></button>
+    <script>
+        $(document).ready(function(){
+           $("#btn").click(function(){
+               $("#demo").load("text-file-to-load.txt");
+           })
+        })
+       </script>
+    
     
 </body>
 </html>
