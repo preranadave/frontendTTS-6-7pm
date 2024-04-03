@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+
+                var age=prompt("Enter your age :");
+                if(age>=18)
+                {
+               
+                document.getElementById("demo").innerHTML="I am eligible for voting";
+                }
+                else 
+                {
+                    
+              
+                
+                document.getElementById("demo").innerHTML="I am not eligible for voting";
+
+                }
+               
+            })
+            
+        })
+    </script>
+</head>
+<body>
+<center>
+    
+    <p id="demo"></p>
+    <button type="button" id="btn">Eligibility for Voting>></button>
+    
+ </center>   
+</body>
+</html>

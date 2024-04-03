@@ -1,0 +1,107 @@
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+   
+    
+    .header {
+        background-color: rgb(23, 23, 60);
+        color: white;
+    }
+    
+    .menu {
+        background-color: rgb(244, 69, 127);
+    }
+    
+    .hero {
+        background-color: rgb(13, 155, 225);
+    }
+    
+    .main {
+        background-color: rgb(30, 30, 101);
+        color: white;
+    }
+    
+    .banner {
+        background-color: rgb(247, 185, 92);
+    }
+    
+    .extra {
+        background-color: rgb(182, 248, 192);
+    
+    }
+    
+    .image {
+        background-color: rgb(182, 248, 248);
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: 40px 2fr repeat(4, 5fr);
+        grid-template-areas:
+          "header menu menu menu",
+          "hero hero hero hero",    
+          "hero hero hero hero"
+          "main main . image"
+          "main main . extra"
+          "banner banner banner banner";
+      }
+    
+
+
+@media (min-width: 721px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 4fr);
+        grid-template-rows: 100px 4fr repeat(4, 150px);
+        grid-template-areas:
+        "header header header header"
+        "hero hero hero hero"
+        "menu main main main"
+        "menu main main main"
+        "menu banner banner banner"
+        "menu extra image image";
+    }
+    .header {
+        background-color: rgb(23, 23, 60);
+        color: white;
+        grid-area: header;
+    }
+
+    .menu {
+        grid-area: menu;
+        background-color: rgb(244, 69, 127);
+    }
+
+    .hero {
+        background-color: rgb(13, 155, 225);
+
+        grid-area: hero;
+    }
+
+    .main {
+        background-color: rgb(30, 30, 101);
+        color: white;
+        grid-area: main;
+    }
+
+    .banner {
+        background-color: rgb(247, 185, 92);
+    }
+
+    .extra {
+        grid-area: extra;
+        background-color: rgb(182, 248, 192);
+
+    }
+
+    .image {
+        grid-area: image;
+        background-color: rgb(182, 248, 248);
+    }
+
+    
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
+    <script>
+        $(document).ready(function () {
+            jQuery("#delbtn").click(function () {
+                jQuery("#first").remove();
+            })
+            $("#btn").click(function () {
+                $("table").append("<tr id='first'><td>1</td><td>Prerna Dave</td><td>50000</td><td>855524444624</td><td><button>Delete</button></td></tr>")
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <table width="70%" border="1" cellspacing="4" cellpadding="4">
+        <tr>
+            <td colspan="6"><button type="button" id="btn">Add Rows</button></td>
+        </tr>
+        <tr id="first">
+            <td>1</td>
+            <td>Prerna Dave</td>
+            <td>50000</td>
+            <td>855524444624</td>
+            <td><button type="button" id="delbtn">Delete</button></td>
+
+        </tr>
+    </table>
+</body>
+
+</html>

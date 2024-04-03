@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: white;
+}
+
+#head {
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: 10% 90%;
+
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-color: rgb(23, 23, 60);
+
+}
+
+.menu {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(244, 69, 127);
+}
+
+#hero-head {
+    width: 100%;
+    height: auto;
+}
+
+.hero {
+    width: 100%;
+    height: 300px;
+    padding: 30px;
+    background-color: rgb(13, 155, 225);
+    text-align: center;
+}
+
+#main-section {
+
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.main {
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(30, 30, 101);
+}
+
+.right-side {
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-template-rows: auto auto;
+    text-align: center;
+}
+
+.image {
+    width: 100%;
+    height: 70px;
+    padding: 25px;
+    background-color: rgb(182, 248, 248);
+    color: black;
+}
+
+.extra {
+    width: 100%;
+    height: 70px;
+    padding: 25px;
+    background-color: rgb(182, 248, 192);
+    color: black;
+}
+
+#banner {
+    width: 100%;
+    height: auto;
+
+
+}
+
+.banner-section {
+    width: 100%;
+    height: 97px;
+    background-color: rgb(247, 185, 92);
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        color: white;
+        display: grid;
+        grid-template-columns: repeat(1, 2fr);
+        grid-template-rows: repeat(1, 200px);
+
+    }
+
+    #head {
+        width: 100%;
+        height: auto;
+
+        display: grid;
+        grid-template-columns: 10% 90%;
+       
+       
+        
+
+    }
+
+    .header {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        background-color: rgb(23, 23, 60);
+        grid-template-columns: repeat(1, 2fr);
+        grid-template-rows: repeat(1, 70px);
+        
+        grid-column: 1/6;
+        grid-row: 1/1;
+
+    }
+
+    .menu {
+        width: 15%;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+        background-color: rgb(244, 69, 127);
+        grid-template-columns: repeat(1, 2fr);
+        grid-template-rows: repeat(1, 70px);
+        
+        grid-column: 1/3;
+        grid-row: 5;
+        
+
+       
+
+    }
+
+    #hero-head {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        display: grid;
+      
+       
+        grid-column: 1;
+        grid-row: 2;
+      
+
+    }
+
+    .hero {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+        background-color: rgb(13, 155, 225);
+      
+      
+       
+      
+        
+    }
+
+    #main-section {
+
+        width: 100%;
+        height: auto;
+
+        display: grid;
+        grid-template-columns: 70% 30%;
+
+    }
+
+    .main {
+        width: 100%;
+        height: 200px;
+        padding: 20px;
+        text-align: center;
+        background-color: rgb(30, 30, 101);
+    }
+
+    .right-side {
+        width: 100%;
+        height: auto;
+
+        display: grid;
+        grid-template-rows: auto auto;
+        text-align: center;
+    }
+
+    .image {
+        width: 100%;
+        height: 70px;
+        padding: 25px;
+        background-color: rgb(182, 248, 248);
+        color: black;
+    }
+
+    .extra {
+        width: 100%;
+        height: 70px;
+        padding: 25px;
+        background-color: rgb(182, 248, 192);
+        color: black;
+    }
+
+    #banner {
+        width: 100%;
+        height: auto;
+
+
+    }
+
+    .banner-section {
+        width: 100%;
+        height: 97px;
+        background-color: rgb(247, 185, 92);
+        color: black;
+        text-align: center;
+        padding: 10px;
+    }
+
+
+}

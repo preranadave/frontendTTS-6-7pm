@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
+    <script src='main.js'></script>
+    <script>
+        $(document).ready(function () {
+            $("body").css({ "background-color": "lightgray" });
+            $("div").removeClass("content");
+        })
+    </script>
+     <style>
+        .content 
+        {
+            width: 30%;
+            height: auto;
+            margin: auto;
+            background-color: coral;
+            color: white;
+            padding: 15px;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label>Class Will Be Remove in DIV</label>
+    </div>
+</body>
+
+</html>
