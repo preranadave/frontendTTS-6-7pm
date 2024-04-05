@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            $("#bbtn").click(function()
+        {
+            //using multiple method here is what we called chaining
+            $("p").hide("slow").slideDown("slow").slideUp("slow");
+        })
+        })
+    </script>
+</head>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit illo voluptatibus, autem provident doloremque
+        accusamus cupiditate repudiandae. Voluptatum enim aperiam, perspiciatis aut fugit exercitationem dolore, et quia
+        pariatur aspernatur eum.
+    </p>
+    <button type="button" id="bbtn">Click Here</button>
+
+</body>
+
+</html>
