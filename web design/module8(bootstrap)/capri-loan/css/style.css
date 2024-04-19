@@ -1,0 +1,155 @@
+body {
+    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
+}
+
+#website-header {
+    width: 100%;
+    height: auto;
+}
+
+.heading {
+
+    height: auto;
+    background-color:#502a75;
+}
+
+.number {
+    width: 590px;
+}
+
+.contact {
+    text-align: right;
+
+}
+
+.masme-contact {
+    width: 320px;
+}
+
+.find-branch {
+    width: 170px;
+    padding: 5px;
+    border: none;
+    border-radius: 50px;
+    color:#502a75;
+
+}
+
+.nav {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #502a75;
+}
+
+.nav a {
+    color: #502a75;
+}
+
+.navbar-brand {
+    margin: auto;
+    margin-left: 190px;
+}
+
+.nav-link:hover {
+    color: rgb(255, 153, 28);
+}
+
+.dropdown-menu {
+    color:#502a75;
+    width: 210px;
+    border: none;
+}
+
+.dropdown-item {
+    font-weight: 700;
+    width: 130px;
+    color: #502a75;
+
+
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 153, 28);
+}
+
+.firstlevel-drop:hover .firstlevel-drop-menu {
+    display: block;
+}
+
+.secondlevel-drop:hover .secondlevel-drop-menu {
+    display: block;
+    margin: auto;
+    margin-top: -40px;
+
+    margin-left: 210px;
+
+}
+.website-banner
+{
+    height: auto;
+}
+.rightside
+{
+ height: 530px;   
+}
+.cell {
+   height: 250px;
+}
+
+.cell__big {
+   margin: auto;
+   margin-right: -12px;
+    height: 532px;
+    display: flex;
+   
+}
+.banner-text-1
+{
+    background-color: #502a75;
+    color: white;
+
+}
+#info-slider
+{
+    height: auto;
+
+}
+#eligibility
+{
+    height: auto;
+    background-color: #f48722;
+}
+#eligibility .card
+{
+    background-color: #f48722;
+    color: white;
+}
+.check-now
+{
+    background-color: #502a75;
+    color: white;
+}
+#footer
+{
+    height: 550px;
+    background-color: #502a75;
+    color: white;
+
+}
+.footer-link li 
+{
+    display: block;
+    padding: 5px 0px;
+}
+.footer-link a 
+{
+    text-decoration: none;
+    list-style-type: none;
+    list-style: none;
+    color: white;
+   
+}
