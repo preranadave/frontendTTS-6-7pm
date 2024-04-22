@@ -1,0 +1,118 @@
+body {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.navbar {
+    width: 100%;
+    height: auto;
+}
+
+.navbar a {
+    text-decoration: none;
+    padding: 3px 5px;
+
+}
+
+.navbar-nav li {
+    list-style: none;
+    display: inline-block !important;
+    margin: auto;
+    margin-top: 8px;
+    margin-left: 35px;
+
+}
+
+.navbar-nav li>a {
+    color: white;
+    text-decoration: none !important;
+    list-style: none;
+    list-style-type: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+
+}
+
+.dropdown-menu li:hover {
+    background-color: rgb(0, 179, 255);
+}
+
+.nav-item li {
+    list-style: none;
+
+    display: inline-block !important;
+    margin: auto;
+}
+
+.sidebar-info li {
+
+    list-style: none;
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.sidebar-info li>a {
+    color: rgb(0, 179, 255);
+    text-decoration: none !important;
+    list-style: none;
+    list-style-type: none;
+
+}
+
+.left-side {
+    height: 430px;
+}
+
+#footer {
+    width: 100%;
+    height: auto;
+}
+
+.footer-link li {
+    list-style: none;
+    list-style-type: none;
+    margin-top: 10px;
+
+}
+
+.footer-link li>a {
+    text-decoration: none !important;
+    list-style: none;
+    list-style-type: none;
+    color: white;
+
+}
+
+@media only screen and (max-width:553px) {
+    body {
+      
+        overflow-x: hidden !important;
+    }
+
+    .navbar-nav li {
+        list-style: none;
+        display: block !important;
+        margin: auto;
+        margin-top: 8px;
+        margin-left: 5px;
+    }
+
+    .products-info {
+        margin: 0 !important;
+
+    }
+
+    .modal-dialog {
+        max-width: 90% !important;
+        height: auto !important;
+        margin: auto !important;
+    }
+
+
+}

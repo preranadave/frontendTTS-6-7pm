@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+
+}
+
+.nav-links li {
+    list-style-type: none;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+}
+.side-links
+{
+    height: 470px;
+}
+.side-links li{
+
+    list-style-type: none;
+    list-style: none;
+
+    margin:20px;
+}
+.side-links a{
+    color: rgb(255, 254, 220);
+    text-decoration: none;
+}
