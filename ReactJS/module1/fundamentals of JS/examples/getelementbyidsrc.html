@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script>
+        function imagechange()
+        {
+
+            document.getElementById("imgchng").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbT89UJ-BucfjH3d1WZZhPrXg5Vvrv9zVQ76r5p-8D-8m8j-VHifAeuzhpagIL-pUj3nk&usqp=CAU";
+         
+        }
+        function imagechangeagain()
+        {
+
+            document.getElementById("imgchng").src="https://static.pexels.com/photos/36753/flower-purple-lical-blosso.jpg";
+         
+        }
+    </script>
+</head >
+            <body>
+                <img id="imgchng" src="https://static.pexels.com/photos/36753/flower-purple-lical-blosso.jpg" width="50%" onmouseenter="imagechange()" onmouseleave="imagechangeagain()">
+               
+
+            </body>
+</html >
