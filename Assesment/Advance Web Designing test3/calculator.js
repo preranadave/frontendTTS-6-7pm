@@ -3,12 +3,11 @@ function mainfunction() {
 
 
     const buttons = document.querySelectorAll("#btn");
-
-    // loop through each button and add a click event listener
+// getting all buttons
     buttons.forEach(function (button) {
-
+//firing addeventlistener for every button
         button.addEventListener("click", function () {
-
+//checking value to perform operation
             if (button.value == "=") {
 
                 final();
@@ -17,24 +16,26 @@ function mainfunction() {
             else if (button.value == "times") {
                 bkspc();
             }
-           
+           //if not numbers but operators then they will display or work if numbers exist on display
             else if (button.value == "*" || button.value == "/" || button.value == "." || button.value == "+" || button.value == "-") {
                 let backres = document.querySelector("#result").value;
                 let backvalue = backres.slice(backres.length-1, backres.length);
 
-              
+              //if not number then checking if last value on display is also not operator
                 if (document.querySelector("#result").value != "") {
+                    //if not then only it will work and display
                     if (backvalue != "*"&& backvalue != "/"&& backvalue != "." && backvalue != "+" && backvalue != "-") {
                         getValues(button.value);
                     }
                 }
             }
+            //if numbers then they will display 
             else {
                 getValues(button.value);
             }
         });
     });
-
+//functions to perform diffrent task
     function clr() {
         document.querySelector("#result").textContent = "";
     }
