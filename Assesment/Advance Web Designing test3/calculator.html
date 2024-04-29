@@ -9,87 +9,79 @@
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src='main.js'></script>
     <script src="calculator.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
 </head>
 
 <body>
     <section id="calculator-app">
-        <div class="calculator">
-            <table align="content" width="100%">
-                <tr>
-                    <td><input type="text" id="result" name="result" placeholder="0"></td>
-                </tr>
-                <!-- <tr>
-                    <td>
-                        <button type="button" id="btn" value="%">%</button>
-                            
-                        <button type="button" id="btn" value="CE">CE</button>
-                            
-                        <button type="button" id="btn" value="C" >C</button>
-                            
-                        <button type="button" id="btn" value="times">&times;</button>
-                    </td>
-                </tr> -->
-                <!-- <tr>
-                    <td>
-                        <button type="button" id="btn" value="oneby">1/x</button>
-                            
-                        <button type="button" id="btn" value="square" >x<sup>2</sup></button>
-                            
-                        <button type="button" id="btn" value="sqroot" >2√x</button>
-                            
-                        <button type="button" id="btn" value="/" >/</button>
-                    </td>
-                </tr> -->
-                <tr>
-                    <td colspan="5">
-                        <button type="button" id="btn" value="7">7</button>
+        <div class="container-fluid">
+            <div class="calculator">
+                <div class="result-display">
+                    <input type="text" id="result" name="result" placeholder="0">
+                </div>
+                <div class="calculator-buttons">
+                    <div class="row">
+                        <div class="col-md-9 numbers">
+                            <button type="button" id="btn" value="7">7</button>
 
-                        <button type="button" id="btn" value="8">8</button>
+                            <button type="button" id="btn" value="8">8</button>
 
-                        <button type="button" id="btn" value="9">9</button>
-                        <button type="button" id="btn" value="times">DEL</button>
-                        <!-- <button type="button" id="btn" value="*"  >*</button> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        <button type="button" id="btn" value="4">4</button>
+                            <button type="button" id="btn" value="9">9</button>
+                        </div>
+                        <div class="col-md-3 symbols">
+                            <button type="button" id="btn" value="times">DEL</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9 numbers pt-4">
+                            <button type="button" id="btn" value="4">4</button>
 
-                        <button type="button" id="btn" value="5">5</button>
+                            <button type="button" id="btn" value="5">5</button>
 
 
-                        <button type="button" id="btn" value="6">6</button>
-                        <button type="button" id="btn" value="/">/</button>
-                    </td>
+                            <button type="button" id="btn" value="6">6</button>
+                        </div>
+                        <div class="col-md-3 symbols">
+                            <button type="button" id="btn" value="/">/</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9 numbers pt-4">
+                            <button type="button" id="btn" value="1">1</button>
 
-                </tr>
-              
-              
-                <tr>
-                    <td >
-                        <button type="button" id="btn" value="1">1</button>
+                            <button type="button" id="btn" value="2">2</button>
 
-                        <button type="button" id="btn" value="2">2</button>
+                            <button type="button" id="btn" value="3">3</button>
+                        </div>
+                        <div class="col-md-3 symbols">
+                            <button type="button" id="btn" value="*"
+                              >*</button>
 
-                        <button type="button" id="btn" value="3">3</button>
-                        <button type="button" id="btn" value="*" style="width:40px;margin: 2px;margin-left: 5px;">*</button>
-                  
-                  
-                        <button type="button" id="btn" value="-" style="width:40px;margin: 2px;">-</button>
-                    </td>
 
-                </tr>
-                <tr>
-                    <td colspan="5">
+                            <button type="button" id="btn" value="-">-</button>
+                        </div>
+                    </div>
 
-                        <button type="button" id="btn" value=".">.</button>
-                        <button type="button" id="btn" value="0">0</button>
-                        <button type="button" id="btn" value="+">+</button>
-                        <button type="button" id="btn" value="=">=</button>
+                    <div class="row">
+                        <div class="col-md-9 numbers">
+                            <button type="button" id="btn" value=".">.</button>
+                            <button type="button" id="btn" value="0">0</button>
+                            <button type="button" id="btn" value="+">+</button>
+                        </div>
+                        <div class="col-md-3 symbols">
+                            <button type="button" id="btn" value="=">=</button>
+                        </div>
+                    </div>
 
-                    </td>
-                </tr>
-            </table>
+                </div>
+
+            </div>
         </div>
     </section>
 </body>
