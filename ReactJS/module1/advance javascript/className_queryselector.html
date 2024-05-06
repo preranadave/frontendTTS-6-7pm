@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        .content
+        {
+            width: 50%;
+            height: auto;
+            margin: auto;
+            padding: 25px;
+            background-color: cadetblue;
+            color: white;
+            font-size: 20px;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, nisi praesentium numquam nam labore quas modi saepe nihil, dolorem dolorum voluptate, eos aliquid asperiores repudiandae laboriosam amet? Saepe, distinctio. Illo.</p>
+    </div>
+
+    <div>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, nisi praesentium numquam nam labore quas modi saepe nihil, dolorem dolorum voluptate, eos aliquid asperiores repudiandae laboriosam amet? Saepe, distinctio. Illo.</p>
+   </div>
+
+    <script>
+        window.onload=()=>{
+            // document.querySelector("div").className="content";
+            const list=document.querySelectorAll("div");
+            for (let i = 0; i < list.length; i++) {
+            list[i].style.backgroundColor="red";
+            list[i].style.color="white";
+}
+        }
+    </script>
+</body>
+</html>

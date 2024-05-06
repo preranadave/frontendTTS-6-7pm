@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script>
+    window.onload=()=>{
+
+   
+
+
+    let btn=document.getElementById("btn");
+    let btn1=document.getElementById("btn1");
+
+    btn.addEventListener("click",display);
+    function display()
+    {
+        var nm=prompt('Enter your name :')
+         alert('My name is :'+nm)
+    }    
+
+    btn1.addEventListener("click",display1);
+    function display1()
+    {
+        var ag=prompt('Enter your age :')
+         alert('My  age is :'+ag)
+    }    
+
+}
+    </script>    
+</head>
+<body>
+    
+    <button type="button" id="btn">Click to get Your Name ?</button>
+    <button type="button" id="btn1">Click to get Your age?</button>
+</body>
+</html>

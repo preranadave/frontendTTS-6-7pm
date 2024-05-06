@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        .content {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="changeclas()"> Click to Add class</button>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quos provident eum vitae. Itaque
+        veritatis sed aliquam ipsa? Consequuntur, amet quam. Laboriosam, ad! Aperiam nostrum, adipisci error maxime modi
+        nihil.
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quos provident eum vitae. Itaque
+        veritatis sed aliquam ipsa? Consequuntur, amet quam. Laboriosam, ad! Aperiam nostrum, adipisci error maxime modi
+        nihil.
+    </div>
+    <script>
+        window.onload = () => {
+            function changeclas() {
+                const list = document.querySelectorAll("div");
+                for (i = 0; i < list.length; i++) {
+                    list[i].className = "content";
+                }
+
+            }}
+            
+
+
+    </script>
+
+</body>
+
+</html>
