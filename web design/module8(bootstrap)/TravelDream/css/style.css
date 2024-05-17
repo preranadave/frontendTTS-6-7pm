@@ -1,0 +1,85 @@
+body{
+
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+#header
+{
+     width: 100%;
+     height: auto;
+}
+.contact-details
+{
+
+}
+.contact-details a
+{
+    
+    text-decoration: none;
+    color: black;
+}
+.user-menu
+{
+    margin-left: 160px;
+}
+.user-menu a{
+    text-decoration: none;
+    color: black;
+
+}
+#header-navigation
+{
+    width: 100%;
+    height: auto;
+}
+.head-menu
+{
+    margin: auto;
+    margin-left: 150px !important;
+ 
+}
+.head-menu a{
+    text-decoration: none;
+    color: black;
+
+}
+#banner
+{
+    width: 100%;
+    height: auto;
+}
+.banner-text
+{
+    width:100%;
+    height: auto;
+    margin: 290px;
+
+  
+}
+.banner-form
+{
+    width: 60%;
+    margin: 600px 280px;
+ 
+
+}
+.banner-form input,button {
+    border: none;
+    outline: none;
+
+    border-radius: 0px;
+}
+#our-services
+{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 850px;
+}
+#top-destinations
+{
+    width: 100%;
+    height: auto;
+    margin: 200px;
+}
