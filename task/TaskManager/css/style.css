@@ -1,0 +1,29 @@
+body{
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#header
+{
+    width: 100%;
+    height: auto;
+}
+.head-text{
+    
+    margin-left: 150px;
+}
+
+@media only screen and (max-width: 600px) {
+    body{
+        width: auto;
+        height: auto;
+        overflow-x: hidden;
+    }
+    .head-text
+    {
+        margin: auto;
+    }
+}

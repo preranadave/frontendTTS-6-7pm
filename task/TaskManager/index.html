@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <script src='main.js'></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+    <section id="header">
+        <nav class="nabvar navbar-expand bg-secondary p-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3">
+                        <button class="btn btn-lg btn-warning border border-0 p-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="bi bi-list"></span>
+                        </button>
+                    </div>
+                    <div class="col-6 mt-3 m-3 ms-4 head-text">
+                        <span class="bi bi-file-text-fill fs-4 text-light"></span> <a
+                            class="navbar-brand fs-2 text-light">Task Manager</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section id="task-form">
+        <div class="container mt-4">
+            <label class="fs-1 m-3"> Add New Tasks here</label>
+            <form>
+                <div class="row m-3">
+
+                    <div class="input-group w-75">
+                        <span class="bi bi-pencil-fill fs-2"></span>
+                        <input type="text" class="form-control border border-0 border-bottom m-2 p-2"
+                            placeholder="Next Task">
+                    </div>
+                </div>
+                <div class="row m-3">
+                    <div class="input-group w-75">
+                        <span class="bi bi-pencil-fill fs-3"></span>
+                        <input type="text" class="form-control border border-0 border-bottom m-2 p-2" placeholder="Details">
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-lg btn-warning ms-4">Create Post<span
+                        class="bi bi-send-fill ms-2"></span></button>
+            </form>
+        </div>
+    </section>
+    <section id="task-list">
+        <div class="container mt-5">
+            <label class="fs-1 d-flex justify-content-center">Task List</label>
+            <div class="card shadow">
+                <div class="card-header p-3">
+                    <span class="bi bi-trash"></span>
+                    <label class="fs-3">Vote!</label>
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Renew voter registration and update residence</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
