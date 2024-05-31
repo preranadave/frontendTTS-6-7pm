@@ -1,0 +1,28 @@
+$bg-color-alert: red;
+$bg-color-dark: black;
+$bg-color-success: green;
+$bg-light: lightgray;
+$text-color: white;
+$container: 80%;
+
+$padding: 0;
+$margin: 0;
+$padding-max: 50px;
+
+$text-aligm: center;
+
+body {
+    background-color: $bg-light;
+    margin: $margin;
+    padding: $padding;
+}
+
+.App {
+    width: $container;
+    height: auto;
+    background-color: $bg-color-dark;
+    color: $text-color;
+    padding: $padding-max;
+    text-align: center;
+
+}

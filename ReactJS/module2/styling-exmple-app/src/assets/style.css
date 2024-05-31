@@ -1,0 +1,22 @@
+.body
+    {
+      width: 100%;
+      height: auto;
+
+    }
+    .Mapinternal
+    {
+      width: 70%;
+      margin: auto;
+      border: 1px solid;
+      padding: 20px;
+    }
+    .Mapinternal h1,p{
+      color: red;
+      margin-left: 15%;
+    }
+    .Mapinternal h2{
+        color: blue;
+        margin-left: 15%;
+      }
+      
