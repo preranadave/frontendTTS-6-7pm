@@ -1,0 +1,14 @@
+body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+.navbar
+{
+    width: 100%;
+    height: auto;
+}
+.navbar ul{
+    margin: auto;
+    margin-left: 50%;
+}
