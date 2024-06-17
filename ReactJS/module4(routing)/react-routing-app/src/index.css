@@ -1,0 +1,16 @@
+body {
+  overflow-x: hidden;
+}
+.navbar-nav
+{
+  width: auto;
+  height: auto;
+  margin: auto;
+  margin-left: 700px;
+}
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 20px;
+
+}

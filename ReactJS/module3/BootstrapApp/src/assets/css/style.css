@@ -12,3 +12,14 @@ body{
     margin: auto;
     margin-left: 50%;
 }
+.sidebar-links li
+{
+display: block;
+padding: 10px 20px;
+}
+.sidebar-links a 
+{
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+}

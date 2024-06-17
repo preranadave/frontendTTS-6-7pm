@@ -26,7 +26,7 @@ function Header() {
                     </div>
                 </Row>
             </Container >
-            <Navbar />
+            
         </>
     )
 
