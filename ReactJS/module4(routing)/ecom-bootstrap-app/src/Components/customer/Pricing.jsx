@@ -11,9 +11,9 @@ function Pricing() {
             <Navbar />
             <Container className="mt-5 d-flex">
                
-                <Row className="justify-content-center">
+                <Row className="justify-content-center mb-5">
                 <h1 className="text-center mb-3">Our Pricing</h1>
-                    <div className="col-md-3 shadow ms-5 p-2">
+                    <div className="col-md-3 ms-5 p-2">
                         <div className="card">
                             <div className="card-body">
                                 <h4 className="card-title bg-dark rounded rounded-5 text-white p-2 text-center">Regular</h4>
@@ -35,7 +35,7 @@ function Pricing() {
 
                     </div>
 
-                    <div className="col-md-3 shadow ms-5 p-2">
+                    <div className="col-md-3 ms-5 p-2">
                         <div className="card">
                             <div className="card-body">
                                 <h4 className="card-title bg-dark rounded rounded-5 text-white p-2 text-center">Regular</h4>
@@ -56,7 +56,7 @@ function Pricing() {
                         </div>
 
                     </div>
-                    <div className="col-md-3 shadow ms-5 p-2">
+                    <div className="col-md-3  ms-5 p-2">
                         <div className="card">
                             <div className="card-body">
                                 <h4 className="card-title bg-dark rounded rounded-5 text-white p-2 text-center">Regular</h4>
