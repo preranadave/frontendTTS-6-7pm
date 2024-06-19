@@ -18,17 +18,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          
-        <Route path='/about-us' element={<AboutUS />}></Route>
-        <Route path='/our-services' element={<OurSevices />}></Route>
-        <Route path='/gallary' element={<Gallary />}></Route>
-        <Route path='*' element={<PageNotFound />} />
-        
-         
+
+          <Route path='/about-us' element={<AboutUS />}></Route>
+          <Route path='/our-services' element={<OurSevices />}></Route>
+          <Route path='/gallary' element={<Gallary />}></Route>
+          <Route path='*' element={<PageNotFound />} />
+
+
         </Route>
 
-    </Routes>
-  </BrowserRouter>
-    {/* <Layout /> */ }
-  </React.StrictMode >,
+      </Routes>
+    </BrowserRouter>
+    
+  </React.StrictMode >
 )
