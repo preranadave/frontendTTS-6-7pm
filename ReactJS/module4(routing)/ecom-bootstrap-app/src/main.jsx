@@ -9,6 +9,7 @@ import Pricing  from './Components/customer/Pricing.jsx'
 import Blogs from './Components/customer/Blogs.jsx'
 import AboutUs from './Components/customer/About.jsx'
 import Layout from './Layout.jsx'
+import PageNotFound from './Components/customer/PageNotFound.jsx'
 import { BrowserRouter,Routes,Route, Router } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -23,8 +24,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/about-us' element={<AboutUs></AboutUs>}></Route>
         <Route path='/products' element={<Products></Products>}></Route>
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
-        <Route path='/blogs' element={<Register></Register>}></Route>
-        <Route path='/contact-us' element={<Register></Register>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
     </BrowserRouter>
     {/* <Layout /> */}

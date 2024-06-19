@@ -173,9 +173,9 @@ function Products() {
                         <input type="range" class="form-range" min="0" max="5" id="customRange2"></input>
                     </div>
 
-                    <div className="col-md-8 p-4 shadow ms-2">
+                    <div className="col-md-8 ms-2">
 
-                        <Row className="mt-5">
+                        <Row className="">
                             <div className="col-md-5 shadow ms-5 p-5">
 
 
