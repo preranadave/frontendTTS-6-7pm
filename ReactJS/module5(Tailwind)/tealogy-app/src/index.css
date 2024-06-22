@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+  }
+}
+
+
+
+
+
+.Navigation-Menu li {
+  display: inline-block;
+  margin: 7px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.Navigation-Menu a {
+  text-decoration: none;
+  color: white;
+
+}
+
+.Apply-now button {
+  font-size: 13px;
+  font-weight: 500;
+
+}
+.frenchise-form 
+{
+  margin-top: 800px;
+}
+.our-presence
+{
+   margin-top: 1500px;
+}
+.apply-now
+{
+  margin-top: 800px;
+ width: 100%;
+}
+.footer
+{
+  width: 100%;
+  margin-top: 2200px;
+
+}
