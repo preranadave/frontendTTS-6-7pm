@@ -16,7 +16,7 @@ const Header = () => {
                         </div>
                         <div className="Navigation-Menu basis-1/1 ms-19 p-2">
                             <ul className="uppercase text-sm">
-                                <li><Link to="">Home</Link></li>
+                                <li><Link to="/">Home</Link></li>
 
                                 <li><Link to="">About Us</Link></li>
                                 <li><Link to="">Our Presence</Link></li>
@@ -25,7 +25,7 @@ const Header = () => {
 
                                 <li><Link to="">Outlets</Link></li>
 
-                                <li><Link to="">Apply Now</Link></li>
+                                <li><Link to="/apply-now">Apply Now</Link></li>
                             </ul>
                         </div>
                         <div className="Apply-now basis-1/12 ms-28 p-2">
