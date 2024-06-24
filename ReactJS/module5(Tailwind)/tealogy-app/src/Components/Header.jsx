@@ -6,11 +6,10 @@ const Header = () => {
         <>
 
             <div className="Header">
-                <div className="back-image absolute">
-                    <img src={banner1} style={{ "width": "1700px", "height": "700px" }}></img>
-                </div>
+                {/* <img src={banner1} style={{ "width": "1700px", "height": "700px" }}></img>
+ */}
 
-                <div className="container-fluid absolute bg-gray-700 p-3 mt-10 ms-48">
+                <div className="header-menu container bg-gray-700 p-3 mx-auto">
                     <div className="flex flex-row">
                         <div className="Logo basis-1/5 ms-8">
                             <img src="https://franchise.tealogy.in/wp-content/uploads/2024/06/tealogy-logo.png" width={"70%"}></img>
@@ -34,6 +33,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
 
 

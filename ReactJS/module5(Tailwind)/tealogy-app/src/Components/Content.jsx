@@ -4,7 +4,7 @@ const Content = () => {
     return (
         <>
 
-            <div className="frenchise-form absolute p-5 ms-28 me-28">
+            <div className="frenchise-form p-5 ms-28 me-28">
                 <div className="flex flex-row">
                     <div className="basis-1/2 p-5">
                         <h1 className="text-5xl font-bold">TEALOGY</h1>
@@ -71,7 +71,7 @@ const Content = () => {
                     </div>
                 </div>
             </div>
-            <div className="our-presence absolute p-5 ms-28 me-28">
+            <div className="our-presence p-5 ms-28 me-28">
                 <div className="flex flex-row">
                     <div className="basis-1/2 p-5 mt-32">
                         <h1 className="text-5xl font-bold">Our Presence</h1>

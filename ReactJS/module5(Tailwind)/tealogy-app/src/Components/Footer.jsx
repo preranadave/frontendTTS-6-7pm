@@ -2,7 +2,7 @@ import React from "react";
 const Footer = () => {
     return (
         <>
-            <div className="footer absolute">
+            <div className="footer">
                 <div className=" bg-gray-700 p-10 text-white">
                     <img src="https://franchise.tealogy.in/wp-content/uploads/2024/06/tealogy-logo.png">
                     </img>
@@ -14,7 +14,7 @@ const Footer = () => {
                         </span>
                         <hr className="w-80 mt-5 mb-5"></hr>
                         <span className="mt-10">  <span className="bi bi-geo-alt-fill"></span>+Company Outlet - UG - 7, PL-14, Airen Heights PU-3, Sch. No 54, Vijay Nagar, Indore</span>
-                     
+
                     </div>
                 </div>
 

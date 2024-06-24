@@ -5,7 +5,7 @@ const ApplyNow = () => {
     return (
         <>
             <Header></Header>
-            <div className="apply-now absolute">
+            <div className="apply-now">
                 <div className="p-5">
                     <div className="reg-form bg-yellow-400 p-12 rounded rounded-2xl ">
                         <h1 className="text-4xl font-bold">READY TO BREW UP SUCCESS WITH TEALOGY?</h1>

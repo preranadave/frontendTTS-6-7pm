@@ -14,7 +14,20 @@
 
 
 
-
+.Header
+{
+  background-image: url('./assets/images/banner-1.jpg'); 
+  background-size: cover; /* Cover the entire header */ 
+  background-position: center; /* Center the background image */ 
+  height: 700px; /* Set the height of the header */ 
+ 
+  text-align: center; /* Center the text horizontally */ 
+  padding: 20px; /* Add padding inside the header */ 
+}
+.header-menu
+{
+  width: 80%;
+}
 .Navigation-Menu li {
   display: inline-block;
   margin: 7px;
@@ -32,23 +45,4 @@
   font-size: 13px;
   font-weight: 500;
 
-}
-.frenchise-form 
-{
-  margin-top: 800px;
-}
-.our-presence
-{
-   margin-top: 1500px;
-}
-.apply-now
-{
-  margin-top: 800px;
- width: 100%;
-}
-.footer
-{
-  width: 100%;
-  margin-top: 2200px;
-
-}
+} 
