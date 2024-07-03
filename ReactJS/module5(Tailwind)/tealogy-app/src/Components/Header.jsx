@@ -18,7 +18,7 @@ const Header = () => {
                             <ul className="uppercase text-sm">
                                 <li><Link to="/">Home</Link></li>
 
-                                <li><Link to="">About Us</Link></li>
+                                <li><Link to="/menu">Menu</Link></li>
                                 <li><Link to="">Our Presence</Link></li>
                                 <li><Link to="">Our Menu</Link></li>
                                 <li><Link to="">Benefits</Link></li>
@@ -32,7 +32,12 @@ const Header = () => {
                             <Link to="/apply-now"><button type="button" className="bg-yellow-400 rounded rounded-3xl p-3 w-32 uppercase"> Apply Now</button></Link>
                         </div>
                     </div>
+                    
                 </div>
+                {/* <div className="brand-header text-white text-5xl font-bold mt-60">
+                        <h1 className="text-start ms-14">Tealogy</h1>
+                        <h1>Franchise</h1>
+                    </div> */}
 
             </div>
 
