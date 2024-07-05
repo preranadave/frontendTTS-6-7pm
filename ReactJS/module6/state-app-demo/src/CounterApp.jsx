@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function CounterApp() {
+    //destructuring of state
   const [count, setCount] = useState(0);
   return (
     <>
