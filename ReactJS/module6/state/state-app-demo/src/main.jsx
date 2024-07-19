@@ -7,8 +7,8 @@ import StateDemo from './SatetDemo'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <NameApp /> */}
-    {/* <CounterApp></CounterApp> */}
+    <CounterApp></CounterApp>
     {/* <UpdateData></UpdateData> */}
-    <StateDemo></StateDemo>
+    {/* <StateDemo></StateDemo> */}
   </React.StrictMode>,
 )
