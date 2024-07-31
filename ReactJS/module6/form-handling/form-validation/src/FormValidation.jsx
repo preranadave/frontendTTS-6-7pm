@@ -32,6 +32,9 @@ function FormValidation() {
     SetErrors(FormvalidtionErrors);
     if (Object.keys(FormvalidtionErrors).length === 0) {
       alert("Form Submitted Succesfully!");
+      FormData.username="";
+      FormData.email="";
+      FormData.password="";
     } 
   };
   return (
