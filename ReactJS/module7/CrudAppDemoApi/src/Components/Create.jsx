@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import FlashMessage from "react-flash-message";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "react-bootstrap";
 
 function Create() {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ function Create() {
     }
     SetErrors(FormvalidtionErrors);
     if (Object.keys(FormvalidtionErrors).length == 0) {
-      axios.post(`http://localhost:4000/add-data`,FormData).then(()=>{
+      axios.post(`http://localhost:4000/add-data`, FormData).then(() => {
         SetMessage(true);
         // Swal.fire({
         //     title: 'Success!',
@@ -53,16 +54,14 @@ function Create() {
         //     icon: 'success'
 
         //   })
-      
+
         FormData.name = "";
         FormData.email = "";
         FormData.phone = "";
         FormData.address = "";
         FormData.pincode = "";
-     
       });
-      navigate('/');
-     
+      navigate("/");
     }
   };
 

@@ -1,15 +1,20 @@
 {
   "add-data": [
     {
-      "id": "ecda",
+      "id": "bc45",
       "name": "p",
-      "email": "p@gmail.com",
-      "phone": "5555555",
-      "address": "mdmcmm",
-      "pincode": "555555"
+      "email": "prerna@gmail.com",
+      "phone": "8000000000",
+      "address": "x,mznbn",
+      "pincode": "22222"
     },
     {
-      "id": "8ffb"
+      "id": "5cf6",
+      "name": "p",
+      "email": "psdave@gmail.com",
+      "phone": "8000000000",
+      "address": "x,mznbn",
+      "pincode": "22222"
     }
   ]
 }
