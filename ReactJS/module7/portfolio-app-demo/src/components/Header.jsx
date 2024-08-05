@@ -9,7 +9,7 @@ export default function Header() {
   {/* Masthead Avatar Image */}
         <img className="masthead-avatar mb-5" src={avt} alt="avtar" />
        {/* Masthead Heading */}
-        <h1 className="masthead-heading text-uppercase mb-0">Nandini Maradiya</h1>
+        <h1 className="masthead-heading text-uppercase mb-0">Prerna Dave</h1>
         {/*Icon Divider */}
         <div className="divider-custom divider-light">
             <div className="divider-custom-line"></div>

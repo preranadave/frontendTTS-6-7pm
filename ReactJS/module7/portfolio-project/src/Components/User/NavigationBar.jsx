@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import '../../scss/custom.scss';
+import { HashLink as Link } from 'react-router-hash-link';
 function NavigationBar() {
+  
   return (
     <div>
       <Navbar
@@ -17,10 +19,10 @@ function NavigationBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto w-100 d-flex justify-content-end">
-            <Nav.Item>  <Link to={"/"} className="nav-link text-white">Home</Link></Nav.Item>
-            <Nav.Item>  <Link to={"/"} className="nav-link text-white">About</Link></Nav.Item>
-            <Nav.Item>  <Link to={"/"} className="nav-link text-white">Projects</Link></Nav.Item>
-            <Nav.Item>  <Link to={"/"} className="nav-link text-white">Contact</Link></Nav.Item>
+            <Nav.Item>  <Link to={"/#header"} className="nav-link text-white">Home</Link></Nav.Item>
+            <Nav.Item>  <Link to={"/#about"} className="nav-link text-white">About</Link></Nav.Item>
+            <Nav.Item>  <Link to={"/#project"} className="nav-link text-white">Projects</Link></Nav.Item>
+            <Nav.Item>  <Link to={"/#contact"} className="nav-link text-white">Contact</Link></Nav.Item>
           
           
             </Nav>

@@ -9,6 +9,12 @@ import './scss/custom.scss'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
+//Admin Imports
+import AdminDashboard from "./Components/Admin/AdminDashboard.jsx";
+import AdminHome from "./Components/Admin/AdminHome.jsx";
+import AdminLogin from "./Components/Admin/AdminLogin.jsx";
+import ManageAbstract from "./Components/Admin/ManageAbstract.jsx";
+import DeletAbstract from "./Components/Admin/DeletAbstract.jsx";
 //User Components
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -16,6 +22,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
     <Routes>
       <Route path="/" index element={<App></App>}></Route>
+      {/* Admin Routing */}
+      
+      <Route path="/admin"  element={<AdminLogin></AdminLogin>}></Route>
+      
+      <Route path="/admin-dashboard" element={<AdminDashboard></AdminDashboard>}></Route>
+      <Route path="/manage-abstract" element={<ManageAbstract></ManageAbstract>}></Route>
+      
+      <Route path="/delete-abstract/:id" element={<DeletAbstract></DeletAbstract>}></Route>
+    
     </Routes>
     
     </BrowserRouter>

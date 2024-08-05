@@ -1,16 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,Navigate, useNavigate, useParams } from "react-router-dom";
 
 function Home() {
   const [data, setData] = useState();
+  const {id}=useParams();
+  const navigate=useNavigate();
   useEffect(() => {
     // fetch data here
     axios.get(`http://localhost:4000/add-data`).then((response) => {
       setData(response.data);
     });
-  }, []);
+  }, [data]);
 
   return (
     <>
@@ -51,10 +53,10 @@ function Home() {
                       <td>{item.address}</td>
                       <td>{item.pincode}</td>
                       <td>
-                        <i className="bi bi-trash me-2 border p-1 rounded text-danger"></i>
-                        <Link to="/editdata">
-                          <i className="bi bi-pencil ms-1 border p-1 rounded text-primary"></i>
-                        </Link>
+                       <button type="button" className="btn btn-md border border-0 outline-0" onClick={()=>{navigate(`/deletedata/${item.id}`)}}> <span className="bi bi-trash me-2 border p-1 rounded text-danger"></span></button>
+                        <button type="button" className="btn btn-md border border-0 outline-0" onClick={()=>{navigate(`/editdata/${item.id}`)}}>
+                          <span className="bi bi-pencil ms-1 border p-1 rounded text-primary"></span>
+                        </button>
                       </td>
                     </tr>
                   </>

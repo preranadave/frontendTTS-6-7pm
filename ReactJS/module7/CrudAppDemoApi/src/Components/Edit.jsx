@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 import Swal from "sweetalert2";
 function Edit() {
   const [FormData, SetFormData] = useState({
@@ -10,6 +13,13 @@ function Edit() {
     pincode: "",
   });
   const [FormErrors, SetErrors] = useState({});
+  const {id}=useParams();
+  useEffect(() => {
+    // fetch data here
+    axios.put(`http://localhost:4000/add-data/${id}`).then((response) => {
+      setData(response.FormData);
+    });
+  }, []);
   const HandleFormChange = (e) => {
     const { name, value } = e.target;
     SetFormData({

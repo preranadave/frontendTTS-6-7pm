@@ -7,6 +7,7 @@ import Home from './Components/Home'
 import Create from './Components/Create'
 import Edit from './Components/Edit'
 import PageNotFound from './Components/PageNotFound'
+import DeleteData from './Components/DeleteData'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,8 +17,10 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route index element={<Home/>}></Route>
+      
+      <Route path='deletedata/:id' element={<DeleteData/>}></Route>
       <Route path='adddata' element={<Create></Create>}></Route>
-      <Route path='editdata' element={<Edit></Edit>}></Route>
+      <Route path='editdata/:id' element={<Edit></Edit>}></Route>
       <Route path="*" element={<PageNotFound />} ></Route>
     </Routes>
     </BrowserRouter>

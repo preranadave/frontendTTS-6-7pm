@@ -4,46 +4,211 @@
 @import "./mixins";
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: lemonmilk;
+  src: url(../assets/fonts/LEMONMILK-Regular.otf);
+}
+@font-face {
+  font-family: love-letter;
+  src: url(../assets/fonts/Qafientola.otf);
+}
+@font-face {
+  font-family: WorkSans;
+  src: url(../assets/fonts/WorkSans-Regular.ttf);
+}
+@font-face {
+  font-family: WorkSansBlack;
+  src: url(../assets/fonts/WorkSans-SemiBoldItalic.ttf);
+}
+$primary: $indigo !important;
+$secondary: #10101e;
+$first-color: #fdfdef;
+$seccond-color: #ff5e3a;
+$third-color: #2c365d;
+$fourth-color: #272e4f;
+$success-message: rgba(0, 225, 255, 0.3);
 
-$primary: $indigo;
-
-#root {
-  font-family: "Poppins", sans-serif;
+#userApp {
+  font-family: "love-letter";
   font-weight: 400;
+  text-align: center;
+  scroll-behavior: smooth;
+  .primary-bg {
+    background-color: $primary;
+  }
+
+  .primary-font {
+    color: $primary;
+  }
   .navbar-brand,
   h1,
   h2 {
-    font-family: "Abril Fatface", serif;
+    font-family: "lemonmilk";
     font-weight: 400;
     font-size: large;
   }
   h1 {
     font-size: 7rem;
-    @include extralarge{
-        font-size: 5rem;
+    @include extralarge {
+      font-size: 5rem;
     }
-    @include large{
-        font-size: 4rem;
+    @include large {
+      font-size: 4rem;
     }
   }
-  h2{
+  h2 {
     font-size: 2.5rem;
-    @include extralarge{
-        font-size: 4rem;
+    @include extralarge {
+      font-size: 4rem;
     }
   }
-  h3{
+  h3 {
     font-size: 2rem;
-    @include extralarge{
-        font-size: 2rem;
+    @include extralarge {
+      font-size: 2rem;
+    }
+  }
+
+  .card {
+    overflow-x: hidden;
+    .card-img {
+      transition: all 0.3s;
+      &:hover {
+        cursor: pointer;
+        scale: 1.1;
+        opacity: 0.75;
+        transition: all 0.3s;
+      }
     }
   }
 }
-.primary-bg {
-  background-color: $primary;
+#adminApp,
+.adminpages {
+  text-align: center;
+  font-family: "WorkSans";
+  //font-weight: 200;
+  background-color: $first-color;
+  // color: rgb(254, 255, 213);
+  overflow-x: hidden;
+  .alert-success {
+    background-color: $success-message;
+  }
+  .first-bg {
+    background-color: $first-color;
+  }
+  .first-font {
+    color: $first-color;
+  }
+  .second-bg {
+    background-color: $seccond-color;
+  }
+  .second-font {
+    color: $seccond-color;
+  }
+  .third-bg {
+    background-color: $third-color;
+  }
+  .third-font {
+    color: $third-color;
+  }
+  .fourth-bg {
+    background-color: $fourth-color;
+  }
+  .fourth-font {
+    color: $fourth-color;
+  }
+  .success-bg
+  {
+    background-color:rgba(0, 225, 255, 0.3);
+  }
+  .navbar-brand,
+  h1,
+  h2 {
+    font-family: "WorkSansBlack";
+  }
+  h1 {
+    font-size: 3rem;
+    @include extralarge {
+      font-size: 5rem;
+    }
+    @include large {
+      font-size: 4rem;
+    }
+  }
+  h2 {
+    font-size: 2.5rem;
+    @include extralarge {
+      font-size: 4rem;
+    }
+  }
+  h3 {
+    font-size: 2rem;
+    @include extralarge {
+      font-size: 2rem;
+    }
+  }
+  table{
+    height: 200px;
+    // overflow-x:scroll;
+    // overflow-y: scroll;
+  }
 }
+.modal {
+  button:hover
+  {
+    background-color: #ff5e3a;
+  }
+  .alert-success {
+    background-color: $success-message;
+  }
+  .first-bg {
+    background-color: $first-color;
+  }
+  .first-font {
+    color: $first-color;
+  }
+  .second-bg {
+    background-color: $seccond-color;
+  }
+  .second-font {
+    color: $seccond-color;
+  }
+  .third-bg {
+    background-color: $third-color;
+  }
+  .third-font {
+    color: $third-color;
+  }
+  .fourth-bg {
+    background-color: $fourth-color;
+  }
+  .fourth-font {
+    color: $fourth-color;
+  }
 
-.primary-font {
-  color: $primary;
+  h1,
+  h2 {
+    font-family: "WorkSansBlack";
+  }
+  h1 {
+    font-size: 3rem;
+    @include extralarge {
+      font-size: 5rem;
+    }
+    @include large {
+      font-size: 4rem;
+    }
+  }
+  h2 {
+    font-size: 2.5rem;
+    @include extralarge {
+      font-size: 4rem;
+    }
+  }
+  h3 {
+    font-size: 2rem;
+    @include extralarge {
+      font-size: 2rem;
+    }
+  }
 }
-
