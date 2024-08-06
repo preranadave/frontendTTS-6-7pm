@@ -4,7 +4,7 @@ function TopHeader() {
   return (
     <>
       <div
-        className="container flex flex-row justify-between py-2 border-b-2"
+        className="container flex flex-row justify-between py-3 border-b-2"
         id="topheader"
       >
         <div className="top-menu basis-1/2">
@@ -14,7 +14,7 @@ function TopHeader() {
             <li className="mx-2">Order Tracking</li>
           </ul>
         </div>
-        <div className="top-menu basis-1/2 h-5 overflow-hidden">
+        <div className="top-menu basis-1/2 h-6 overflow-hidden">
           <ul className="block animate-text-slide">
             <li className="fs-l font-bold text-green-500">
               100% secure delivery without contacting the cuorier
@@ -44,7 +44,13 @@ function TopHeader() {
                 <li className=" hover:bg-slate-200 p-2 px-8">Hindi</li>
               </ul>
             </li>
-            |<li className="mx-3">Wishlist</li>
+            |<li className="mx-3  group relative">USD
+            <ul  className="group-hover:flex flex-col animation-menu-transtion duration-300 border-2 bg-white hidden absolute w-24 -translate-x-20 translate-y-1">
+                <li className="mx-auto hover:bg-slate-200 p-2 px-7"><label>USD</label></li>
+                <li className="mx-auto hover:bg-slate-200 p-2 px-7">BDT</li>
+                <li className=" hover:bg-slate-200 p-2 px-8">INR</li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>

@@ -5,12 +5,14 @@ import './App.css'
 
 //component import
 import TopHeader from './TopHeader'
+import Header from './Header'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
     <TopHeader></TopHeader>
+    <Header></Header>
     
     </>
   )
