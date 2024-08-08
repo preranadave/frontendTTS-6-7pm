@@ -4,14 +4,20 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import Badge from 'react-bootstrap/Badge';
+import UpdateTask from "./UpdateTask";
+import { Modal } from "react-bootstrap";
 
 function TaskList() {
     const [TaskData,setTaskData]=useState();
+    const[lengthData,setDataLength]=useState();
+    const [showupdatemodal,SetShowUpdateModal]=useState(false)
     const navigate=useNavigate();
     useEffect(()=>
     {
         axios.get(`http://localhost:8000/task`).then((response)=>{
             setTaskData(response.data)
+            setDataLength(response.data.length)
         })
     },[TaskData])
     const HandleDelete = (e) => {
@@ -38,9 +44,16 @@ function TaskList() {
         //   }, 3000);
         // }
       };
+    const  HandleUpdate=(e)=>{
+      navigate(`/updatetask/${e}`)
+    }
   return (
     <>
       <div className="tasklist col-md-8 mx-auto mt-5">
+        <button className="btn btn-lg total-task bg-primary border-none text-white rounded py-2 px-2">
+          Total Tasks<Badge bg="dark" className="mx-2">{lengthData}</Badge>
+          
+        </button>
         <Table responsive>
           <tr>
             {" "}
@@ -56,15 +69,16 @@ function TaskList() {
                     <td style={{width:"200px"}} className="py-3 px-2">{row.TaskName}</td>
                     <td style={{width:"200px"}}>{row.TaskPriority}</td>
                     <td style={{width:"200px"}}>{row.TaskDate}</td>
-                    <td style={{width:"100px"}}><button type="button" className="btn btn-sm bg-primary text-white me-3" onClick={()=>HandleDelete(row.id)}><span className="bi bi-trash"></span></button>
+                    <td style={{width:"100px"}}><button type="button" className="btn btn-sm bg-danger text-white me-3" onClick={()=>HandleDelete(row.id)}><span className="bi bi-trash"></span></button>
                     
-                    <button type="button" className="btn btn-sm bg-primary text-white"><span className="bi bi-pencil"></span></button></td>
+                    <button type="button" className="btn btn-sm bg-primary text-white"><span className="bi bi-pencil" onClick={()=>HandleUpdate(row.id)}></span></button></td>
                   </tr>
                 </>
             )
           })}
         
         </Table>
+        <UpdateTask show={showupdatemodal}  onHide={() => SetShowUpdateModal(false)} ></UpdateTask>
       </div>
     </>
   );

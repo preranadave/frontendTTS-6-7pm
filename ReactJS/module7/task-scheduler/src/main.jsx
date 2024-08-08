@@ -6,6 +6,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import DeleteTask from './DeleteTask.jsx'
+import UpdateTask from './UpdateTask.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,6 +17,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
     
     <Route path='/deletetask/:id' index element={<DeleteTask></DeleteTask>}></Route>
+    
+    <Route path='/updatetask/:id' index element={<DeleteTask></DeleteTask>}></Route>
   </Routes>
   </BrowserRouter>
   </React.StrictMode>,
