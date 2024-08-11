@@ -17,12 +17,12 @@ function Header() {
            
               <input
                 type="text"
-                className="rounded px-3 py-3 border-2 outline-green-500 border-green-500 w-full mt-2"
+                className="rounded px-3 py-3 border-2 outline-green-500 border-green-500 w-[650px] mt-2 absolute"
                 placeholder="Search for products..."
               />
               <button
                 type="button"
-                className="rounded-md w-1/5 py-2 bg-green-500 text-white absolute mt-4 -translate-x-32 ms-4 -translate-y-0.5"
+                className="rounded-md w-1/5 py-2 bg-green-500 text-white absolute mt-4 ms-[538px] -translate-y-0.5"
               >
                 Search
               </button>
