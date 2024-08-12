@@ -38,7 +38,6 @@ function HeroSlider() {
         style={{ backgroundImage: `url(${Slides[currentIndex].url})` }}
         className="w-full h-full rounded-2xl bg-center bg-cover transition-all duration-700"
       >
-        
         <div
           className="slider-heading w-[560px] ms-32 pt-48"
           style={{ filter: "brightness(1.5)" }}
@@ -63,12 +62,20 @@ function HeroSlider() {
           </button>
         </div>
       </div>
-      <div className="hidden group-hover:block duration-700 ease-in-out absolute -translate-y-[810%]  text-black bg-white rounded-full p-1 left-8 cursor-pointer">
-          <IoChevronBack className="p-1" size={30} onClick={ChangeSlide} />
-        </div>
-        <div className="hidden group-hover:block duration-700 overflow-x-hidden absolute -translate-y-[810%] text-black bg-white rounded-full p-1 ms-5 right-10 cursor-pointer">
-          <IoChevronForward className="p-1" size={30} onClick={ChangeSlide} />
-        </div>
+      <div className="opacity-0 group-hover:opacity-100  duration-700 ease-in-out absolute -translate-y-[810%]  p-1  cursor-pointer">
+        <IoChevronBack
+          className="p-1 group-hover:translate-x-10 -translate-x-[10px] duration-500 text-black bg-white rounded-full "
+          size={30}
+          onClick={ChangeSlide}
+        />
+      </div>
+      <div className="opacity-0 group-hover:opacity-100  duration-700 ease-in-out absolute -translate-y-[810%] p-1 ms-5 right-5 cursor-pointer">
+        <IoChevronForward
+          className="p-1  text-black bg-white rounded-full group-hover:-translate-x-10 translate-x-[10px] duration-500"
+          size={30}
+          onClick={ChangeSlide}
+        />
+      </div>
       {/* <h1>Don't Miss amazing Grocery Deals</h1>
       <h2>Sign Up For Daily Newspaper</h2> */}
     </div>
