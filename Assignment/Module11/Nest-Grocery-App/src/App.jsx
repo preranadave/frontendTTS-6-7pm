@@ -8,6 +8,7 @@ import TopHeader from './TopHeader'
 import Header from './Header'
 import HeadNavigation from './HeadNavigation'
 import HeroSlider from './HeroSlider'
+import FeaturedCategorySection from './FeaturedCategorySection'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -17,6 +18,7 @@ function App() {
     <Header></Header>
     <HeadNavigation></HeadNavigation>
     <HeroSlider></HeroSlider>
+    <FeaturedCategorySection></FeaturedCategorySection>
     
     </>
   )
