@@ -1,9 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: poppinsbold;
+  src: url(../src/assets/fonts/Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: poppinsregular;
+  src: url(../src/assets/fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: quicksandregular;
+  src: url(../src/assets/fonts/Quicksand-Regular.ttf);
+}
+
+@font-face {
+  font-family: quicksandbold;
+  src: url(../src/assets/fonts/Quicksand-Bold.ttf);
+}
 
 #root {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
+  font-family: poppinsregular;
+  overflow-x: hidden;
+ 
+
   /* background-image: url("../src/assets/images/slider1.jpg"); */
+}
+button{
+  font-family: quicksandbold;
+ 
+}
+h1,h2{
+  font-family: quicksandbold;
 }

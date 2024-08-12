@@ -22,7 +22,7 @@ function Header() {
               />
               <button
                 type="button"
-                className="rounded-md w-1/5 py-2 bg-green-500 text-white absolute mt-4 ms-[538px] -translate-y-0.5"
+                className="rounded-md w-1/5 py-2 bg-green-500 text-white absolute mt-4 ms-[545px] -translate-y-0.5"
               >
                 Search
               </button>
