@@ -36,17 +36,17 @@ function HeroSlider() {
     <div className="hero-section mt-2 max-w-[1540px] h-[600px] w-full m-auto px-4 group">
       <div
         style={{ backgroundImage: `url(${Slides[currentIndex].url})` }}
-        className="w-full h-full rounded-2xl bg-center bg-cover transition-all duration-700"
+        className="w-full h-full rounded-2xl bg-center bg-cover transition-all duration-1000 ease-in-out"
       >
         <div
-          className="slider-heading w-[560px] ms-32 pt-48"
+          className="slider-heading w-[560px] ms-32 pt-48 "
           style={{ filter: "brightness(1.5)" }}
         >
-          <h1 className="text-[60px] text-green-500">
+          <h1 className="text-[60px] text-green-500  duration-1000">
             {Slides[currentIndex].maintext}
           </h1>
 
-          <h2 className="text-[30px] text-green-700">
+          <h2 className="text-[30px] text-green-700   duration-1000">
             {Slides[currentIndex].subtext}
           </h2>
         </div>
