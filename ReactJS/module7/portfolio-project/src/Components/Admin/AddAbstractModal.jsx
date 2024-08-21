@@ -13,16 +13,7 @@ function AddAbstarctModal(props) {
   const name = useRef("");
   const email = useRef("");
   const expertise = useRef("");
-  //   useEffect(() => {
-  // alert(Message)
-  //     // Creating a timeout within the useEffect hook
-  //     if(Message==false){
-  //     setTimeout(() => {
 
-  //         SetMessage(false);
-  //     }, 3000);
-
-  // }}, []);
   const HandleFormChange = (e) => {
     e.preventDefault();
     var Info = {

@@ -13,10 +13,9 @@ function ManageAbstract() {
   const [data, setData] = useState();
   const { id } = useParams();
   const navigate = useNavigate();
-  //const [deleteMsg, seteDeleteMsg] = useState(false);
-  //Add Modal
+  
   const [AddAbstractModalShow, setAddAbstractModalShow] = useState(false);
-  //Add Modal End
+  
   useEffect(() => {
     axios.get(`http://localhost:4000/addabstract-data`).then((response) => {
       setData(response.data);
@@ -25,12 +24,7 @@ function ManageAbstract() {
   const HandleDelete = (e) => {
    
     navigate(`/delete-abstract/${e}`);
-    //seteDeleteMsg(true);
-    // if (deleteMsg == false) {
-    //   setTimeout(() => {
-    //     seteDeleteMsg(false);
-    //   }, 3000);
-    // }
+    
   };
   return (
     <div className="adminpages">
@@ -51,7 +45,7 @@ function ManageAbstract() {
                 variant="primary"
                 onClick={() => setAddAbstractModalShow(true)}
               >
-                Add Abstract
+                Add Abstract  
               </button>
             </div>
             {/* {deleteMsg && (

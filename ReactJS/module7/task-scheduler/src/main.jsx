@@ -17,8 +17,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
     
     <Route path='/deletetask/:id' index element={<DeleteTask></DeleteTask>}></Route>
-    
-    <Route path='/updatetask/:id' index element={<DeleteTask></DeleteTask>}></Route>
+{/*     
+    <Route path='/updatetask/:id' index element={<DeleteTask></DeleteTask>}></Route> */}
   </Routes>
   </BrowserRouter>
   </React.StrictMode>,

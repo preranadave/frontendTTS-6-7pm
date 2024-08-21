@@ -12,6 +12,7 @@ function TaskList() {
     const [TaskData,setTaskData]=useState();
     const[lengthData,setDataLength]=useState();
     const [showupdatemodal,SetShowUpdateModal]=useState(false)
+    const [taskid,setTaskID]=useState();
     const navigate=useNavigate();
     useEffect(()=>
     {
@@ -37,15 +38,13 @@ function TaskList() {
             ]
           });
        
-        //seteDeleteMsg(true);
-        // if (deleteMsg == false) {
-        //   setTimeout(() => {
-        //     seteDeleteMsg(false);
-        //   }, 3000);
-        // }
+       
       };
-    const  HandleUpdate=(e)=>{
-      navigate(`/updatetask/${e}`)
+    const HandleUpdate=(e)=>{
+    
+      SetShowUpdateModal(true)
+      setTaskID(e);
+    
     }
   return (
     <>
@@ -71,14 +70,15 @@ function TaskList() {
                     <td style={{width:"200px"}}>{row.TaskDate}</td>
                     <td style={{width:"100px"}}><button type="button" className="btn btn-sm bg-danger text-white me-3" onClick={()=>HandleDelete(row.id)}><span className="bi bi-trash"></span></button>
                     
-                    <button type="button" className="btn btn-sm bg-primary text-white"><span className="bi bi-pencil" onClick={()=>HandleUpdate(row.id)}></span></button></td>
+                    <button type="button" className="btn btn-sm bg-primary text-white" onClick={()=>HandleUpdate(row.id)}><span className="bi bi-pencil" ></span></button></td>
                   </tr>
                 </>
             )
           })}
         
         </Table>
-        <UpdateTask show={showupdatemodal}  onHide={() => SetShowUpdateModal(false)} ></UpdateTask>
+        {showupdatemodal && 
+        <UpdateTask show={showupdatemodal}  onHide={() => SetShowUpdateModal(false)} taskid={taskid} />}
       </div>
     </>
   );

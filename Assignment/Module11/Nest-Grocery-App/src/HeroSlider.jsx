@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-import FirstSlider from "../src/assets/images/slider1.jpg";
-
-import SecondSlider from "../src/assets/images/slider2.jpg";
 import { IoChevronBack } from "react-icons/io5";
 import { IoChevronForward } from "react-icons/io5";
 
@@ -9,12 +6,12 @@ function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const Slides = [
     {
-      url: "../src/assets/images/slider1.jpg",
+      url: "../src/assets/images/slider1bg.jpg",
       maintext: "Don't Miss amazing Grocery Deals",
       subtext: "save upto 50% on your first order",
     },
     {
-      url: "../src/assets/images/slider2.jpg",
+      url: "../src/assets/images/slider2bg.jpg",
       maintext: "Sign Up For Daily Newspaper",
       subtext: "sign up for daily newsletter",
     },
@@ -42,11 +39,11 @@ function HeroSlider() {
           className="slider-heading w-[560px] ms-32 pt-48 "
           style={{ filter: "brightness(1.5)" }}
         >
-          <h1 className="text-[60px] text-green-500  duration-1000">
+          <h1 className="text-[60px] text-gray-800  duration-1000">
             {Slides[currentIndex].maintext}
           </h1>
 
-          <h2 className="text-[30px] text-green-700   duration-1000">
+          <h2 className="text-[30px] text-gray-600   duration-1000">
             {Slides[currentIndex].subtext}
           </h2>
         </div>
