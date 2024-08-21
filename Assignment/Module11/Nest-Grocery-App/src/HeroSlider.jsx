@@ -18,14 +18,14 @@ function HeroSlider() {
   ];
   useEffect(() => {
     setTimeout(() => {
-      const IsFirsst = currentIndex === 0;
-      const newvalue = IsFirsst ? 1 : 0;
+      const IsFirst = currentIndex === 0;
+      const newvalue = IsFirst ? 1 : 0;
       setCurrentIndex(newvalue);
     }, 3000);
   });
   const ChangeSlide = () => {
-    const IsFirsstSlide = currentIndex === 0;
-    const newIndex = IsFirsstSlide ? 1 : 0;
+    const IsFirstSlide = currentIndex === 0;
+    const newIndex = IsFirstSlide ? 1 : 0;
     setCurrentIndex(newIndex);
   };
 
