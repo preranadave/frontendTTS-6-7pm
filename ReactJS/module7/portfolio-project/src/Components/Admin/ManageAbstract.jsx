@@ -20,7 +20,7 @@ function ManageAbstract() {
     axios.get(`http://localhost:4000/addabstract-data`).then((response) => {
       setData(response.data);
     });
-  });
+  },[]);
   const HandleDelete = (e) => {
    
     navigate(`/delete-abstract/${e}`);

@@ -1,0 +1,45 @@
+E-commerce admin panel
+
+		Admin Login
+		Admin Dahsboard
+		Sidebar
+			AddCategory ->Manage Category,Add Category
+			AddSubcategory->Manage Category,Add Sub Category
+			Add Products->Manage Product,Add Product
+			Manage oRders
+			Manage Contacts
+			Manage Reviews
+			
+
+
+
+
+
+
+user panel
+
+user register
+user login
+See products
+see product details
+Add to cart paroduct
+cart will be counted
+user can remove from cart
+user can go checkout
+user can send all details of  contact in email to admin
+user can provides review on product
+
+
+e-commerce api data
+
+addcategory
+addsubcategory
+addproducts
+cart
+contacts
+feedbacks
+reviews
+checkout
+addsliders
+cutomers
+blogs

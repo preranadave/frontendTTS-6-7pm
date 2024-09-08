@@ -1,0 +1,144 @@
+{
+  "Users": [
+    {
+      "id": "9032",
+      "UserName": "prerna",
+      "Email": "prerna@gmail.com",
+      "Password": "ppppp",
+      "Role": "user",
+      "IsDriver": false
+    },
+    {
+      "id": "2a8c",
+      "UserName": "prerna",
+      "Email": "dave.prerna.2811@gmail.com",
+      "Password": "ccccccccc",
+      "Role": "user",
+      "IsDriver": true
+    },
+    {
+      "id": "6ffb",
+      "UserName": "prerna",
+      "Email": "psdave@gmail.com",
+      "Password": "ccccccccc",
+      "Role": "user",
+      "IsDriver": false
+    },
+    {
+      "id": "25b1",
+      "UserName": "prerna",
+      "Email": "prerna@gmail.com",
+      "Password": "xxxxxxxx",
+      "Role": "user",
+      "IsDriver": false
+    },
+    {
+      "id": "8e26",
+      "UserName": "prerna",
+      "Email": "prerna@gmail.com",
+      "Password": "xxxxxx",
+      "Role": "user",
+      "IsDriver": false
+    },
+    {
+      "id": "560b",
+      "UserName": "prerna",
+      "Email": "prerna@gmail.com",
+      "Password": ",mmmmm",
+      "Role": "user",
+      "IsDriver": false
+    },
+    {
+      "id": "e714",
+      "UserName": "prerna",
+      "Email": "prerna@gmail.com",
+      "Password": "mmmm",
+      "Role": "user",
+      "IsDriver": false
+    },
+    {
+      "id": "5c97",
+      "UserName": "prerna",
+      "Email": "prerna@gmail.com",
+      "Password": "mmmmmm",
+      "Role": "user",
+      "IsDriver": false
+    },
+    {
+      "id": "942b",
+      "UserName": "prerna",
+      "Email": "prerna@gmail.com",
+      "Password": "xxxxxx",
+      "Role": "user",
+      "IsDriver": false
+    }
+  ],
+  "DriverDetails": [
+    {
+      "id": "3f4e",
+      "Drivinglicence": "123",
+      "BankAccount": "123",
+      "UserID": "2a8c"
+    },
+    {
+      "id": "4eb7",
+      "Drivinglicence": "123",
+      "BankAccount": "123",
+      "UserID": "2a8c"
+    },
+    {
+      "id": "4b72",
+      "Drivinglicence": "321",
+      "BankAccount": "321",
+      "UserID": "2a8c"
+    }
+  ],
+  "Locations": [
+    {
+      "id": "31e6",
+      "City": "rajkot",
+      "Address": "madhapar chowkdi"
+    },
+    {
+      "id": "757e",
+      "City": "rajkot",
+      "Address": "raiya circle"
+    },
+    {
+      "id": "9ff3",
+      "City": "rajkot",
+      "Address": "nana mava"
+    },
+    {
+      "id": "7a93",
+      "City": "jamnagr",
+      "Address": "lakhota lake"
+    },
+    {
+      "id": "a241",
+      "City": "jamnagar",
+      "Address": "gec college"
+    },
+    {
+      "id": "e661",
+      "City": "rajkot ",
+      "Address": "bus stop"
+    },
+    {
+      "id": "cc7b",
+      "City": "rajkot",
+      "Address": "trikon baug"
+    }
+  ],
+  "Rides": [
+    {
+      "id": "a7b6",
+      "Origin": "rajkot ,bus stop",
+      "Destination": "rajkot,trikon baug",
+      "RideDate": "2024-09-08T13:46:23.079Z",
+      "AvailableSeats": "2",
+      "Price": "223",
+      "CreatedBy": "2a8c"
+    }
+  ]
+}

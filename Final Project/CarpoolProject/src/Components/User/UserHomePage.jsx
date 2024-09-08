@@ -1,11 +1,14 @@
 import React from "react";
 //importing user Components
-import Header from "./Header";
-
+import HeroSection from "./Hero/HeroSection";
+import Navbar from "./Navbar/Navbar";
 function UserHomePage() {
   return (
     <>
-      <Header></Header>
+      
+        <Navbar/>
+        <HeroSection/>
+    
     </>
   );
 }

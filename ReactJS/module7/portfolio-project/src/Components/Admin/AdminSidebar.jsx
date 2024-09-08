@@ -17,6 +17,8 @@ function AdminSidebar() {
          
             <ul className="list-unstyled d-flex flex-column first-font ms-5 fs-4 text-start">
             <li className="my-4">  <Link to={"/manage-abstract"} className="nav-link">Manage Abstract</Link></li>
+            
+            <li className="my-4">  <Link to={"/manage-contacts"} className="nav-link">Manage Contact</Link></li>
        
             <li  className="my-4">  <Link to={"/add-skill"} className="nav-link">Manage Skill</Link></li>
             <li  className="my-4">  <Link to={"/add-projects"} className="nav-link">Manage Projects</Link></li>

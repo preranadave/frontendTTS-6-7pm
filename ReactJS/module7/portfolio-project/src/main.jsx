@@ -15,6 +15,7 @@ import AdminHome from "./Components/Admin/AdminHome.jsx";
 import AdminLogin from "./Components/Admin/AdminLogin.jsx";
 import ManageAbstract from "./Components/Admin/ManageAbstract.jsx";
 import DeletAbstract from "./Components/Admin/DeletAbstract.jsx";
+import ManageContact from "./Components/Admin/ManageContact.jsx";
 //User Components
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       
       <Route path="/admin-dashboard" element={<AdminDashboard></AdminDashboard>}></Route>
       <Route path="/manage-abstract" element={<ManageAbstract></ManageAbstract>}></Route>
+      <Route path="/manage-contacts" element={<ManageContact></ManageContact>}></Route>
       
       <Route path="/delete-abstract/:id" element={<DeletAbstract></DeletAbstract>}></Route>
     

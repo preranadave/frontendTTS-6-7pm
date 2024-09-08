@@ -4,8 +4,25 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode:"class",
   theme: {
-    extend: {},
+    extend: {
+
+      colors:{
+        primary:"#ffe000",
+        adminprimary:"#4E73DF"
+      },
+      container:{
+        center:true,
+        padding:{
+          default:"1rem",
+          sm:"2rem",
+          lg:"4rem",
+          xl:"5rem",
+          "2xl":"6rem",
+        }
+      }
+    },
   },
   plugins: [],
 }
