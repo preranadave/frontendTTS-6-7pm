@@ -41,24 +41,28 @@ function Navbar() {
             {/* Desktop Menu */}
             <div className="hidden md:block">
               <ul className="list-none flex flex-row items-center gap-8 font-bold -translate-x-16">
-                <li className="">
+                <li className="hover:text-adminprimary active:text-primary">
                   <Link to={"/"}>Home</Link>
                 </li>
-                <li>
+                <li className="hover:text-adminprimary active:text-primary">
+                  {" "}
+                  <Link to="/view-rides">Search Ride</Link>
+                </li>
+                <li className="hover:text-adminprimary active:text-primary">
                   <Link>Why CarPool?</Link>
                 </li>
-                <li>
+                <li className="hover:text-adminprimary active:text-primary">
                   {" "}
                   <Link>How It Works?</Link>
                 </li>
-                <li className="group relative cursor-pointer">
+                <li className="group relative cursor-pointer hover:text-adminprimary active:text-primary">
                   <Link to={""} className="flex items-center gap-[2px]">
-                    About Us{" "}
-                    <span>
+                    Contact Us{" "}
+                    {/* <span>
                       <FaCaretRight className="group-hover:rotate-90 transition-all ease-in-out duration-300" />
-                    </span>
+                    </span> */}
                   </Link>
-                  <div className="absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-700 z-50">
+                  {/* <div className="absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-700 z-50">
                     <ul className="w-40 space-y-1 bg-white p-2 shadow-md text-black rounded-md group-hover:-translate-y-2 mt-3 translate-y-3 duration-700  transition-all ease-in-out">
                       <li className="p-2 hover:bg-blue-200"> Why Us?</li>
 
@@ -69,11 +73,8 @@ function Navbar() {
                       <li className="p-2 hover:bg-blue-200 duration-700 ease-in-out transition-all">
                         Contact Us
                       </li>
-                      {/* <li className="p-2 hover:bg-blue-200 duration-700 ease-in-out transition-all">
-                        Privacy Policy
-                      </li> */}
                     </ul>
-                  </div>
+                  </div> */}
                 </li>
               </ul>
             </div>
@@ -85,7 +86,7 @@ function Navbar() {
                     <FaCaretRight className="group-hover:rotate-90 transition-all ease-in-out duration-300" />
                   </span>
                 </span>
-                <div className="absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-700 z-50">
+                <div className="absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-1000 z-50">
                   <ul className="w-28 text-[14px] space-y-1 bg-primary -translate-x-10 p-2 shadow-md text-black rounded-md group-hover:-translate-y-2 mt-3 translate-y-3 duration-700  transition-all ease-in-out">
                     <li
                       className="p-2 hover:bg-white rounded-lg duration-700"

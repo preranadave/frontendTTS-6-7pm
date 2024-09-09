@@ -10,6 +10,7 @@ import SignUp from './Components/User/SignUp.jsx'
 import LogIn from './Components/User/LogIn.jsx'
 import CreateDriverAccount from './Components/User/Driver/CreateDriverAccount.jsx'
 import CreateRide from './Components/User/Ride/CreateRide.jsx'
+import ViewRides from './Components/User/Ride/ViewRides.jsx'
 //Admin Components Import
 import AdminLayout from './Components/Admin/AdminLayout.jsx'
 import AdminDashboard from './Components/Admin/MainContent/AdminDashboard.jsx'
@@ -33,6 +34,7 @@ createRoot(document.getElementById('root')).render(
       
       <Route path="/crate-driver-account"  element={<CreateDriverAccount></CreateDriverAccount>}></Route>
       <Route path="/crate-ride"  element={<CreateRide></CreateRide>}></Route>
+      <Route path="/view-rides"  element={<ViewRides></ViewRides>}></Route>
     
       {/* Admin Routing */}
       <Route path='/admin' element={<AdminLayout/>}>
@@ -43,6 +45,8 @@ createRoot(document.getElementById('root')).render(
       <Route path="/admin/dashboard/manage-drivers" element={<DriverManagement></DriverManagement>}></Route>
       <Route path="/admin/dashboard/manage-drivers/delete-driver/:id" element={<DriverManagement></DriverManagement>}></Route>
       <Route path="/admin/dashboard/manage-locations" element={<LocationManagement></LocationManagement>}></Route>
+      <Route path="/admin/dashboard/manage-locations/delete-location/:id" element={<LocationManagement></LocationManagement>}></Route>
+      
       <Route path="/admin/dashboard/manage-rides" element={<RidesManagement></RidesManagement>}></Route>
       <Route path="/admin/dashboard/manage-rides/delete-ride/:id" element={<RidesManagement></RidesManagement>}></Route>
     

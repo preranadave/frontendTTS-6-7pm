@@ -16,7 +16,7 @@ function TaskList() {
     const navigate=useNavigate();
     useEffect(()=>
     {
-        axios.get(`http://localhost:8000/task`).then((response)=>{
+        axios.get(`http://localhost:9000/task`).then((response)=>{
             setTaskData(response.data)
             setDataLength(response.data.length)
         })

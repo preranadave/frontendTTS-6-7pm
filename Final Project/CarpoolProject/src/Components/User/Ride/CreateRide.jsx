@@ -14,7 +14,10 @@ function CreateRide() {
   const [SelectedDate, SetSelectedDate] = useState(new Date());
   const AvailableSeats = useRef();
   const Price = useRef();
-  const UserID="2a8c"
+  const UserID = "2a8c";
+  const DriverProfilePic =
+    "https://img.freepik.com/free-photo/portrait-man-laughing_23-2148859448.jpg";
+  const DriverName = "prerna";
   //declaration
 
   const [Message, SetMessage] = useState(false);
@@ -66,10 +69,14 @@ function CreateRide() {
     var RideDetails = {
       Origin: Origin.current.value,
       Destination: Destination.current.value,
-      RideDate: SelectedDate,
+      RideDate: SelectedDate.toLocaleDateString(),
+      RideTime: SelectedDate.toLocaleTimeString(),
       AvailableSeats: AvailableSeats.current.value,
       Price: Price.current.value,
-      CreatedBy:UserID
+      Status: "Available",
+      CreatedBy: UserID,
+      DriverProfile: DriverProfilePic,
+      DriverName: DriverName,
     };
     axios.post(`http://localhost:8000/Rides`, RideDetails).then(() => {
       SetMessage(true);
@@ -79,10 +86,8 @@ function CreateRide() {
         }, 3000);
       }
       e.target.reset();
-      Origin.current.value.reset,
-      setDestinationnvalue("")
-      SetSelectedDate(new Date()),  
-      setPricevalue("")
+      Origin.current.value.reset, setDestinationnvalue("");
+      SetSelectedDate(new Date()), setPricevalue("");
     });
   };
 
@@ -99,7 +104,7 @@ function CreateRide() {
                   {" "}
                   <h1 className="text-3xl lg:text-7xl mx-auto font-bold text-adminprimary">
                     Drive. Share. Save.
-                  </h1>
+                  </h1> 
                 </div>
                 <div>
                   <img
@@ -142,10 +147,10 @@ function CreateRide() {
                             }}
                           />
                           <div
-                            className={`absolute md:w-[545px] w-[435px] md:h-[350px] h-[330px]  z-[1000] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2 ${
+                            className={`absolute md:w-[545px] w-[435px] md:h-[350px] h-[330px] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2 ${
                               ShowOriginList
-                                ? "opacity-100 z-[1000] duration-1000"
-                                : "opacity-0 duration-1000 -z-[1027]"
+                                ? "opacity-100 z-[1040] duration-1000"
+                                : "opacity-0 duration-1000 -z-[1040]"
                             } transition-all duration-1000`}
                           >
                             <ul className="">
@@ -188,10 +193,10 @@ function CreateRide() {
                             }}
                           />
                           <div
-                            className={`absolute md:w-[545px] w-[435px] md:h-[350px] h-[330px]  z-[1000] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2 ${
+                            className={`absolute md:w-[545px] w-[435px] md:h-[350px] h-[330px] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2 ${
                               ShowDestinationList
-                                ? "opacity-100  duration-700"
-                                : "opacity-0 duration-700 -z-[1027]"
+                                ? "opacity-100 z-[1040] duration-700"
+                                : "opacity-0 duration-700 -z-[1040]"
                             } transition-all duration-700`}
                           >
                             <ul className="">
@@ -229,25 +234,25 @@ function CreateRide() {
                           className="form-control form-control-solid w-250px px-4 rounded-lg md:w-[542px] w-[430px] bg-black/10 outline-none"
                         ></DatePicker>
                         <div className="flex space-x-2">
-                        <input
-                          type="number"
-                          name="availableSeats"
-                          id="availableSeats"
-                          ref={AvailableSeats}
-                          className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
-                          placeholder="Available Seats"
-                          min={1}
-                        />
-                        <input
-                          type="text"
-                          name="price"
-                          id="price"
-                          value={pricevalue}
-                          ref={Price}
-                          className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
-                          placeholder="Price"
-                          onChange={handlePriceChange}
-                        />
+                          <input
+                            type="number"
+                            name="availableSeats"
+                            id="availableSeats"
+                            ref={AvailableSeats}
+                            className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
+                            placeholder="Available Seats"
+                            min={1}
+                          />
+                          <input
+                            type="text"
+                            name="price"
+                            id="price"
+                            value={pricevalue}
+                            ref={Price}
+                            className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
+                            placeholder="Price"
+                            onChange={handlePriceChange}
+                          />
                         </div>
                         <button type="submit" className="btn-primary w-full">
                           Post Ride

@@ -7,7 +7,7 @@ function DeleteTask() {
     const navigate=useNavigate();
 
     useEffect(()=>{
-        axios.delete(`http://localhost:8000/task/${id}`).then((response)=>{
+        axios.delete(`http://localhost:9000/task/${id}`).then((response)=>{
             navigate("/");
         })
     })

@@ -5,7 +5,7 @@ import Navbar from "./Navbar/Navbar";
 
 import { Link, useNavigate } from "react-router-dom";
 import SignUpImage from "../../assets/images/sign-up.jpg";
-import UserImage from "../../assets/images/user.png";
+import Image from "../../assets/images/user.png";
 import axios from "axios";
 
 import { IoIosCloseCircleOutline } from "react-icons/io";
@@ -22,6 +22,7 @@ function SignUp(props) {
   // };
 
   const ProfileImage = useRef(null);
+  const [UserImage,setUserImage]=useState(Image)
   const [Message, SetMessage] = useState(false);
 
   const navigate = useNavigate();
@@ -34,8 +35,9 @@ function SignUp(props) {
   const IsDriver = useRef("");
 
   //functions
-  const handleImageClick = (e) => {
-    ProfileImage.current.click();
+  const ChangeProfilePic = () => {
+    setUserImage(ProfileImage.current.value)
+
   };
 
   //user Registration
@@ -47,6 +49,7 @@ function SignUp(props) {
       Password: Password.current.value,
       Role: "user",
       IsDriver: false,
+      ProfileImage:ProfileImage.current.value
     };
     axios.post(`http://localhost:8000/Users`, UserDetails).then(() => {
       SetMessage(true);
@@ -64,18 +67,18 @@ function SignUp(props) {
     <>
       <div
         {...props}
-        className={`fixed ${
+        className={`absolute z-[1020] backdrop-blur-lg pt-24${
           props.isOpen
-            ? "top-0 opacity-100 z-[1000] backdrop-blur-lg pt-24"
-            : "-top-[100%] z-[1000] opacity-0 duration-300"
+            ? "top-0 opacity-100 z-[1030] duration-700"
+            : "-top-[100%] opacity-0 -z-[1030] duration-700"
         } transition-all duration-700`}
       >
-        <div className=" mt-2 md:w-[70%] flex items-center  bg-white md:mx-56 rounded-2xl ">
+        <div className=" mt-2 md:w-[70%] w-[95%] flex items-center  bg-white md:mx-56 mx-auto rounded-2xl ">
           <div className="min-h-[600px] md:min-h-[200px] rounded">
             <div className="w-full">
               <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-5">
                 {/* Left Side */}
-                <div className="bg-primary h-full p-20 rounded-tl-[16px] rounded-bl-[16px]">
+                <div className="bg-primary h-full p-20 rounded-tl-[16px] rounded-tr-[16px] md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px]">
                   <div className=" px-3 lg:items-start lg:text-left lg:max-w-[450px] ">
                     <h1 className="text-5xl lg:text-7xl font-bold text-adminprimary">
                       Your Ride,At Low Price.
@@ -93,7 +96,7 @@ function SignUp(props) {
                   {/* absolute -translate-y-6 w-[30%] mx-5 */}
 
                   <div
-                    className={`px-5 w-[80%] mx-auto text-center bg-yellow-100 border border-primary text-adminprimary rounded-md p-2 ${
+                    className={`px-5 w-[80%] mx-auto text-center bg-yellow-100 border border-primary text-adminprimary rounded-md p-1 ${
                       Message ? "opacity-100" : "opacity-0"
                     } duration-700 transition-all`}
                   >
@@ -102,10 +105,10 @@ function SignUp(props) {
 
                   <IoIosCloseCircleOutline
                     size={30}
-                    className="cursor-pointer fixed right-60 top-28  mx-3"
+                    className="cursor-pointer md:-translate-y-[30px] -translate-y-[300px] translate-x-[450px] md:translate-x-[490px] "
                     onClick={props.onHide}
                   />
-                  <div className="w-[90%] md:w-[full] mx-4 p-4 bg-white/60 mb-10 md:mt-10  text-black  rounded-2xl shadow-2xl">
+                  <div className="w-[90%] md:w-[full] md:mx-4 mx-auto p-4 bg-white/60 mb-10 md:mt-10  text-black rounded-2xl shadow-2xl">
                     <div>
                       <h1 className="text-4xl text-center font-semibold mb-5 text-adminprimary">
                         Sign Up
@@ -113,16 +116,20 @@ function SignUp(props) {
                       <form action="" onSubmit={RegisterUser}>
                         <div className="space-y-6 flex-col justify-center items-center">
                           {/* user Image Upload  */}
-                          {/* <div onClick={handleImageClick} className="flex justify-center">
-                      <img src={UserImage} className="w-20"></img>
-                      <input
-                        id="fileInput"
-                        type="file"
-                        className="w-full max-w-md overflow-clip hidden rounded-lg bg-gray-400/20 text-md text-white file:mr-4 file:cursor-pointer file:border-none file:bg-neutral-50 file:px-4 file:py-2 file:font-medium file:text-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75 dark:border-neutral-700 dark:bg-neutral-900/50 dark:file:bg-neutral-900 dark:file:text-white dark:focus-visible:outline-white"
-                        ref={ProfileImage}
-                        
-                      />
-                    </div> */}
+                          <div
+                            // onClick={handleImageClick}
+                            className="flex-col justify-center items-center mx-auto"
+                          >
+                            <img src={UserImage} className="w-20 rounded-full mx-auto my-2"></img>
+                            <input
+                              id="profileimage"
+                              type="url"
+                              className="py-2 px-4 rounded-lg w-full bg-gray-400/30 placeholder-black outline-none border-none"
+                              ref={ProfileImage}
+                              placeholder="Image URL"
+                              onChange={ChangeProfilePic}
+                            />
+                          </div>
 
                           <input
                             type="text"

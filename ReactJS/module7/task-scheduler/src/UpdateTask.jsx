@@ -14,7 +14,7 @@ function UpdateTask(props) {
   useEffect(() => {
     (async () => {
       try {
-        await axios.get(`http://localhost:8000/task/${id}`).then((response) => {
+        await axios.get(`http://localhost:9000/task/${id}`).then((response) => {
           TaskName.current.value = response.data.TaskName;
           TaskPriority.current.value = response.data.TaskPriority;
           TaskDate.current.value = response.data.TaskDate;

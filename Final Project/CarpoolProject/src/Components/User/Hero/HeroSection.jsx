@@ -3,6 +3,8 @@ import React from "react";
 import HeroImage from "../../../assets/images/hero-image1.jpg";
 import { CiCirclePlus } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+//components
+import SearchRide from "../Ride/SearchRide";
 function HeroSection() {
   //declarations
   const HeroBgStyle = {
@@ -14,9 +16,6 @@ function HeroSection() {
     width: "98%",
     position: "relative",
   };
-  const Navigate= useNavigate();
-  
-  const today = new Date().toISOString().split('T')[0];
   return (
     <>
       <div style={HeroBgStyle} className="md:mt-5 mt-2 md:w-[80%]  mx-auto rounded-2xl">
@@ -42,46 +41,7 @@ function HeroSection() {
                 </button>
               </div>
               {/* Hero Passenger Ride */}
-              <div className="w-[90%] md:w-[480px] mx-auto p-4 bg-white/60  text-black  rounded-2xl shadow-2xl">
-                <div>
-                  <h1 className="text-3xl text-center font-bold mb-5">
-                    Look For A Ride
-                  </h1>
-                  <div className="space-y-6">
-                    <input
-                      type="text"
-                      name="origin"
-                      id="origin"
-                      className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
-                      placeholder="Origin"
-                    />
-                    <input
-                      type="text"
-                      name="destination"
-                      id="destination"
-                      className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
-                      placeholder="destination"
-                    />
-                    <input
-                      type="date"
-                      name="ridedate"
-                      id="ridedate"
-                      min={today}
-                      className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none"
-                    />
-                    <input
-                      type="number"
-                      name="passenger"
-                      id="passenger"
-                      className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
-                      placeholder="Passenger"
-                      min={1}
-                      max={5}
-                    />
-                    <button className="btn-primary w-full">Search</button>
-                  </div>
-                </div>
-              </div>
+              <SearchRide></SearchRide>
             </div>
           </div>
         </div>

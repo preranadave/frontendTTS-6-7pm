@@ -39,6 +39,10 @@ function RidesManagement() {
         selector: (row) => row.Price,
       },
       {
+        name: "Status",
+        selector: (row) => row.Status,
+      },
+      {
         name: "CreatedBy",
         selector: (row) => row.CreatedBy,
       },

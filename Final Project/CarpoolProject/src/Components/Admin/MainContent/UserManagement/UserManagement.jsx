@@ -4,6 +4,7 @@ import axios from "axios";
 //component  imports
 import Header from "../../Header/AdminHeader";
 import AdminSideBar from "../../Sidebar/AdminSideBar";
+import DeleteUsers from "./DeleteUsers";
 //icons import
 import { MdDelete } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
@@ -13,6 +14,8 @@ function UserManagement() {
   const Navigate=useNavigate();
   //users data object destructring
   const [UserData, setUserData] = useState();
+  
+  const [DeleteMessage,setDeleteMessage]=useState(false)
   //datatable variables
   const [Search, setSearch] = useState();
   const coulumns = [
@@ -66,6 +69,8 @@ function UserManagement() {
     <>
       <h1 className="text-xl font-bold p-4">User Management</h1>
       <div className=" bg-white  p-4 m-2 shadow-lg">
+      <DeleteUsers isOpen={DeleteMessage} onHide={()=>{setDeleteMessage(false)}}></DeleteUsers>
+
         <DataTable
           columns={coulumns}
           data={UserData}
