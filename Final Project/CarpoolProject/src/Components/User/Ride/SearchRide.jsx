@@ -7,6 +7,7 @@ import Navbar from "../Navbar/Navbar";
 //images
 import RideBg from "../../../assets/images/ride-bg.png";
 import axios from "axios";
+import ViewRides from "./ViewRides";
 function SearchRide() {
   //form object
   const Origin = useRef();
@@ -27,12 +28,15 @@ function SearchRide() {
   //price variables
 
   const [pricevalue, setPricevalue] = useState();
+  //appi data store variables
+  
+  const [LocationData, SetLocationData] = useState();
+  
   //location variables
   const [ShowOriginList, setOriginList] = useState(false);
 
   const [ShowDestinationList, setShowDestinationList] = useState(false);
 
-  const [LocationData, SetLocationData] = useState();
 
   const [originvalue, setOriginvalue] = useState();
 
@@ -42,6 +46,7 @@ function SearchRide() {
     axios.get(`http://localhost:8000/Locations`).then((response) => {
       SetLocationData(response.data);
     });
+
   });
   const SetOrigin = (e) => {
     Origin.current.value = e.id;
@@ -53,12 +58,6 @@ function SearchRide() {
     setDestinationnvalue(e.City + "," + e.Address);
     console.log(Origin.current.value);
   };
-  // const PrintDate=()=>{
-  //   console.log(SelectedDate.toLocaleDateString())
-
-  //   console.log(SelectedDate.toLocaleTimeString())
-
-  // }
   const handlePriceChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
     setPricevalue(value);
@@ -187,6 +186,7 @@ function SearchRide() {
                   </ul>
                 </div>
               </div>
+              <div className="flex space-x-2">
               <DatePicker
                 showTimeSelect
                 showIcon
@@ -196,8 +196,9 @@ function SearchRide() {
                   SetSelectedDate(date);
                 }}
                 minDate={new Date()}
-                className="form-control form-control-solid w-250px px-4 rounded-lg md:w-[448px] w-[405px] bg-black/10 outline-none"
-              ></DatePicker>
+                className="h-[40px] px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
+                ></DatePicker>
+          
               <div className="flex space-x-2">
                 <input
                   type="number"
@@ -208,16 +209,8 @@ function SearchRide() {
                   placeholder="Available Seats"
                   min={1}
                 />
-                <input
-                  type="text"
-                  name="price"
-                  id="price"
-                  value={pricevalue}
-                  ref={Price}
-                  className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
-                  placeholder="Price"
-                  onChange={handlePriceChange}
-                />
+               
+              </div>
               </div>
               <button type="submit" className="btn-primary w-full">
                 Search

@@ -22,7 +22,7 @@ function SignUp(props) {
   // };
 
   const ProfileImage = useRef(null);
-  const [UserImage,setUserImage]=useState(Image)
+  const [UserImage, setUserImage] = useState(Image);
   const [Message, SetMessage] = useState(false);
 
   const navigate = useNavigate();
@@ -36,8 +36,7 @@ function SignUp(props) {
 
   //functions
   const ChangeProfilePic = () => {
-    setUserImage(ProfileImage.current.value)
-
+    setUserImage(ProfileImage.current.value);
   };
 
   //user Registration
@@ -49,7 +48,7 @@ function SignUp(props) {
       Password: Password.current.value,
       Role: "user",
       IsDriver: false,
-      ProfileImage:ProfileImage.current.value
+      ProfileImage: ProfileImage.current.value,
     };
     axios.post(`http://localhost:8000/Users`, UserDetails).then(() => {
       SetMessage(true);
@@ -67,7 +66,7 @@ function SignUp(props) {
     <>
       <div
         {...props}
-        className={`absolute z-[1020] backdrop-blur-lg pt-24${
+        className={`absolute backdrop-blur-lg pt-24${
           props.isOpen
             ? "top-0 opacity-100 z-[1030] duration-700"
             : "-top-[100%] opacity-0 -z-[1030] duration-700"
@@ -105,7 +104,7 @@ function SignUp(props) {
 
                   <IoIosCloseCircleOutline
                     size={30}
-                    className="cursor-pointer md:-translate-y-[30px] -translate-y-[300px] translate-x-[450px] md:translate-x-[490px] "
+                    className="cursor-pointer md:-translate-y-[30px] -translate-y-[300px] translate-x-[630px] md:translate-x-[490px] "
                     onClick={props.onHide}
                   />
                   <div className="w-[90%] md:w-[full] md:mx-4 mx-auto p-4 bg-white/60 mb-10 md:mt-10  text-black rounded-2xl shadow-2xl">
@@ -120,7 +119,10 @@ function SignUp(props) {
                             // onClick={handleImageClick}
                             className="flex-col justify-center items-center mx-auto"
                           >
-                            <img src={UserImage} className="w-20 rounded-full mx-auto my-2"></img>
+                            <img
+                              src={UserImage}
+                              className="w-20 rounded-full mx-auto my-2"
+                            ></img>
                             <input
                               id="profileimage"
                               type="url"

@@ -21,7 +21,7 @@ function Navbar() {
   };
   return (
     <>
-      <nav className="bg-gradient-to-r w-[98%] bg-white mt-2 rounded-lg mx-auto py-2 px-3 relative z-[999]">
+      <nav className="bg-gradient-to-r w-[98%] bg-white mt-2 rounded-lg mx-auto py-2 px-3 relative z-[1050]">
         <div>
           <div className="flex justify-between items-center">
             {/* Logo Section */}
@@ -86,7 +86,7 @@ function Navbar() {
                     <FaCaretRight className="group-hover:rotate-90 transition-all ease-in-out duration-300" />
                   </span>
                 </span>
-                <div className="absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-1000 z-50">
+                <div className="hidden md:absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-1000 z-50">
                   <ul className="w-28 text-[14px] space-y-1 bg-primary -translate-x-10 p-2 shadow-md text-black rounded-md group-hover:-translate-y-2 mt-3 translate-y-3 duration-700  transition-all ease-in-out">
                     <li
                       className="p-2 hover:bg-white rounded-lg duration-700"
@@ -98,6 +98,11 @@ function Navbar() {
                     <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
                       {" "}
                       <Link to={"/login"}>Log-In</Link>
+                    </li>
+                    
+                    <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
+                      {" "}
+                      <Link to={"/user-rides"}>Your Rides</Link>
                     </li>
                   </ul>
                 </div>

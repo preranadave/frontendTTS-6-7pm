@@ -8,54 +8,6 @@
       "Role": "user",
       "IsDriver": true,
       "ProfileImage": "https://img.freepik.com/free-photo/portrait-man-laughing_23-2148859448.jpg"
-    },
-    {
-      "id": "6ffb",
-      "UserName": "prerna",
-      "Email": "psdave@gmail.com",
-      "Password": "ccccccccc",
-      "Role": "user",
-      "IsDriver": false
-    },
-    {
-      "id": "25b1",
-      "UserName": "prerna",
-      "Email": "prerna@gmail.com",
-      "Password": "xxxxxxxx",
-      "Role": "user",
-      "IsDriver": false
-    },
-    {
-      "id": "8e26",
-      "UserName": "prerna",
-      "Email": "prerna@gmail.com",
-      "Password": "xxxxxx",
-      "Role": "user",
-      "IsDriver": false
-    },
-    {
-      "id": "560b",
-      "UserName": "prerna",
-      "Email": "prerna@gmail.com",
-      "Password": ",mmmmm",
-      "Role": "user",
-      "IsDriver": false
-    },
-    {
-      "id": "e714",
-      "UserName": "prerna",
-      "Email": "prerna@gmail.com",
-      "Password": "mmmm",
-      "Role": "user",
-      "IsDriver": false
-    },
-    {
-      "id": "5c97",
-      "UserName": "prerna",
-      "Email": "prerna@gmail.com",
-      "Password": "mmmmmm",
-      "Role": "user",
-      "IsDriver": false
     }
   ],
   "DriverDetails": [

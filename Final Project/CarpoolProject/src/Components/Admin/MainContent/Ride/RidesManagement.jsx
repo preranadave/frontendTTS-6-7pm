@@ -19,17 +19,35 @@ function RidesManagement() {
       name: "Origin",
       selector: (row) => row.Origin,
       sortable: true,
+      wrap: true
     },
     {
       name: "Destination",
       selector: (row) => row.Destination,
       sortable: true,
+      wrap: true
     },
     {
       name: "Ride Date",
       selector: (row) => row.RideDate,
       sortable: true,
     },
+    {
+        name: "Ride Time",
+        selector: (row) => row.RideTime,
+        sortable: true,
+      },
+      {
+        name: "Driver Profile",
+        selector: (row) =>(<img src={row.DriverProfile} className="w-16 h-16"></img>),
+        sortable: true,
+      },
+      {
+        name: "Driver Name",
+        selector: (row) => row.DriverName,
+        sortable: true,
+        wrap: true
+      },
     {
       name: "Available Seats",
       selector: (row) => row.AvailableSeats,

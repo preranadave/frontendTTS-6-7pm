@@ -16,6 +16,7 @@ function HeroSection() {
     width: "98%",
     position: "relative",
   };
+  const Navigate=useNavigate();
   return (
     <>
       <div style={HeroBgStyle} className="md:mt-5 mt-2 md:w-[80%]  mx-auto rounded-2xl">

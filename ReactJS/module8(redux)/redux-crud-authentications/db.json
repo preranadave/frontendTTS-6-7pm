@@ -1,0 +1,13 @@
+{
+  "add-employee": [
+    {
+      "id": "8aec",
+      "Name": "prerna",
+      "LastName": "dave",
+      "Email": "ps@gmail.com",
+      "Salary": "55555",
+      "Phone": "12548328",
+      "Address": "150 ft road"
+    }
+  ]
+}

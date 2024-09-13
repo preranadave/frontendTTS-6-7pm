@@ -23,16 +23,24 @@ function UserManagement() {
       name: "User Name",
       selector: (row) => row.UserName,
       sortable: true,
+      wrap:true
     },
     {
       name: "Email",
       selector: (row) => row.Email,
+      sortable: true,
+      wrap:true
+    },
+    {
+      name: "Profile Image",
+      selector: (row) => (<img src={row.ProfileImage} className="w-16 h-16"></img>),
       sortable: true,
     },
     {
       name: "Role",
       selector: (row) => row.Role,
       sortable: true,
+      wrap:true
     },
     {
       name: "IsDriver",

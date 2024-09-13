@@ -9,58 +9,60 @@ import { GrStatusInfo } from "react-icons/gr";
 function RideCards(props) {
   return (
     <>
-      <div className="shadow-xl my-4 mx-4 p-2 rounded-xl bg-white hover:bg-blue-100">
-        <div className="max-w-[98%] flex w-[98%] lg:max-w-[98%] lg:flex">
-          <div className="h-48 lg:h-auto lg:w-56 md:w-[500px]  w-[full] mx-2 rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-            <div className="flex-col mx-auto items-center my-12">
-              <img
-                className="md:w-24 md:h-24 w-20 h-20 rounded-full mx-auto"
-                src={props.driverprofile}
-                alt="Driver"
-              />
-              <div className="text-md">
-                <p className="text-gray-900 leading-none font-bold">
-                  {props.drivername}
-                </p>
-              </div>
+      <div className="text-sm leading-6  my-3">
+        <figure className="flex flex-col-reverse bg-white hover:bg-blue-100 rounded-xl shadow-xl my-2 mx-2 p-6 max-w-[98%]  w-[98%] lg:max-w-[98%]  dark:bg-slate-800 dark:highlight-white/5">
+          <div className="mt-2 text-slate-700 dark:text-slate-300  ">
+            <div className="text-gray-700 text-base flex ">
+              <FaLocationDot size={20} />
+              <span className="font-bold">From:</span>
+              <span>{props.to}</span>
             </div>
-          </div>
-          <div className=" rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-            <div className="flex">
-              <div className="md:w-[500px] w-[full]">
-                <div className="text-gray-700 text-base flex ">
-                  <FaLocationDot size={20}/>
-                  <span className="font-bold">From:</span>
-                  <span>{props.from}</span>
-                </div>
-                <div className="text-gray-700 text-base my-2 flex">
-                  <FaLocationDot size={20} />
-                  <span className="font-bold">To:</span>
-                  <span>{props.to}</span>
-                </div>
-                <div className="text-gray-700 text-base my-2 flex items-center">
-                  <FaCalendarDays />
-                  <span className="mx-1">{props.ridedate}</span>
-                </div>
-                <div className="text-gray-700 text-base my-2 flex items-center">
-                  <FaUsers />
-                  <span className="mx-1">{props.availableseats}</span>
-                </div>
-                <div className="text-gray-700 text-base my-2 flex items-center">
-                <GrStatusInfo />
-                  <span className="mx-1 font-bold">{props.status}</span>
-                </div>
-                
-                <button className="btn-primary w-[95%] text-sm mx-auto">Book</button>
-              </div>
-              <p className="text-3xl font-bold text-gray-600 flex items-start">
-                <FaRupeeSign size={32}/>
-                {props.price}
-              </p>
+            <div className="text-gray-700 text-base my-2 flex">
+              <FaLocationDot size={20} />
+              <span className="font-bold">To:</span>
+              <span>{props.from}</span>
             </div>
-            
+            <div className="text-gray-700 text-base my-2 flex items-center">
+              <FaCalendarDays />
+              <span className="mx-1">
+                {props.ridedate},{props.ridetime}
+              </span>
+            </div>
+            <div className="text-gray-700 text-base my-2 flex items-center">
+              <FaUsers />
+              <span className="mx-1">{props.availableseats}</span>
+            </div>
+            <div className="text-gray-700 text-base my-2 flex items-center">
+              <GrStatusInfo />
+              <span className="mx-1 font-bold">{props.status}</span>
+            </div>
+
+            <button className="btn-primary w-[95%] text-sm mx-auto">
+              Book
+            </button>
           </div>
-        </div>
+          <figcaption className="flex items-center space-x-4">
+            <img
+              src={props.driverprofile}
+              alt=""
+              className="flex-none w-14 h-14 rounded-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="flex-auto justify-between items-center">
+              <div className="text-base text-slate-900 font-semibold dark:text-slate-200">
+                {props.drivername}
+              </div>
+              {/* <div className="mt-0.5 dark:text-slate-300">
+                Web Developer
+            </div> */}
+            </div>
+            <div className="text-gray-700 text-base flex ">
+              <FaRupeeSign size={25} />
+              <span className="text-xl"> {props.price}</span>
+            </div>
+          </figcaption>
+        </figure>
       </div>
     </>
   );

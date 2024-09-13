@@ -104,3 +104,7 @@
     color: black!important;
 
 }
+.rdt_TableCol div:first-child {
+  white-space: normal !important;
+  overflow: visible !important;
+}

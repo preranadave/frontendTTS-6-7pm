@@ -20,6 +20,7 @@ import LocationManagement from './Components/Admin/MainContent/Ride/LocationMana
 import RidesManagement from './Components/Admin/MainContent/Ride/RidesManagement.jsx'
 import DeleteRide from './Components/Admin/MainContent/Ride/DeleteRide.jsx'
 import DeleteDriver from './Components/Admin/MainContent/DriverManagement/DeleteDriver.jsx'
+import UserRides from './Components/User/Ride/UserRides.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
    <BrowserRouter>
@@ -35,6 +36,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/crate-driver-account"  element={<CreateDriverAccount></CreateDriverAccount>}></Route>
       <Route path="/crate-ride"  element={<CreateRide></CreateRide>}></Route>
       <Route path="/view-rides"  element={<ViewRides></ViewRides>}></Route>
+      <Route path="/user-rides"  element={<UserRides></UserRides>}></Route>
     
       {/* Admin Routing */}
       <Route path='/admin' element={<AdminLayout/>}>
