@@ -6,7 +6,9 @@ import { FaRupeeSign } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 import { GrStatusInfo } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 function RideCards(props) {
+  const Navigate=useNavigate();
   return (
     <>
       <div className="text-sm leading-6  my-3">
@@ -37,7 +39,7 @@ function RideCards(props) {
               <span className="mx-1 font-bold">{props.status}</span>
             </div>
 
-            <button className="btn-primary w-[95%] text-sm mx-auto">
+            <button onClick={(()=>Navigate(`/book-ride/${props.id}`))} className="btn-primary w-[95%] text-sm mx-auto">
               Book
             </button>
           </div>

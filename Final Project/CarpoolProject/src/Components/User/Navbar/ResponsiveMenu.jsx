@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaCaretRight } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import SignUp from "../SignUp";
@@ -7,6 +7,8 @@ const ResponsiveMenu = ({ showMenu }) => {
   const [SignUpModalShow, setSignUpModalShow] = useState(false);
 
   const [showSubMenu, setShowSubMenu] = useState(false);
+  const Navigate=useNavigate();
+
   const toggleSubMenu = () => {
     setShowSubMenu(!showSubMenu);
   };
@@ -52,14 +54,14 @@ const ResponsiveMenu = ({ showMenu }) => {
                       <ul className="flex-col w-full text-lg space-y-1 p-2 text-center text-black rounded-md">
                         <li
                           className="p-2 rounded-lg duration-700 hover:bg-white px-5"
-                          onClick={toggleSignUp}
+                          onClick={() => Navigate("/signup")}
                         >
                           Sign-Up
                         </li>
 
-                        <li className="p-2 hover:bg-white px-5 rounded-lg duration-700 ease-in-out transition-all">
+                        <li className="p-2 hover:bg-white px-5 rounded-lg duration-700 ease-in-out transition-all" onClick={() => Navigate("/login")}>
                           {" "}
-                          <Link to={"/login"}>Log-In</Link>
+                          Log-In
                         </li>
 
                         <li className="p-2 px-5 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
@@ -76,6 +78,10 @@ const ResponsiveMenu = ({ showMenu }) => {
               <li className="flex justify-center hover:bg-white">
                 <Link to={"/"}>Home</Link>
               </li>
+              <li className="flex justify-center hover:bg-white">
+                  {" "}
+                  <Link to="/view-rides">Search Ride</Link>
+                </li>
               <li className="flex justify-center hover:bg-white">
                 <Link to={"/"}>Why CarPool?</Link>
               </li>
@@ -121,10 +127,10 @@ const ResponsiveMenu = ({ showMenu }) => {
           <p>@2024 </p>
         </div>
       </div>
-      <SignUp
+      {/* <SignUp
         isOpen={SignUpModalShow}
         onHide={() => setSignUpModalShow(false)}
-      />  
+      />   */}
     </>
   );
 };

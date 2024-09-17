@@ -25,7 +25,7 @@ function SignUp(props) {
   const [UserImage, setUserImage] = useState(Image);
   const [Message, SetMessage] = useState(false);
 
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   //form input object destructuring
   const UserName = useRef("");
@@ -55,8 +55,8 @@ function SignUp(props) {
       if (Message == false) {
         setTimeout(() => {
           SetMessage(false);
-
-          props.onHide();
+          Navigate("/login");
+          //props.onHide();
         }, 3000);
       }
       e.target.reset();
@@ -64,15 +64,16 @@ function SignUp(props) {
   };
   return (
     <>
-      <div
+      <div>
+        {/* <div
         {...props}
         className={`absolute backdrop-blur-lg pt-24${
           props.isOpen
             ? "top-0 opacity-100 z-[1030] duration-700"
             : "-top-[100%] opacity-0 -z-[1030] duration-700"
         } transition-all duration-700`}
-      >
-        <div className=" mt-2 md:w-[70%] w-[95%] flex items-center  bg-white md:mx-56 mx-auto rounded-2xl ">
+      > */}
+        <div className=" mt-12   md:w-[70%] w-[95%] flex items-center  bg-white md:mx-56 mx-auto rounded-2xl ">
           <div className="min-h-[600px] md:min-h-[200px] rounded">
             <div className="w-full">
               <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-5">
@@ -95,19 +96,19 @@ function SignUp(props) {
                   {/* absolute -translate-y-6 w-[30%] mx-5 */}
 
                   <div
-                    className={`px-5 w-[80%] mx-auto text-center bg-yellow-100 border border-primary text-adminprimary rounded-md p-1 ${
+                    className={`px-5 w-[80%] mx-auto text-center bg-yellow-100 border border-primary text-adminprimary rounded-md p-2 my-2 ${
                       Message ? "opacity-100" : "opacity-0"
                     } duration-700 transition-all`}
                   >
                     <div className="">You Are Registerd Successfully!</div>
                   </div>
 
-                  <IoIosCloseCircleOutline
+                  {/* <IoIosCloseCircleOutline
                     size={30}
                     className="cursor-pointer md:-translate-y-[30px] -translate-y-[300px] translate-x-[630px] md:translate-x-[490px] "
                     onClick={props.onHide}
-                  />
-                  <div className="w-[90%] md:w-[full] md:mx-4 mx-auto p-4 bg-white/60 mb-10 md:mt-10  text-black rounded-2xl shadow-2xl">
+                  /> */}
+                  <div className="w-[90%] md:w-[full] md:mx-4 mx-auto p-4 bg-white/60 mb-10 md:mt-5  text-black rounded-2xl shadow-2xl">
                     <div>
                       <h1 className="text-4xl text-center font-semibold mb-5 text-adminprimary">
                         Sign Up
@@ -121,7 +122,7 @@ function SignUp(props) {
                           >
                             <img
                               src={UserImage}
-                              className="w-20 rounded-full mx-auto my-2"
+                              className="w-20 h-20 rounded-full mx-auto my-2"
                             ></img>
                             <input
                               id="profileimage"
@@ -168,12 +169,12 @@ function SignUp(props) {
                           <div className="text-center">
                             <span className="">
                               Already Have Account?
-                              <Link
-                                to="/login"
-                                className="text-xl ms-2 text-primary"
+                              <span
+                                className="text-xl ms-2 text-primary cursor-pointer"
+                                onClick={() => Navigate("/login")}
                               >
                                 Log-In
-                              </Link>
+                              </span>
                             </span>
                           </div>
                         </div>

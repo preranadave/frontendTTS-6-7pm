@@ -104,7 +104,7 @@ function CreateRide() {
                   {" "}
                   <h1 className="text-3xl lg:text-7xl mx-auto font-bold text-adminprimary">
                     Drive. Share. Save.
-                  </h1> 
+                  </h1>
                 </div>
                 <div>
                   <img
@@ -131,7 +131,30 @@ function CreateRide() {
                     <form action="" onSubmit={CreateRide}>
                       <div className="space-y-6">
                         <div>
-                          <input
+                          <select
+                            name="origin"
+                            id="origin"
+                            className="py-2 px-4  rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
+                          >
+                            {LocationData &&
+                              LocationData.map((item) => {
+                                return (
+                                  <>
+                                    <option
+                                      ref={Origin}
+                                      value={originvalue}
+                                      className="absolute border-none md:w-[445px] flex w-[330px] md:h-[350px] h-[330px] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2"
+                                      
+                                    >
+                                      <span >{item.Address},</span>
+
+                                      <span>{item.City}</span>
+                                    </option>
+                                  </>
+                                );
+                              })}
+                          </select>
+                          {/* <input
                             type="text"
                             name="origin"
                             id="origin"
@@ -174,10 +197,32 @@ function CreateRide() {
                                   );
                                 })}
                             </ul>
-                          </div>
+                          </div> */}
                         </div>
                         <div>
-                          <input
+                          <select
+                            name="Destination"
+                            id="Destination"
+                            className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
+                          >
+                            {LocationData &&
+                              LocationData.map((item) => {
+                                return (
+                                  <>
+                                    <option
+                                      ref={Destination}
+                                      value={destinationvalue}
+                                      className="absolute md:w-[445px] flex w-[330px] md:h-[350px] h-[330px] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2"
+                                    >
+                                      <span>{item.Address},</span>
+
+                                      <span>{item.City}</span>
+                                    </option>
+                                  </>
+                                );
+                              })}
+                          </select>
+                          {/* <input
                             type="text"
                             name="Destination"
                             id="Destination"
@@ -220,7 +265,7 @@ function CreateRide() {
                                   );
                                 })}
                             </ul>
-                          </div>
+                          </div> */}
                         </div>
                         <DatePicker
                           showTimeSelect
@@ -231,7 +276,7 @@ function CreateRide() {
                             SetSelectedDate(date);
                           }}
                           minDate={new Date()}
-                          className="form-control form-control-solid w-250px px-4 rounded-lg md:w-[542px] w-[430px] bg-black/10 outline-none"
+                          className="form-control form-control-solid px-4 rounded-lg  md:w-[542px] sm:w-[240px] lg:w-[642px]] w-[240px] bg-black/10 outline-none"
                         ></DatePicker>
                         <div className="flex space-x-2">
                           <input

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 import { FaCaretRight } from "react-icons/fa";
 import Logo from "../../../assets/images/carpool.png";
@@ -13,7 +13,8 @@ import Modal from "react-modal";
 function Navbar() {
   //destrcutring of menu variable
   const [MobileShowMenu, setMobileShowMenu] = useState(false);
-  const [SignUpModalShow, setSignUpModalShow] = useState(false);
+ // const [SignUpModalShow, setSignUpModalShow] = useState(false);
+  const Navigate=useNavigate();
 
   //function to show menu
   const ToggleMenu = () => {
@@ -80,31 +81,33 @@ function Navbar() {
             </div>
             <div>
               <div className="group cursor-pointer ">
-                <span className=" hidden md:flex items-center gap-[2px]">
+                <span className="hidden md:flex items-center gap-[2px]">
                   <FaUserCircle size={40} />
                   <span>
                     <FaCaretRight className="group-hover:rotate-90 transition-all ease-in-out duration-300" />
                   </span>
                 </span>
-                <div className="hidden md:absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-1000 z-50">
-                  <ul className="w-28 text-[14px] space-y-1 bg-primary -translate-x-10 p-2 shadow-md text-black rounded-md group-hover:-translate-y-2 mt-3 translate-y-3 duration-700  transition-all ease-in-out">
-                    <li
-                      className="p-2 hover:bg-white rounded-lg duration-700"
-                      onClick={() => setSignUpModalShow(true)}
-                    >
-                      Sign-Up
-                    </li>
+                <div className="hidden md:flex lg:flex">
+                  <div className="md:absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-1000 z-50">
+                    <ul className="w-28 text-[14px] space-y-1 bg-primary -translate-x-10 p-2 shadow-md text-black rounded-md group-hover:-translate-y-2 mt-3 translate-y-3 duration-700  transition-all ease-in-out">
+                      <li
+                        className="p-2 hover:bg-white rounded-lg duration-700"
+                        onClick={() => Navigate("/signup")}
+                      >
+                        Sign-Up
+                      </li>
 
-                    <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
-                      {" "}
-                      <Link to={"/login"}>Log-In</Link>
-                    </li>
-                    
-                    <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
-                      {" "}
-                      <Link to={"/user-rides"}>Your Rides</Link>
-                    </li>
-                  </ul>
+                      <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all"  onClick={() => Navigate("/login")}>
+                        {" "}
+                       Log-In
+                      </li>
+
+                      <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
+                        {" "}
+                        <Link to={"/user-rides"}>Your Rides</Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -129,10 +132,10 @@ function Navbar() {
       </nav>
       {/* mobile menu components */}
       <ResponsiveMenu showMenu={MobileShowMenu} />
-      <SignUp
+      {/* <SignUp
         isOpen={SignUpModalShow}
         onHide={() => setSignUpModalShow(false)}
-      />
+      /> */}
     </>
   );
 }

@@ -13,7 +13,11 @@
         @apply rounded-md p-2 bg-adminprimary outline-none border-none text-white font-bold
     }
 }
-
+.body
+{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
  .react-datepicker {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.189);
     border: none !important;
