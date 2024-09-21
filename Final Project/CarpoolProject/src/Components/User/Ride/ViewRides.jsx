@@ -30,35 +30,26 @@ function ViewRides() {
   }, [RideDetails]);
   const [filteredRides, setFilteredRides] = useState(RideDetails);
 
-  const handleSearch = (
-    fromloaction,
-    tolocation,
-    date,
-
-    Seats
-  ) => {
-    
-    console.log(Seats);
-    
+  const handleSearch = (fromloaction, tolocation, date, time, Seats) => {
+ 
     const results = RideDetails.filter((ride) => {
       const matchesOrigin = ride.Origin.toLowerCase().includes(
         fromloaction.toLowerCase()
       );
-      
+
       const matchesDestination = ride.Destination.toLowerCase().includes(
         tolocation.toLowerCase()
       );
-      
+
       const matchesDate = date ? ride.RideDate === date : true; // If no date is provided, match all
 
-      //const matchesTIme =  time ? ride.RideTime === time : true; // If no date is provided, match all
+      const matchesTIme =  time ? ride.RideTime === time : true; // If no date is provided, match all
       const matchesSeats = ride.AvailableSeats === Seats; // If no date is provided, match all
 
-      return matchesOrigin && matchesDestination && matchesDate && matchesSeats;
+      return matchesOrigin && matchesDestination && matchesDate && matchesTIme && matchesSeats;
     });
     setFilteredRides(results);
-    console.log(RideDetails);
-  };
+     };
 
   return (
     <>

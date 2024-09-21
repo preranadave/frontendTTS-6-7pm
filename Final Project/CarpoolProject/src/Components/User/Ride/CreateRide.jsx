@@ -12,6 +12,7 @@ function CreateRide() {
   const Origin = useRef();
   const Destination = useRef();
   const [SelectedDate, SetSelectedDate] = useState(new Date());
+  const [time, setTime] = useState('');
   const AvailableSeats = useRef();
   const Price = useRef();
   const UserID = "2a8c";
@@ -45,11 +46,14 @@ function CreateRide() {
   //send form data to api
   const CreateRide = (e) => {
     e.preventDefault();
+    const hours = SelectedDate.getHours();
+    const minutes = SelectedDate.getMinutes();
+    setTime(`${hours}:${minutes}`);
     var RideDetails = {
       Origin: Origin.current.value,
       Destination: Destination.current.value,
       RideDate: SelectedDate.toLocaleDateString(),
-      RideTime: SelectedDate.toLocaleTimeString(),
+      RideTime: `${hours}:${minutes}`,
       AvailableSeats: AvailableSeats.current.value,
       Price: Price.current.value,
       Status: "Available",

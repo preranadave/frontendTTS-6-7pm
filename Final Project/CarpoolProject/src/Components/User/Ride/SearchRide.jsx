@@ -40,7 +40,9 @@ function SearchRide({ onSearch }) {
   const handleSearch = (e) => {
     e.preventDefault();
     let date = SelectedDate.toLocaleDateString();
-   // let time = SelectedDate.getH();
+    const hours = SelectedDate.getHours();
+    const minutes = SelectedDate.getMinutes();
+    let time=`${hours}:${minutes}`;
     let fromloaction=Origin.current.value;
     let tolocation= Destination.current.value;
     let Seats=AvailableSeats.current.value
@@ -48,6 +50,7 @@ function SearchRide({ onSearch }) {
       fromloaction,
       tolocation,
       date,
+      time,
       Seats
     );
   };
@@ -111,9 +114,9 @@ function SearchRide({ onSearch }) {
               </div>
               <div className="flex space-x-2">
                 <DatePicker
-                 
+                  showTimeSelect
                   showIcon
-                  dateFormat="dd/MM/yyyy"
+                  dateFormat="dd/MM/yyyy h:mm aa"
                   selected={SelectedDate}
                   onChange={(date) => {
                     SetSelectedDate(date);
