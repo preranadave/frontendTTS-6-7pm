@@ -21,16 +21,11 @@ function CreateRide() {
   //declaration
 
   const [Message, SetMessage] = useState(false);
-  //date variables
-  const today = new Date().toISOString().split("T")[0];
-  const RideDate = useRef();
+
   //price variables
 
   const [pricevalue, setPricevalue] = useState();
   //location variables
-  const [ShowOriginList, setOriginList] = useState(false);
-
-  const [ShowDestinationList, setShowDestinationList] = useState(false);
 
   const [LocationData, SetLocationData] = useState();
 
@@ -43,22 +38,6 @@ function CreateRide() {
       SetLocationData(response.data);
     });
   });
-  const SetOrigin = (e) => {
-    Origin.current.value = e.id;
-    setOriginvalue(e.City + "," + e.Address);
-    console.log(Origin.current.value);
-  };
-  const SetDestination = (e) => {
-    Destination.current.value = e.id;
-    setDestinationnvalue(e.City + "," + e.Address);
-    console.log(Origin.current.value);
-  };
-  // const PrintDate=()=>{
-  //   console.log(SelectedDate.toLocaleDateString())
-
-  //   console.log(SelectedDate.toLocaleTimeString())
-
-  // }
   const handlePriceChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
     setPricevalue(value);
@@ -86,7 +65,7 @@ function CreateRide() {
         }, 3000);
       }
       e.target.reset();
-      Origin.current.value.reset, setDestinationnvalue("");
+      Origin.current.value.reset, Destination.current.value.reset;
       SetSelectedDate(new Date()), setPricevalue("");
     });
   };
@@ -134,6 +113,7 @@ function CreateRide() {
                           <select
                             name="origin"
                             id="origin"
+                            ref={Origin}
                             className="py-2 px-4  rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
                           >
                             {LocationData &&
@@ -141,12 +121,10 @@ function CreateRide() {
                                 return (
                                   <>
                                     <option
-                                      ref={Origin}
                                       value={originvalue}
                                       className="absolute border-none md:w-[445px] flex w-[330px] md:h-[350px] h-[330px] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2"
-                                      
                                     >
-                                      <span >{item.Address},</span>
+                                      <span>{item.Address},</span>
 
                                       <span>{item.City}</span>
                                     </option>
@@ -154,57 +132,12 @@ function CreateRide() {
                                 );
                               })}
                           </select>
-                          {/* <input
-                            type="text"
-                            name="origin"
-                            id="origin"
-                            className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
-                            placeholder="Origin"
-                            ref={Origin}
-                            value={originvalue}
-                            onFocus={() => {
-                              setOriginList(true);
-                            }}
-                            onBlur={() => {
-                              setOriginList(false);
-                            }}
-                          />
-                          <div
-                            className={`absolute md:w-[545px] w-[435px] md:h-[350px] h-[330px] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2 ${
-                              ShowOriginList
-                                ? "opacity-100 z-[1040] duration-1000"
-                                : "opacity-0 duration-1000 -z-[1040]"
-                            } transition-all duration-1000`}
-                          >
-                            <ul className="">
-                              {LocationData &&
-                                LocationData.map((item) => {
-                                  return (
-                                    <>
-                                      <li
-                                        className=" hover:bg-adminprimary/30 duration-700 my-2 p-2 text-black rounded-md flex flex-col cursor-pointer"
-                                        onClick={() => {
-                                          
-                                          
-                                          (item);
-                                        }}
-                                      >
-                                        <span className="font-bold">
-                                          {item.City}
-                                        </span>
-
-                                        <span>{item.Address}</span>
-                                      </li>
-                                    </>
-                                  );
-                                })}
-                            </ul>
-                          </div> */}
                         </div>
                         <div>
                           <select
                             name="Destination"
                             id="Destination"
+                            ref={Destination}
                             className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
                           >
                             {LocationData &&
@@ -212,7 +145,6 @@ function CreateRide() {
                                 return (
                                   <>
                                     <option
-                                      ref={Destination}
                                       value={destinationvalue}
                                       className="absolute md:w-[445px] flex w-[330px] md:h-[350px] h-[330px] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2"
                                     >
@@ -224,50 +156,6 @@ function CreateRide() {
                                 );
                               })}
                           </select>
-                          {/* <input
-                            type="text"
-                            name="Destination"
-                            id="Destination"
-                            className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
-                            placeholder="Destination"
-                            ref={Destination}
-                            value={destinationvalue}
-                            onFocus={() => {
-                              setShowDestinationList(true);
-                            }}
-                            onBlur={() => {
-                              setShowDestinationList(false);
-                            }}
-                          />
-                          <div
-                            className={`absolute md:w-[545px] w-[435px] md:h-[350px] h-[330px] shadow-2xl rounded-md  overflow-y-scroll scroll-smooth bg-yellow-100  p-2 ${
-                              ShowDestinationList
-                                ? "opacity-100 z-[1040] duration-700"
-                                : "opacity-0 duration-700 -z-[1040]"
-                            } transition-all duration-700`}
-                          >
-                            <ul className="">
-                              {LocationData &&
-                                LocationData.map((item) => {
-                                  return (
-                                    <>
-                                      <li
-                                        className=" hover:bg-adminprimary/30 duration-700 my-2 p-2 text-black rounded-md flex flex-col cursor-pointer"
-                                        onClick={() => {
-                                          SetDestination(item);
-                                        }}
-                                      >
-                                        <span className="font-bold">
-                                          {item.City}
-                                        </span>
-
-                                        <span>{item.Address}</span>
-                                      </li>
-                                    </>
-                                  );
-                                })}
-                            </ul>
-                          </div> */}
                         </div>
                         <DatePicker
                           showTimeSelect

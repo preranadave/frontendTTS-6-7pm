@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import SearchRide from "./SearchRide";
 import RideCards from "./RideCards";
+import SearchedRideList from "./SearchedRideList";
 
 //images
 
@@ -27,6 +28,37 @@ function ViewRides() {
   useEffect(() => {
     GetRides();
   }, [RideDetails]);
+  const [filteredRides, setFilteredRides] = useState(RideDetails);
+
+  const handleSearch = (
+    fromloaction,
+    tolocation,
+    date,
+
+    Seats
+  ) => {
+    
+    console.log(Seats);
+    
+    const results = RideDetails.filter((ride) => {
+      const matchesOrigin = ride.Origin.toLowerCase().includes(
+        fromloaction.toLowerCase()
+      );
+      
+      const matchesDestination = ride.Destination.toLowerCase().includes(
+        tolocation.toLowerCase()
+      );
+      
+      const matchesDate = date ? ride.RideDate === date : true; // If no date is provided, match all
+
+      //const matchesTIme =  time ? ride.RideTime === time : true; // If no date is provided, match all
+      const matchesSeats = ride.AvailableSeats === Seats; // If no date is provided, match all
+
+      return matchesOrigin && matchesDestination && matchesDate && matchesSeats;
+    });
+    setFilteredRides(results);
+    console.log(RideDetails);
+  };
 
   return (
     <>
@@ -36,7 +68,7 @@ function ViewRides() {
           <div className="grid grid-cols-1 lg:grid-cols-2  text-white">
             {/* Search Ride form */}
             <div className="h-[400px] md:h-full rounded-tl-[16px] rounded-tr-[16px] md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px] text-center  lg:text-left lg:max-w-[66%]">
-              <SearchRide />
+              <SearchRide onSearch={handleSearch} />
             </div>
 
             <div className="md:h-[660px] md:max-w-[98%] lg:w-[98%] w-[98%] overflow-y-auto scroll-smooth">
@@ -47,24 +79,7 @@ function ViewRides() {
               </div>
               ))} */}
               {/* List of rides */}
-              <div className="">
-                {RideDetails &&
-                  RideDetails.map((ride) => (
-                    <RideCards
-                      key={ride.id}
-                      from={ride.Origin}
-                      to={ride.Destination}
-                      ridedate={ride.RideDate}
-                      ridetime={ride.RideTime}
-                      availableseats={ride.AvailableSeats}
-                      price={ride.Price}
-                      status={ride.Status}
-                      driverprofile={ride.DriverProfile}
-                      drivername={ride.DriverName}
-                      id={ride.id}
-                    />
-                  ))}
-              </div>
+              <SearchedRideList rides={filteredRides}></SearchedRideList>
             </div>
           </div>
         </div>

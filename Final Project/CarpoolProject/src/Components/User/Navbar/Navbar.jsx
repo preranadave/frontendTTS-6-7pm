@@ -23,18 +23,18 @@ function Navbar() {
   const Navigate = useNavigate();
   
   // function to get loggedin user details from api
-  const GetUsers = async () => {
-    try {
-      const response = await axios.get(`http://localhost:8000/Users`);
-      setUserData(response.data.filter((e) => e.UID == user.uid));
-      console.log(UserData[0].ProfileImage)
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    GetUsers();
-  }, []);
+  // const GetUsers = async () => {
+  //   try {
+  //     const response = await axios.get(`http://localhost:8000/Users`);
+  //     setUserData(response.data.filter((e) => e.UID == user.uid));
+  //     console.log(UserData[0].ProfileImage)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   GetUsers();
+  // }, []);
 
   //function to show menu
   const ToggleMenu = () => {
