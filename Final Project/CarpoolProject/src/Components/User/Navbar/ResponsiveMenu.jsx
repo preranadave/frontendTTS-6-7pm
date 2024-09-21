@@ -1,21 +1,32 @@
 import React, { useState } from "react";
+
+import { useUserAuth } from "../../../Context/UserAuthContext";
 import { Link, useNavigate } from "react-router-dom";
+//icons
 import { FaCaretRight } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
+//componets
 import SignUp from "../SignUp";
 const ResponsiveMenu = ({ showMenu }) => {
   const [SignUpModalShow, setSignUpModalShow] = useState(false);
 
   const [showSubMenu, setShowSubMenu] = useState(false);
-  const Navigate=useNavigate();
+  const Navigate = useNavigate();
+  const { logOut, user } = useUserAuth();
 
   const toggleSubMenu = () => {
     setShowSubMenu(!showSubMenu);
   };
   const toggleSignUp = () => {
-
     setSignUpModalShow(true);
-    
+  };
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      Navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <>
@@ -52,16 +63,19 @@ const ResponsiveMenu = ({ showMenu }) => {
                   <div>
                     {showSubMenu ? (
                       <ul className="flex-col w-full text-lg space-y-1 p-2 text-center text-black rounded-md">
-                        <li
+                        {/* <li
                           className="p-2 rounded-lg duration-700 hover:bg-white px-5"
                           onClick={() => Navigate("/signup")}
                         >
                           Sign-Up
-                        </li>
+                        </li> */}
 
-                        <li className="p-2 hover:bg-white px-5 rounded-lg duration-700 ease-in-out transition-all" onClick={() => Navigate("/login")}>
+                        <li
+                          className="p-2 hover:bg-white px-5 rounded-lg duration-700 ease-in-out transition-all"
+                          onClick={handleLogout}
+                        >
                           {" "}
-                          Log-In
+                          Log-Out
                         </li>
 
                         <li className="p-2 px-5 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
@@ -79,9 +93,9 @@ const ResponsiveMenu = ({ showMenu }) => {
                 <Link to={"/"}>Home</Link>
               </li>
               <li className="flex justify-center hover:bg-white">
-                  {" "}
-                  <Link to="/view-rides">Search Ride</Link>
-                </li>
+                {" "}
+                <Link to="/view-rides">Search Ride</Link>
+              </li>
               <li className="flex justify-center hover:bg-white">
                 <Link to={"/"}>Why CarPool?</Link>
               </li>

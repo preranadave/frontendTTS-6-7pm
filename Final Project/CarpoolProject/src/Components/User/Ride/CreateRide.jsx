@@ -184,7 +184,9 @@ function CreateRide() {
                                       <li
                                         className=" hover:bg-adminprimary/30 duration-700 my-2 p-2 text-black rounded-md flex flex-col cursor-pointer"
                                         onClick={() => {
-                                          SetOrigin(item);
+                                          
+                                          
+                                          (item);
                                         }}
                                       >
                                         <span className="font-bold">

@@ -1,5 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Modal } from "react-modal";
+import { useUserAuth } from "../../Context/UserAuthContext";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 //import navbar
 import Navbar from "./Navbar/Navbar";
 
@@ -20,12 +24,15 @@ function SignUp(props) {
   //   width: "100%",
   //   position: "relative",
   // };
+  const { signUp } = useUserAuth();
+
+  const [error, setError] = useState("");
 
   const ProfileImage = useRef(null);
   const [UserImage, setUserImage] = useState(Image);
   const [Message, SetMessage] = useState(false);
 
-  const Navigate = useNavigate();
+  let Navigate = useNavigate();
 
   //form input object destructuring
   const UserName = useRef("");
@@ -33,34 +40,58 @@ function SignUp(props) {
   const Password = useRef("");
   const Role = useRef("");
   const IsDriver = useRef("");
-
+  const [userEmail, setUserEmail] = useState();
+  const [userPass, setuserPass] = useState();
   //functions
   const ChangeProfilePic = () => {
     setUserImage(ProfileImage.current.value);
   };
 
   //user Registration
-  const RegisterUser = (event) => {
+  const RegisterUser = async (event) => {
     event.preventDefault();
-    var UserDetails = {
-      UserName: UserName.current.value,
-      Email: Email.current.value,
-      Password: Password.current.value,
-      Role: "user",
-      IsDriver: false,
-      ProfileImage: ProfileImage.current.value,
-    };
-    axios.post(`http://localhost:8000/Users`, UserDetails).then(() => {
-      SetMessage(true);
-      if (Message == false) {
-        setTimeout(() => {
-          SetMessage(false);
-          Navigate("/login");
-          //props.onHide();
-        }, 3000);
-      }
-      e.target.reset();
-    });
+    setError("");
+
+    try {
+      //signup api data
+      const { user } = await signUp(
+        Email.current.value,
+        Password.current.value
+      );
+      //storing data on firestore
+      // await addDoc(collection(db, "users"), {
+      //   UserName: UserName.current.value,
+      //   Email: Email.current.value,
+      //   Password: Password.current.value,
+      //   Role: "user",
+      //   IsDriver: false,
+      //   ProfileImage: ProfileImage.current.value,
+      //   UID: user.uid,
+      // });
+      //data for db.json
+      var UserDetails = {
+        UserName: UserName.current.value,
+        Email: Email.current.value,
+        Password: Password.current.value,
+        Role: "user",
+        IsDriver: false,
+        ProfileImage: ProfileImage.current.value,
+        UID: user.uid,
+      };
+      axios.post(`http://localhost:8000/Users`, UserDetails).then(() => {
+        SetMessage(true);
+        if (Message == false) {
+          setTimeout(() => {
+            SetMessage(false);
+
+            Navigate("/login");
+          }, 2000);
+        }
+        event.target.reset();
+      });
+    } catch (err) {
+      setError(err.message);
+    }
   };
   return (
     <>
@@ -102,7 +133,19 @@ function SignUp(props) {
                   >
                     <div className="">You Are Registerd Successfully!</div>
                   </div>
+                  {error && (
+                    <div className="px-5 w-[80%] mx-auto text-center bg-red-300 border border-red-700 text-black rounded-md p-2 my-2">
+                      {error}
+                    </div>
+                  )}
 
+                  {/* {error && <div
+                    className={`px-5 w-[80%] mx-auto text-center bg-red-400 border border-red-700 text-adminprimary rounded-md p-2 my-2 ${
+                      Message ? "opacity-100" : "opacity-0"
+                    } duration-700 transition-all`}
+                  >
+                    <div className="">{error}</div>
+                  </div>} */}
                   {/* <IoIosCloseCircleOutline
                     size={30}
                     className="cursor-pointer md:-translate-y-[30px] -translate-y-[300px] translate-x-[630px] md:translate-x-[490px] "

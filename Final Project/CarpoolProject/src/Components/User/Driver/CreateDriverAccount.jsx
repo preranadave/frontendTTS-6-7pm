@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { useUserAuth } from "../../../Context/UserAuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 //import Components
@@ -11,34 +12,37 @@ function CreateDriverAccount() {
   //other object destructuring
   const [Message, SetMessage] = useState(false);
   const Navigate = useNavigate();
-
+  const { logOut, user } = useUserAuth();
   //destructuring User Object
-  const [UserData, setUserData] = useState([]);
+  const [UserData, setUserData] = useState();
   //destructuring form objects
   const Drivinglicence = useRef("");
   const BankAccount = useRef("");
-  const UserID = "2a8c";
+  const UserID=useRef() ;
   const IsDriver = useRef("");
   //function
   //add driver details
   const GetUser = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/Users/${UserID}`);
-      setUserData(response.data);
-      console.log(UserData.IsDriver)
+      const response = await axios.get(`http://localhost:8000/Users`);
+      
+      setUserData(response.data.filter((e) => e.UID == user.uid));
+      UserID.current.value=UserData[0].id;
+      
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     GetUser();
-  });
+  },[]);
   const AddDriver = (e) => {
+    console.log(UserID.current.value)
     e.preventDefault();
     var DriverDetails = {
       Drivinglicence: Drivinglicence.current.value,
       BankAccount: BankAccount.current.value,
-      UserID: UserID,
+      UserID: UserID.current.value,
     };
     UserData.IsDriver = true
       axios

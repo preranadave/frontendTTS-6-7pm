@@ -7,8 +7,9 @@ import { Link, useNavigate } from "react-router-dom";
 import SignUpImage from "../../assets/images/sign-up.jpg";
 import Image from "../../assets/images/user.png";
 import axios from "axios";
-
 import { IoIosCloseCircleOutline } from "react-icons/io";
+
+import { useUserAuth } from "../../Context/UserAuthContext";
 function LogIn() {
   const [Message, SetMessage] = useState(false);
 
@@ -16,17 +17,28 @@ function LogIn() {
   const Password = useRef("");
 
   const Navigate = useNavigate();
+  const { logIn } = useUserAuth();
+  const [error, setError] = useState("");
 
-  const LoginUser = (event) => {
+
+  const LoginUser = async (event) => {
     event.preventDefault();
+    setError("");
     SetMessage(true);
-    if (Message == false) {
-      setTimeout(() => {
-        SetMessage(false);
+    setError("");
+    try {
+      await logIn(Email.current.value, Password.current.value);
+      if (Message == false) {
+        setTimeout(() => {
+          SetMessage(false);
 
-        Navigate("/");
-        //props.onHide();
-      }, 3000);
+          Navigate("/home");
+        
+          //props.onHide();
+        }, 3000);
+      }
+    } catch (err) {
+      setError(err.message);
     }
   };
   return (
@@ -69,7 +81,15 @@ function LogIn() {
                   >
                     <div className="">You Are Logged In Successfully!</div>
                   </div>
-
+                  {error && (
+                    <div
+                      className={`px-5 w-[80%] mx-auto text-center bg-red-400 border border-red-700 text-adminprimary rounded-md p-2 my-2 ${
+                        Message ? "opacity-100" : "opacity-0"
+                      } duration-700 transition-all`}
+                    >
+                      <div className="">{error}</div>
+                    </div>
+                  )}
                   {/* <IoIosCloseCircleOutline
                     size={30}
                     className="cursor-pointer md:-translate-y-[30px] -translate-y-[300px] translate-x-[630px] md:translate-x-[490px] "
@@ -108,12 +128,12 @@ function LogIn() {
                           </div>
                           <div className="text-center">
                             <span className="">
-                              Already Have Account?
+                              Don't Have Account?
                               <span
                                 className="text-xl ms-2 text-primary cursor-pointer"
-                                onClick={() => Navigate("/login")}
+                                onClick={() => Navigate("/signup")}
                               >
-                                Log-In
+                                Sign-Up
                               </span>
                             </span>
                           </div>
