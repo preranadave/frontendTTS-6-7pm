@@ -10,7 +10,7 @@ import Navbar from "../Navbar/Navbar";
 import RideBg from "../../../assets/images/ride-bg.png";
 import axios from "axios";
 import ViewRides from "./ViewRides";
-function SearchRide({ onSearch, searchFormData }) {
+function SearchRide({ onSearch }) {
   //declarations
   const Origin = useRef();
   const Destination = useRef();
@@ -47,22 +47,24 @@ function SearchRide({ onSearch, searchFormData }) {
   useEffect(() => {
     //to get from local storage
     //setStoredData( localStorage.getItem("SearchData"));
-    if(localStorage.length==4)
-    {
+    if (localStorage.length == 4) {
       setStoredOrigin(localStorage.getItem("Origin"));
       setStoredDestination(localStorage.getItem("Destination"));
       setStoredSelectedDate(localStorage.getItem("SelectedDate"));
-      let storedate=localStorage.getItem("SelectedDate")
       setStoredAvailableSeats(localStorage.getItem("AvailableSeats"));
       setOriginvalue(StoredOrigin ? StoredOrigin : "");
       setDestinationnvalue(
         (Destination.current.value = StoredDestination ? StoredDestination : "")
       );
       steavailableSeatsvalue(StoredAvailableSeats ? StoredAvailableSeats : "");
-      console.log(storedate);
+
+      let date = StoredSelectedDate
+        ? StoredSelectedDate.toLocaleDateString
+        : SelectedDate.toLocaleDateString;
+      onSearch(StoredOrigin, StoredDestination, date, StoredAvailableSeats);
+
+      //history("/view-rides");
     }
-   
-  
   }, []);
 
   const handleoriginChange = (event) => {
@@ -75,8 +77,8 @@ function SearchRide({ onSearch, searchFormData }) {
     steavailableSeatsvalue(event.target.value);
   };
   const handleDateChange = (date) => {
-    SetSelectedDate(date)
-    setStoredSelectedDate(date)
+    SetSelectedDate(date);
+    setStoredSelectedDate(date);
   };
 
   const handleSearch = (e) => {
@@ -84,10 +86,12 @@ function SearchRide({ onSearch, searchFormData }) {
     localStorage.setItem("Origin", Origin.current.value);
     localStorage.setItem("Destination", Destination.current.value);
     localStorage.setItem("SelectedDate", new Date(SelectedDate));
-    alert(localStorage.getItem("SelectedDate"))
+    // alert(localStorage.getItem("SelectedDate"))
     localStorage.setItem("AvailableSeats", AvailableSeats.current.value);
     //data to setting to pass it for filtering rides
-    let date = StoredSelectedDate?StoredSelectedDate.toLocaleDateString: SelectedDate.toLocaleDateString;
+    let date = StoredSelectedDate
+      ? StoredSelectedDate.toLocaleDateString
+      : SelectedDate.toLocaleDateString;
     // const hours = SelectedDate.getHours();
     // const minutes = SelectedDate.getMinutes();
     // let time = `${hours}:${minutes}`;
@@ -97,20 +101,20 @@ function SearchRide({ onSearch, searchFormData }) {
     //to filter rides
     onSearch(fromloaction, tolocation, date, Seats);
     //storing data
-   
+
     history("/view-rides");
   };
 
   useEffect(() => {
     // Function to clear local storage
     const clearLocalStorage = () => {
-      localStorage.removeItem("Origin"); 
-      
-      localStorage.removeItem("Destination"); 
-      
-      localStorage.removeItem("SelectedDate"); 
-      
-      localStorage.removeItem("AvailableSeats"); 
+      localStorage.removeItem("Origin");
+
+      localStorage.removeItem("Destination");
+
+      localStorage.removeItem("SelectedDate");
+
+      localStorage.removeItem("AvailableSeats");
     };
 
     // Set up the beforeunload event listener
@@ -135,7 +139,7 @@ function SearchRide({ onSearch, searchFormData }) {
                   name="origin"
                   id="origin"
                   ref={Origin}
-                  value={StoredOrigin? StoredOrigin : originvalue}
+                  value={StoredOrigin ? StoredOrigin : originvalue}
                   onChange={handleoriginChange}
                   className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
                 >
@@ -158,7 +162,9 @@ function SearchRide({ onSearch, searchFormData }) {
                   name="Destination"
                   id="Destination"
                   ref={Destination}
-                  value={StoredDestination?StoredDestination:destinationvalue}
+                  value={
+                    StoredDestination ? StoredDestination : destinationvalue
+                  }
                   onChange={handleDestinationChange}
                   className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
                 >
@@ -180,7 +186,9 @@ function SearchRide({ onSearch, searchFormData }) {
                 <DatePicker
                   showIcon
                   dateFormat="dd/MM/yyyy"
-                  selected={StoredSelectedDate?StoredSelectedDate:SelectedDate}
+                  selected={
+                    StoredSelectedDate ? StoredSelectedDate : SelectedDate
+                  }
                   onChange={(date) => {
                     handleDateChange(date);
                   }}
@@ -194,7 +202,11 @@ function SearchRide({ onSearch, searchFormData }) {
                     name="availableSeats"
                     id="availableSeats"
                     ref={AvailableSeats}
-                    value={StoredAvailableSeats?StoredAvailableSeats:availableSeatsvalue}
+                    value={
+                      StoredAvailableSeats
+                        ? StoredAvailableSeats
+                        : availableSeatsvalue
+                    }
                     onChange={handleSeatChange}
                     className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
                     placeholder="Available Seats"

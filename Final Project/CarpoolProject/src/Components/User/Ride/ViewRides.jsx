@@ -7,10 +7,24 @@ import Navbar from "../Navbar/Navbar";
 import SearchRide from "./SearchRide";
 import RideCards from "./RideCards";
 import SearchedRideList from "./SearchedRideList";
+import { motion } from "framer-motion";
 
 //images
 
 function ViewRides() {
+  const PositionLeftXOpacity = {
+    hidden: { opacity: 0, x: -150 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const PositionRightXOpacity = {
+    hidden: { opacity: 0, x: 150 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const PositionYOpacity = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   const today = new Date().toISOString().split("T")[0];
 
   const [RideDetails, setRideDetails] = useState([]);
@@ -41,7 +55,7 @@ function ViewRides() {
       const matchesDate = date ? ride.RideDate === date : true; // If no date is provided, match all
       console.log(matchesDate);
       console.log(ride.RideDate);
-      
+
       console.log(ride.date);
       // const matchesTIme = time ? ride.RideTime == time : true; // If no date is provided, match all
       const matchesSeats = ride.AvailableSeats == Seats; // If no date is provided, match all
@@ -49,7 +63,6 @@ function ViewRides() {
       return matchesOrigin && matchesDestination && matchesDate && matchesSeats;
     });
 
-    console.log(date);
     setFilteredRides(results);
   };
 
@@ -60,11 +73,25 @@ function ViewRides() {
         <div className="min-h-[600px] md:min-h-[200px] rounded-2xl ">
           <div className="grid grid-cols-1 lg:grid-cols-2  text-white">
             {/* Search Ride form */}
-            <div className="h-[400px] md:h-full rounded-tl-[16px] rounded-tr-[16px] md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px] text-center  lg:text-left lg:max-w-[66%]">
+            <motion.div
+             initial="hidden"
+             animate="visible"
+             exit="hidden"
+             variants={PositionLeftXOpacity}
+             transition={{ duration: 0.5 }}
+              className="h-[400px] md:h-full rounded-tl-[16px] rounded-tr-[16px] md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px] text-center  lg:text-left lg:max-w-[66%]"
+            >
               <SearchRide onSearch={handleSearch} />
-            </div>
+            </motion.div>
 
-            <div className="md:h-[660px] md:max-w-[98%] lg:w-[98%] w-[98%] overflow-y-auto scroll-smooth">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={PositionRightXOpacity}
+              transition={{ duration: 0.5 }}
+              className="md:h-[660px] md:max-w-[98%] lg:w-[98%] w-[98%] overflow-y-auto scroll-smooth"
+            >
               {/* {RideDetails.map((ride)=>(
                 
               <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -73,7 +100,7 @@ function ViewRides() {
               ))} */}
               {/* List of rides */}
               <SearchedRideList rides={filteredRides}></SearchedRideList>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h1>
+      What is the second argument that can optionally be passed tosetState and
+      what is its purpose?
+    </h1>
+    <p>
+      The second argument that can optionally be passed to setState is a
+      callback function which gets called immediately after the setState is
+      completed and the components get re-rendered. If you want your program to
+      update the value of a state using setState and then perform certain
+      actions on the updated value of the state then you must specify those
+      actions in a function which should be the second argument of the setState.
+      If we do not do so then those actions will be performed on the previous
+      value of state because of the asynchronous nature of setState.
+    </p>
+  </body>
+</html>

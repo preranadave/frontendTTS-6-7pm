@@ -6,7 +6,21 @@ import { useNavigate } from "react-router-dom";
 //components
 import SearchRide from "../Ride/SearchRide";
 import axios from "axios";
+import { motion } from "framer-motion";
 function HeroSection() {
+  const PositionLeftXOpacity = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const PositionRightXOpacity = {
+    hidden: { opacity: 0, x: 150 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const PositionDownUpYOpacity = {
+    hidden: { opacity: 0, y: 150 },
+    visible: { opacity: 1, y: 0 },
+  };
+  
   //declarations
   const HeroBgStyle = {
     backgroundImage: `url(${HeroImage})`,
@@ -17,7 +31,7 @@ function HeroSection() {
     width: "98%",
     position: "relative",
   };
-  
+
   const Navigate = useNavigate();
   const [RideDetails, setRideDetails] = useState([]);
   //fetch ride details
@@ -35,7 +49,6 @@ function HeroSection() {
   const [filteredRides, setFilteredRides] = useState(RideDetails);
 
   const handleSearch = (fromloaction, tolocation, date, time, Seats) => {
-
     const results = RideDetails.filter((ride) => {
       const matchesOrigin = ride.Origin.toLowerCase().includes(
         fromloaction.toLowerCase()
@@ -47,17 +60,27 @@ function HeroSection() {
 
       const matchesDate = date ? ride.RideDate === date : true; // If no date is provided, match all
 
-      const matchesTIme =  time ? ride.RideTime === time : true; // If no date is provided, match all
+      const matchesTIme = time ? ride.RideTime === time : true; // If no date is provided, match all
       const matchesSeats = ride.AvailableSeats === Seats; // If no date is provided, match all
 
-      return matchesOrigin && matchesDestination && matchesDate && matchesTIme && matchesSeats;
+      return (
+        matchesOrigin &&
+        matchesDestination &&
+        matchesDate &&
+        matchesTIme &&
+        matchesSeats
+      );
     });
     setFilteredRides(results);
-
   };
   return (
     <>
-      <div
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={PositionDownUpYOpacity}
+        transition={{ duration: 0.5 }}
         style={HeroBgStyle}
         className="md:mt-5 mt-2 md:w-[80%]  mx-auto rounded-2xl"
       >
@@ -65,7 +88,14 @@ function HeroSection() {
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center md:gap-48  gap-5 text-white">
               {/* Hero Left Side */}
-              <div className="flex flex-col items-center mt-5 text-center md:gap-5 gap-5 px-3 lg:items-start lg:text-left lg:max-w-[450px]">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={PositionLeftXOpacity}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center mt-5 text-center md:gap-5 gap-5 px-3 lg:items-start lg:text-left lg:max-w-[450px]"
+              >
                 <h1 className="text-5xl lg:text-7xl font-bold">
                   Join us, As a Driver.
                 </h1>
@@ -86,13 +116,19 @@ function HeroSection() {
                   </span>
                   Publish A Ride
                 </button>
-              </div>
+              </motion.div>
               {/* Hero Passenger Ride */}
-              <SearchRide onSearch={handleSearch} ></SearchRide>
+              <motion.div  initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={PositionRightXOpacity}
+                transition={{ duration: 0.5 }}>
+                <SearchRide onSearch={handleSearch}></SearchRide>
+              </motion.div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

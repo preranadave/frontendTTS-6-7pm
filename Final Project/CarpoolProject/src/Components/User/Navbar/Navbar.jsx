@@ -15,13 +15,22 @@ import ResponsiveMenu from "./ResponsiveMenu";
 import SignUp from "../SignUp";
 import Modal from "react-modal";
 import axios from "axios";
+import { motion } from "framer-motion";
 function Navbar() {
+  const PositionYOpacity = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0 },
+  };
+  const PositionUpDownYOpacity = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0 },
+  };
   //destrcutring of menu variable
   const [MobileShowMenu, setMobileShowMenu] = useState(false);
   const [UserData, setUserData] = useState();
   const { logOut, user } = useUserAuth();
   const Navigate = useNavigate();
-  
+
   // function to get loggedin user details from api
   // const GetUsers = async () => {
   //   try {
@@ -50,7 +59,14 @@ function Navbar() {
   };
   return (
     <>
-      <nav className="bg-gradient-to-r w-[98%] bg-white mt-2 rounded-lg mx-auto py-2 px-3 relative z-[1050]">
+      <motion.nav
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={PositionUpDownYOpacity}
+        transition={{ duration: 0.5 }}
+        className="bg-gradient-to-r w-[98%] bg-white mt-2 rounded-lg mx-auto py-2 px-3 relative z-[1050]"
+      >
         <div>
           <div className="flex justify-between items-center">
             {/* Logo Section */}
@@ -108,16 +124,18 @@ function Navbar() {
               </ul>
             </div>
             <div className="flex items-center">
-            {UserData && UserData[0] &&
-              <h2 className="font-bold mx-3">{UserData[0].UserName}</h2>
-            }
+              {UserData && UserData[0] && (
+                <h2 className="font-bold mx-3">{UserData[0].UserName}</h2>
+              )}
               <div className="group cursor-pointer ">
                 <span className="hidden md:flex items-center gap-[2px]">
-                  {UserData && UserData[0] &&  <img
-                    src={UserData[0].ProfileImage}
-                    className="w-10 h-10 rounded-full"
-                  ></img>}
-                 
+                  {UserData && UserData[0] && (
+                    <img
+                      src={UserData[0].ProfileImage}
+                      className="w-10 h-10 rounded-full"
+                    ></img>
+                  )}
+
                   <span>
                     <FaCaretRight className="group-hover:rotate-90 transition-all ease-in-out duration-300" />
                   </span>
@@ -167,7 +185,7 @@ function Navbar() {
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
       {/* mobile menu components */}
       <ResponsiveMenu showMenu={MobileShowMenu} />
       {/* <SignUp
