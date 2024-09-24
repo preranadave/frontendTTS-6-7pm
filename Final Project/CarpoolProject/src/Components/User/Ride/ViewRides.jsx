@@ -13,10 +13,8 @@ import SearchedRideList from "./SearchedRideList";
 function ViewRides() {
   const today = new Date().toISOString().split("T")[0];
 
-  const [RidesData, SetRidesData] = useState();
   const [RideDetails, setRideDetails] = useState([]);
 
-  //fetch ride details
   const GetRides = async () => {
     try {
       const response = await axios.get(`http://localhost:8000/Rides`);
@@ -30,8 +28,7 @@ function ViewRides() {
   }, [RideDetails]);
   const [filteredRides, setFilteredRides] = useState(RideDetails);
 
-  const handleSearch = (fromloaction, tolocation, date, time, Seats) => {
- 
+  const handleSearch = (fromloaction, tolocation, date, Seats) => {
     const results = RideDetails.filter((ride) => {
       const matchesOrigin = ride.Origin.toLowerCase().includes(
         fromloaction.toLowerCase()
@@ -42,14 +39,19 @@ function ViewRides() {
       );
 
       const matchesDate = date ? ride.RideDate === date : true; // If no date is provided, match all
+      console.log(matchesDate);
+      console.log(ride.RideDate);
+      
+      console.log(ride.date);
+      // const matchesTIme = time ? ride.RideTime == time : true; // If no date is provided, match all
+      const matchesSeats = ride.AvailableSeats == Seats; // If no date is provided, match all
 
-      const matchesTIme =  time ? ride.RideTime === time : true; // If no date is provided, match all
-      const matchesSeats = ride.AvailableSeats === Seats; // If no date is provided, match all
-
-      return matchesOrigin && matchesDestination && matchesDate && matchesTIme && matchesSeats;
+      return matchesOrigin && matchesDestination && matchesDate && matchesSeats;
     });
+
+    console.log(date);
     setFilteredRides(results);
-     };
+  };
 
   return (
     <>

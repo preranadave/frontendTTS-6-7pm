@@ -35,7 +35,7 @@ function LogIn() {
           Navigate("/home");
         
           //props.onHide();
-        }, 3000);
+        }, 1000);
       }
     } catch (err) {
       setError(err.message);

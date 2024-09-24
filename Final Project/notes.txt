@@ -1,0 +1,28 @@
+  if (localStorage.length ==4) {
+      let date = localStorage.getItem("SelectedDate");
+      let fromloaction = localStorage.getItem("Origin");
+      let tolocation = localStorage.getItem("Destination");
+      let Seats = localStorage.getItem("AvailableSeats");
+      //to filter rides
+      onSearch(fromloaction, tolocation, date, Seats);
+    }
+
+
+
+
+const clearLocalStorage = () => {
+      localStorage.removeItem("Origin"); 
+      
+      localStorage.removeItem("Destination"); 
+      
+      localStorage.removeItem("SelectedDate"); 
+      
+      localStorage.removeItem("AvailableSeats"); 
+    };
+
+
+
+
+
+
+    selected={StoredSelectedDate? StoredSelectedDate :  SelectedDate}
