@@ -1,12 +1,6 @@
 {
   "Products": [
     {
-      "id": "364a",
-      "Name": "Fridge",
-      "Price": "50000",
-      "Category": "Electronics"
-    },
-    {
       "id": "b127",
       "Name": "polo tshirt",
       "Price": "600",

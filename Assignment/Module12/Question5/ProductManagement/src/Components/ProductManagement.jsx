@@ -9,17 +9,25 @@ function ProductManagement() {
   const [Products, SetProducts] = useState();
   const [showDelete, setShowDelete] = useState(false);
   const [showDeleteComp, setShowDeleteComp] = useState(false);
+  const [SearchValue, setSearchValue] = useState();
+  const [FilteredProducts, setFilteredProducts] = useState();
 
   useEffect(() => {
     axios.get(`http://localhost:4000/Products`).then((response) => {
       SetProducts(response.data);
+      setFilteredProducts(response.data);
     });
-  }, [Products]);
+  }, []);
   const HandleDelete = (e) => {
     setShowDeleteComp(true);
     Navigate(`/delete-product/${e.id}`);
   };
-
+  const HandleSearch = (event) => {
+    const value = event.target.value;
+    setSearchValue(value);
+    const filterd =Products.filter(item=>item.Name.toLowerCase().includes(value.toLowerCase()) || item.Price.toLowerCase().includes(value.toLowerCase()) || item.Category.toLowerCase().includes(value.toLowerCase()))
+    setFilteredProducts(filterd);
+  };
   return (
     <>
       <div>
@@ -41,6 +49,13 @@ function ProductManagement() {
           </div>
         </div>
         <div>
+          <input
+            type="text"
+            value={SearchValue}
+            onChange={HandleSearch}
+            className="form-control w-25 mt-4 mx-auto"
+            placeholder="Search"
+          />
           <div className="table-responsive w-75 mx-auto">
             {showDeleteComp && (
               <DeleteProduct
@@ -62,8 +77,8 @@ function ProductManagement() {
                 </tr>
               </thead>
               <tbody>
-                {Products &&
-                  Products.map((item, index) => (
+                {FilteredProducts &&
+                  FilteredProducts.map((item, index) => (
                     <tr>
                       <td>{item.Name}</td>
 
