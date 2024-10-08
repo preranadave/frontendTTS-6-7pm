@@ -1,6 +1,6 @@
 //library import
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 //icon imports
 import { FaCarOn } from "react-icons/fa6";
@@ -10,34 +10,87 @@ import { FaUsers } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { IoLocation } from "react-icons/io5";
+import { BiSolidContact } from "react-icons/bi";
 function AdminSideBar() {
   return (
     <>
-    <div>
-        <div className=''>
-            <div className='w-[full] h-screen bg-adminprimary text-white px-10 py-5'>
-                {/* Heading */}
-                <h1 className='text-3xl font-bold'>Admin Panel</h1>
-                {/* Side Navigation Menu */}
-                <div>
+      <div>
+        <div className="">
+          <div className="w-[full] h-screen bg-adminprimary text-white px-10 py-5">
+            {/* Heading */}
+            <h1 className="text-3xl font-bold">Admin Panel</h1>
+            {/* Side Navigation Menu */}
+            <div>
+              <ul className="list-none flex-col gap-10 mt-12 text-md ">
+                <Link to="/admin/dashboard">
+                  <li className="rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5 items-center">
+                    <span>
+                      <FaHome size={25} />
+                    </span>
+                    Home
+                  </li>
+                </Link>
+                <Link to={"/admin/dashboard/manage-users"}>
+                  <li className="rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center">
+                    <span>
+                      <FaUsers size={25} />
+                    </span>
+                    Users
+                  </li>
+                </Link>
+                <Link to="/admin/dashboard/manage-drivers">
+                  {" "}
+                  <li className="rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center">
+                    <span>
+                      <GiSteeringWheel size={25} />
+                    </span>
+                    Drivers
+                  </li>
+                </Link>
+                <Link to={"/admin/dashboard/manage-rides"}>
+                  {" "}
+                  <li className="rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center">
+                    <span>
+                      <FaCarTunnel size={25} />
+                    </span>
+                    Rides
+                  </li>
+                </Link>
+                <Link to={"/admin/dashboard/manage-locations"}>
+                  {" "}
+                  <li className="rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center">
+                    <span>
+                      <IoLocation size={25} />
+                    </span>
+                    Locations
+                  </li>
+                </Link>
+                <Link to={"/admin/dashboard/manage-contacts"}>
+                  {" "}
+                  <li className="rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center">
+                    <span>
+                      <BiSolidContact size={25} />
+                    </span>
+                    Contacts
+                  </li>
+                </Link>
 
-                    <ul className='list-none flex-col gap-10 mt-12 text-md '>
-                    <Link to="/admin/dashboard"><li className='rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5 items-center'><span><FaHome size={25}/></span>Home</li></Link>
-                    <Link to={"/admin/dashboard/manage-users"}><li className='rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center'><span><FaUsers size={25} /></span>Users</li></Link>
-                    <Link to="/admin/dashboard/manage-drivers">  <li className='rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center'><span><GiSteeringWheel size={25}/></span>Drivers</li></Link>
-                    <Link to={"/admin/dashboard/manage-rides"}> <li className='rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center'><span><FaCarTunnel size={25}/></span>Rides</li></Link>
-                    <Link to={"/admin/dashboard/manage-locations"}>   <li className='rounded-md p-2 my-5 transition-all duration-300 ease-in-out hover:bg-white/45 flex gap-5  items-center'><span><IoLocation  size={25}/></span>Locations</li></Link>
-                       
-                    <Link>  <li className='rounded-md p-2 transition-all duration-300 ease-in-out hover:bg-red-400/45 absolute bottom-11 text-xl font-bold flex gap-2 items-center'><span><CiLogout size={30}/></span>Log-Out</li></Link>
-
-                    </ul>
-                </div>
+                <Link>
+                  {" "}
+                  <li className="rounded-md p-2 transition-all duration-300 ease-in-out hover:bg-red-400/45 absolute bottom-11 text-xl font-bold flex gap-2 items-center">
+                    <span>
+                      <CiLogout size={30} />
+                    </span>
+                    Log-Out
+                  </li>
+                </Link>
+              </ul>
             </div>
+          </div>
         </div>
-    </div>
-    
+      </div>
     </>
-  )
+  );
 }
 
-export default AdminSideBar
+export default AdminSideBar;

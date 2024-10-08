@@ -12,54 +12,61 @@ function CreateDriverAccount() {
   //other object destructuring
   const [Message, SetMessage] = useState(false);
   const Navigate = useNavigate();
-  const { logOut, user } = useUserAuth();
+  const { user } = useUserAuth();
   //destructuring User Object
   const [UserData, setUserData] = useState();
   //destructuring form objects
   const Drivinglicence = useRef("");
   const BankAccount = useRef("");
-  const UserID=useRef() ;
-  const IsDriver = useRef("");
+
   //function
-  //add driver details
-  const GetUser = async () => {
-    try {
-      const response = await axios.get(`http://localhost:8000/Users`);
-      
-      setUserData(response.data.filter((e) => e.UID == user.uid));
-      UserID.current.value=UserData[0].id;
-      
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
-    GetUser();
-  },[]);
-  const AddDriver = (e) => {
-    console.log(UserID.current.value)
+    const fetchUserData = async () => {
+      // console.log(user)
+      if (user) {
+        // Fetch user details from  User API
+        const response = await axios.get(`http://localhost:8000/Users`);
+        setUserData(response.data.filter((e) => e.UID == user.uid));
+        //console.log(UserData);
+      }
+    };
+
+    fetchUserData();
+  }, [UserData]);
+
+  //add driver details
+  const AddDriver = async (e) => {
     e.preventDefault();
     var DriverDetails = {
       Drivinglicence: Drivinglicence.current.value,
       BankAccount: BankAccount.current.value,
-      UserID: UserID.current.value,
+      UserUID: UserData[0].UID,
+      DriverName: UserData[0].UserName,
+      DriverProfile: UserData[0].ProfileImage,
     };
-    UserData.IsDriver = true
-      axios
-        .post(`http://localhost:8000/DriverDetails`, DriverDetails)
-        .then(() => {
-          axios.put(`http://localhost:8000/Users/${UserID}`,UserData).then(() => {
-            SetMessage(true);
-            if (Message == false) {
-              setTimeout(() => {
-                SetMessage(false);
-                Navigate("/crate-ride")
-              }, 3000);
-            }
-            e.target.reset();
-          });
-        });
+    axios
+      .post(`http://localhost:8000/DriverDetails`, DriverDetails)
+      .then((response) => {
+        console.log(response)
+        UpdateUser();
+      });
   };
+  const UpdateUser=()=>{
+    
+    UserData[0].IsDriver = true;
+     axios
+      .put(`http://localhost:8000/Users/${UserData[0].id}`, UserData[0])
+      .then(() => {
+        SetMessage(true);
+        if (Message == false) {
+          setTimeout(() => {
+            SetMessage(false);
+            Navigate("/create-ride");
+          }, 3000);
+        }
+        e.target.reset();
+      });
+  }
   return (
     <>
       <Navbar></Navbar>

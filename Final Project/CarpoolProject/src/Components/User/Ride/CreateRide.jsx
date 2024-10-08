@@ -1,26 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+import axios from "axios";
+import { useUserAuth } from "../../../Context/UserAuthContext";
 //import Components
 import Navbar from "../Navbar/Navbar";
 
 //images
 import RideBg from "../../../assets/images/ride-bg.png";
-import axios from "axios";
 function CreateRide() {
   //form object
   const Origin = useRef();
   const Destination = useRef();
   const [SelectedDate, SetSelectedDate] = useState(new Date());
-  const [time, setTime] = useState('');
+  const [time, setTime] = useState("");
   const AvailableSeats = useRef();
   const Price = useRef();
-  const UserID = "2a8c";
-  const DriverProfilePic =
-    "https://img.freepik.com/free-photo/portrait-man-laughing_23-2148859448.jpg";
-  const DriverName = "prerna";
   //declaration
 
+  const { user } = useUserAuth();
+  //destructuring User Object
+  const [UserData, setUserData] = useState();
   const [Message, SetMessage] = useState(false);
 
   //price variables
@@ -34,6 +35,19 @@ function CreateRide() {
 
   const [destinationvalue, setDestinationnvalue] = useState();
   //functions
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (user) {
+        // Fetch user details from  User API
+        const response = await axios.get(`http://localhost:8000/Users`);
+        setUserData(response.data.filter((e) => e.UID == user.uid));
+        // console.log(UserData);
+      }
+    };
+
+    fetchUserData();
+  }, [UserData]);
+
   useEffect(() => {
     axios.get(`http://localhost:8000/Locations`).then((response) => {
       SetLocationData(response.data);
@@ -57,9 +71,11 @@ function CreateRide() {
       AvailableSeats: AvailableSeats.current.value,
       Price: Price.current.value,
       Status: "Available",
-      CreatedBy: UserID,
-      DriverProfile: DriverProfilePic,
-      DriverName: DriverName,
+      CreatedByUID: UserData[0].UID,
+      DriverProfile: UserData[0].ProfileImage,
+      DriverName: UserData[0].UserName,
+      BookedByUID:"",
+      PassengernName:""
     };
     axios.post(`http://localhost:8000/Rides`, RideDetails).then(() => {
       SetMessage(true);
@@ -120,6 +136,7 @@ function CreateRide() {
                             ref={Origin}
                             className="py-2 px-4  rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
                           >
+                            <option selected disabled>Select Origin</option>
                             {LocationData &&
                               LocationData.map((item) => {
                                 return (
@@ -144,6 +161,7 @@ function CreateRide() {
                             ref={Destination}
                             className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
                           >
+                            <option selected disabled>Select Destination</option>
                             {LocationData &&
                               LocationData.map((item) => {
                                 return (

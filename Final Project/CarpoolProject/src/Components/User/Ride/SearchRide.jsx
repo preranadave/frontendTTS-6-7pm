@@ -10,7 +10,7 @@ import Navbar from "../Navbar/Navbar";
 import RideBg from "../../../assets/images/ride-bg.png";
 import axios from "axios";
 import ViewRides from "./ViewRides";
-function SearchRide({ onSearch }) {
+function SearchRide({ defaultValues, onSearch }) {
   //declarations
   const Origin = useRef();
   const Destination = useRef();
@@ -18,21 +18,22 @@ function SearchRide({ onSearch }) {
   //ustate variables
   const history = useNavigate();
 
-  const [availableSeatsvalue, steavailableSeatsvalue] = useState();
-  const [SelectedDate, SetSelectedDate] = useState(new Date());
-  const [originvalue, setOriginvalue] = useState();
+  const [availableSeatsvalue, steavailableSeatsvalue] = useState(
+    defaultValues ? defaultValues.Seats : ""
+  );
+  const [SelectedDate, SetSelectedDate] = useState(
+    defaultValues ? defaultValues.date : new Date()
+  );
+  const [originvalue, setOriginvalue] = useState(
+    defaultValues ? defaultValues.fromloaction : ""
+  );
+  const [destinationvalue, setDestinationnvalue] = useState(
+    defaultValues ? defaultValues.tolocation : ""
+  );
 
-  const [destinationvalue, setDestinationnvalue] = useState();
-
-  const [Message, SetMessage] = useState(false);
-  //variables for storing form data
-  const [StoredOrigin, setStoredOrigin] = useState();
-  const [StoredDestination, setStoredDestination] = useState();
-  const [StoredSelectedDate, setStoredSelectedDate] = useState(new Date());
-  const [StoredAvailableSeats, setStoredAvailableSeats] = useState();
   //date variables
 
-  //appi data store variables
+  //api data store variables
 
   const [LocationData, SetLocationData] = useState();
 
@@ -45,30 +46,20 @@ function SearchRide({ onSearch }) {
   });
 
   useEffect(() => {
-    //to get from local storage
-    //setStoredData( localStorage.getItem("SearchData"));
-    if (localStorage.length == 4) {
-      setStoredOrigin(localStorage.getItem("Origin"));
-      setStoredDestination(localStorage.getItem("Destination"));
-      setStoredSelectedDate(localStorage.getItem("SelectedDate"));
-      setStoredAvailableSeats(localStorage.getItem("AvailableSeats"));
-      setOriginvalue(StoredOrigin ? StoredOrigin : "");
-      setDestinationnvalue(
-        (Destination.current.value = StoredDestination ? StoredDestination : "")
-      );
-      steavailableSeatsvalue(StoredAvailableSeats ? StoredAvailableSeats : "");
+    // setOriginvalue( defaultValues ?defaultValues.fromloaction : "");
+    // setDestinationnvalue( defaultValues ? defaultValues.tolocation : "");
+    // steavailableSeatsvalue( defaultValues ? defaultValues.Seats : "");
 
-      let date = StoredSelectedDate
-        ? StoredSelectedDate.toLocaleDateString
-        : SelectedDate.toLocaleDateString;
-      onSearch(StoredOrigin, StoredDestination, date, StoredAvailableSeats);
-
-      //history("/view-rides");
-    }
-  }, []);
+    // SetSelectedDate( defaultValues ? defaultValues.date : new Date());
+    onSearch(originvalue, destinationvalue, SelectedDate, availableSeatsvalue);
+  }, [defaultValues]);
 
   const handleoriginChange = (event) => {
-    setOriginvalue(event.target.value);
+    const value = event.target.value;
+
+    setOriginvalue(value);
+
+   // defaultValues.fromloaction = value;
   };
   const handleDestinationChange = (event) => {
     setDestinationnvalue(event.target.value);
@@ -78,31 +69,20 @@ function SearchRide({ onSearch }) {
   };
   const handleDateChange = (date) => {
     SetSelectedDate(date);
-    setStoredSelectedDate(date);
   };
-
   const handleSearch = (e) => {
     e.preventDefault();
-    localStorage.setItem("Origin", Origin.current.value);
-    localStorage.setItem("Destination", Destination.current.value);
-    localStorage.setItem("SelectedDate", new Date(SelectedDate));
-    // alert(localStorage.getItem("SelectedDate"))
-    localStorage.setItem("AvailableSeats", AvailableSeats.current.value);
-    //data to setting to pass it for filtering rides
-    let date = StoredSelectedDate
-      ? StoredSelectedDate.toLocaleDateString
-      : SelectedDate.toLocaleDateString;
-    // const hours = SelectedDate.getHours();
-    // const minutes = SelectedDate.getMinutes();
-    // let time = `${hours}:${minutes}`;
+    let date = SelectedDate;
     let fromloaction = Origin.current.value;
     let tolocation = Destination.current.value;
     let Seats = AvailableSeats.current.value;
     //to filter rides
-    onSearch(fromloaction, tolocation, date, Seats);
-    //storing data
 
-    history("/view-rides");
+    onSearch(fromloaction, tolocation, date, Seats);
+
+    history("/view-rides", {
+      state: { fromloaction, tolocation, date, Seats },
+    });
   };
 
   useEffect(() => {
@@ -139,10 +119,12 @@ function SearchRide({ onSearch }) {
                   name="origin"
                   id="origin"
                   ref={Origin}
-                  value={StoredOrigin ? StoredOrigin : originvalue}
+                  value={originvalue}
                   onChange={handleoriginChange}
                   className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
                 >
+                 
+                 <option className="text-gray-500" value="" selected disabled>Select Origin</option>
                   {LocationData &&
                     LocationData.map((item) => {
                       return (
@@ -162,12 +144,12 @@ function SearchRide({ onSearch }) {
                   name="Destination"
                   id="Destination"
                   ref={Destination}
-                  value={
-                    StoredDestination ? StoredDestination : destinationvalue
-                  }
+                  value={destinationvalue}
                   onChange={handleDestinationChange}
                   className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold outline-none border-none"
                 >
+                  
+                  <option className="text-gray-500" value="" selected disabled>Select Destination</option>
                   {LocationData &&
                     LocationData.map((item) => {
                       return (
@@ -186,9 +168,7 @@ function SearchRide({ onSearch }) {
                 <DatePicker
                   showIcon
                   dateFormat="dd/MM/yyyy"
-                  selected={
-                    StoredSelectedDate ? StoredSelectedDate : SelectedDate
-                  }
+                  selected={SelectedDate}
                   onChange={(date) => {
                     handleDateChange(date);
                   }}
@@ -202,11 +182,7 @@ function SearchRide({ onSearch }) {
                     name="availableSeats"
                     id="availableSeats"
                     ref={AvailableSeats}
-                    value={
-                      StoredAvailableSeats
-                        ? StoredAvailableSeats
-                        : availableSeatsvalue
-                    }
+                    value={availableSeatsvalue}
                     onChange={handleSeatChange}
                     className="py-2 px-4 rounded-lg w-full bg-black/10 placeholder-black placeholder:font-bold  outline-none border-none"
                     placeholder="Available Seats"

@@ -7,22 +7,35 @@ import { FaCalendarDays } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 import { GrStatusInfo } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 function RideCards(props) {
-  const Navigate=useNavigate();
+  const PositionYOpacity = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const Navigate = useNavigate();
   return (
     <>
-      <div className="text-sm leading-6  my-3">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={PositionYOpacity}
+        transition={{ duration: 0.5 }}
+        className="text-sm leading-6  my-3"
+      >
         <figure className="flex flex-col-reverse bg-white hover:bg-blue-100 rounded-xl shadow-xl my-2 mx-2 p-6 max-w-[98%]  w-[98%] lg:max-w-[98%]  dark:bg-slate-800 dark:highlight-white/5">
           <div className="mt-2 text-slate-700 dark:text-slate-300  ">
             <div className="text-gray-700 text-base flex ">
               <FaLocationDot size={20} />
               <span className="font-bold">From:</span>
-              <span>{props.to}</span>
+              <span>{props.from}</span>
             </div>
             <div className="text-gray-700 text-base my-2 flex">
               <FaLocationDot size={20} />
               <span className="font-bold">To:</span>
-              <span>{props.from}</span>
+              <span>{props.to}</span>
             </div>
             <div className="text-gray-700 text-base my-2 flex items-center">
               <FaCalendarDays />
@@ -39,7 +52,10 @@ function RideCards(props) {
               <span className="mx-1 font-bold">{props.status}</span>
             </div>
 
-            <button onClick={(()=>Navigate(`/book-ride/${props.id}`))} className="btn-primary w-[95%] text-sm mx-auto">
+            <button
+              onClick={() => Navigate(`/book-ride/${props.id}`)}
+              className="btn-primary w-[95%] text-sm mx-auto"
+            >
               Book
             </button>
           </div>
@@ -65,7 +81,7 @@ function RideCards(props) {
             </div>
           </figcaption>
         </figure>
-      </div>
+      </motion.div>
     </>
   );
 }

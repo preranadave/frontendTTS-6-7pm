@@ -5,7 +5,6 @@ import "./index.css";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import ProtectedRoute from "./Components/ProtectedRoute.jsx";
 import { UserAuthContextProvider } from "./Context/UserAuthContext.jsx";
-import { UserDataContextProvider } from "./Context/UserDataContext.jsx";
 //User Components Import
 import UserHomePage from "./Components/User/UserHomePage.jsx";
 import SignUp from "./Components/User/SignUp.jsx";
@@ -25,114 +24,155 @@ import LocationManagement from "./Components/Admin/MainContent/Ride/LocationMana
 import RidesManagement from "./Components/Admin/MainContent/Ride/RidesManagement.jsx";
 import DeleteRide from "./Components/Admin/MainContent/Ride/DeleteRide.jsx";
 import DeleteDriver from "./Components/Admin/MainContent/DriverManagement/DeleteDriver.jsx";
+import RideNotifiactions from "./Components/User/Ride/RideNotifiactions.jsx";
+import ConfirmJourney from "./Components/User/Ride/ConfirmJourney.jsx";
+import ManageUserProfile from "./Components/User/ManageUserProfile.jsx";
+import ContactUs from "./Components/User/Content/ContactUs.jsx";
+import ContactManagement from "./Components/Admin/MainContent/ContactManagement/ContactManagement.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <UserAuthContextProvider>
-        <BrowserRouter>
-          <Routes>
-            {/* user Component Route */}
-            <Route path="*" element={<PageNotFound />} />
-            <Route path="/" index element={<LogIn></LogIn>}></Route>
+      <BrowserRouter>
+        <Routes>
+          {/* user Component Route */}
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="/" index element={<LogIn></LogIn>}></Route>
+
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <UserHomePage />
+              </ProtectedRoute>
+            }
+          ></Route>
+          {/* Signup route */}
+
+          <Route path="/signup" element={<SignUp></SignUp>}></Route>
+
+          <Route path="/login" element={<LogIn></LogIn>}></Route>
+
+          <Route
+            path="/create-driver-account"
+            element={
+              <ProtectedRoute>
+                <CreateDriverAccount></CreateDriverAccount>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/create-ride"
+            element={
+              <ProtectedRoute>
+                <CreateRide></CreateRide>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/view-rides"
+            element={
+              <ProtectedRoute>
+                <ViewRides></ViewRides>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/user-rides"
+            element={
+              <ProtectedRoute>
+                <UserRides></UserRides>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/book-ride/:id"
+            element={
+              <ProtectedRoute>
+                <BookRide></BookRide>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/ride-notifications"
+            element={
+              <ProtectedRoute>
+                <RideNotifiactions></RideNotifiactions>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/confirm-journey/:id"
+            element={
+              <ProtectedRoute>
+                <ConfirmJourney></ConfirmJourney>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/manage-profile"
+            element={
+              <ProtectedRoute>
+                <ManageUserProfile></ManageUserProfile>
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/contact-us"
+            element={
+              <ProtectedRoute>
+                <ContactUs></ContactUs>
+              </ProtectedRoute>
+            }
+          ></Route>
+
+          {/* Admin Routing */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route
+              path="/admin/dashboard"
+              element={<AdminDashboard></AdminDashboard>}
+            ></Route>
+            <Route
+              path="/admin/dashboard/manage-users"
+              element={<UserManagement></UserManagement>}
+            ></Route>
 
             <Route
-              path="/home"
-              element={
-                <ProtectedRoute>
-                  <UserHomePage />
-                </ProtectedRoute>
-              }
-            ></Route>
-            {/* Signup route */}
-
-            <Route path="/signup" element={<SignUp></SignUp>}></Route>
-
-            <Route path="/login" element={<LogIn></LogIn>}></Route>
-
-            <Route
-              path="/crate-driver-account"
-              element={
-                <ProtectedRoute>
-                  <CreateDriverAccount></CreateDriverAccount>
-                </ProtectedRoute>
-              }
+              path="/admin/dashboard/manage-users/:id"
+              element={<UserManagement></UserManagement>}
             ></Route>
             <Route
-              path="/crate-ride"
-              element={
-                <ProtectedRoute>
-                  <CreateRide></CreateRide>
-                </ProtectedRoute>
-              }
+              path="/admin/dashboard/manage-drivers"
+              element={<DriverManagement></DriverManagement>}
             ></Route>
             <Route
-              path="/view-rides"
-              element={
-                <ProtectedRoute>
-                  <ViewRides></ViewRides>
-                </ProtectedRoute>
-              }
+              path="/admin/dashboard/manage-drivers/delete-driver/:id"
+              element={<DriverManagement></DriverManagement>}
             ></Route>
             <Route
-              path="/user-rides"
-              element={
-                <ProtectedRoute>
-                  <UserRides></UserRides>
-                </ProtectedRoute>
-              }
+              path="/admin/dashboard/manage-locations"
+              element={<LocationManagement></LocationManagement>}
             ></Route>
             <Route
-              path="/book-ride/:id"
-              element={
-                <ProtectedRoute>
-                  <BookRide></BookRide>
-                </ProtectedRoute>
-              }
+              path="/admin/dashboard/manage-locations/delete-location/:id"
+              element={<LocationManagement></LocationManagement>}
             ></Route>
 
-            {/* Admin Routing */}
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route
-                path="/admin/dashboard"
-                element={<AdminDashboard></AdminDashboard>}
-              ></Route>
-              <Route
-                path="/admin/dashboard/manage-users"
-                element={<UserManagement></UserManagement>}
-              ></Route>
-
-              <Route
-                path="/admin/dashboard/manage-users/:id"
-                element={<UserManagement></UserManagement>}
-              ></Route>
-              <Route
-                path="/admin/dashboard/manage-drivers"
-                element={<DriverManagement></DriverManagement>}
-              ></Route>
-              <Route
-                path="/admin/dashboard/manage-drivers/delete-driver/:id"
-                element={<DriverManagement></DriverManagement>}
-              ></Route>
-              <Route
-                path="/admin/dashboard/manage-locations"
-                element={<LocationManagement></LocationManagement>}
-              ></Route>
-              <Route
-                path="/admin/dashboard/manage-locations/delete-location/:id"
-                element={<LocationManagement></LocationManagement>}
-              ></Route>
-
-              <Route
-                path="/admin/dashboard/manage-rides"
-                element={<RidesManagement></RidesManagement>}
-              ></Route>
-              <Route
-                path="/admin/dashboard/manage-rides/delete-ride/:id"
-                element={<RidesManagement></RidesManagement>}
-              ></Route>
-            </Route>
-          </Routes>
-        </BrowserRouter>
+            <Route
+              path="/admin/dashboard/manage-rides"
+              element={<RidesManagement></RidesManagement>}
+            ></Route>
+            <Route
+              path="/admin/dashboard/manage-rides/delete-ride/:id"
+              element={<RidesManagement></RidesManagement>}
+            ></Route>
+            <Route
+              path="/admin/dashboard/manage-contacts"
+              element={<ContactManagement></ContactManagement>}
+            ></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </UserAuthContextProvider>
   </StrictMode>
 );

@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 //icons import
 
 import { FaLocationDot } from "react-icons/fa6";
@@ -18,18 +19,73 @@ import { FaChevronUp } from "react-icons/fa";
 import { FaArrowsAltV } from "react-icons/fa";
 //import Components
 import Navbar from "../Navbar/Navbar";
+import { useUserAuth } from "../../../Context/UserAuthContext";
 function BookRide() {
   const { id } = useParams();
   const [RideData, SetRideData] = useState();
+  const Navigate = useNavigate();
+  const { user } = useUserAuth();
+  //destructuring User Object
+  const [UserData, setUserData] = useState();
   const [isExpanded, setExpanded] = useState(true);
+  const [Message, SetMessage] = useState(false);
+  const PositionYOpacity = {
+    hidden: { opacity: 0, y: 300 },
+    visible: { opacity: 1, y: 130 },
+  };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (user) {
+        // Fetch user details from  User API
+        const response = await axios.get(`http://localhost:8000/Users`);
+        setUserData(response.data.filter((e) => e.UID == user.uid));
+        // console.log(UserData);
+      }
+    };
+
+    fetchUserData();
+  }, [UserData]);
+
   useEffect(() => {
     axios.get(`http://localhost:8000/Rides/${id}`).then((response) => {
       SetRideData(response.data);
+      //console.log(RideData)
     });
-  });
+  }, []);
+
+  const UpdateRideStatus = () => {
+    RideData.BookedByUID = UserData[0].UID;
+    RideData.PassengernName = UserData[0].UserName;
+    RideData.Status = "Booked";
+    axios.put(`http://localhost:8000/Rides/${id}`, RideData).then(() => {
+      SendRideNotification();
+    });
+  };
+  const SendRideNotification = () => {
+    var Notification = {
+      UserName: UserData[0].UserName,
+      timestamp: new Date().toLocaleString(),
+      RideID: RideData.id,
+      UserUID: RideData.CreatedByUID,
+      Status: "Unread",
+      RideStatus: "Booked",
+    };
+    axios
+      .post(`http://localhost:8000/RideNotification`, Notification)
+      .then(() => {
+        SetMessage(true);
+        if (Message == false) {
+          setTimeout(() => {
+            SetMessage(false);
+            Navigate("/user-rides")
+          }, 3000);
+        }
+      });
+  };
   const toggleExpand = () => {
     isExpanded ? setExpanded(false) : setExpanded(true);
   };
+
   return (
     <>
       <Navbar></Navbar>
@@ -41,9 +97,7 @@ function BookRide() {
               onClick={toggleExpand}
             >
               <div className="mx-1 basis-1/4">
-                
-                  {RideData.RideDate},{RideData.RideTime}
-                
+                {RideData.RideDate},{RideData.RideTime}
               </div>
 
               <div className="ms-5 basis-1/2">
@@ -119,13 +173,28 @@ function BookRide() {
           </div>
           <div className="w-[50%] md:w-[90%] mx-auto lg:w-[50%]">
             <button
-              onClick={() => Navigate(`/book-ride/${props.id}`)}
+              onClick={UpdateRideStatus}
               className="btn-primary w-full text-sm mx-auto mt-5"
             >
               Confirm
             </button>
           </div>
         </div>
+      )}
+
+      {Message && (
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={PositionYOpacity}
+          transition={{ duration: 0.3 }}
+          className={`px-5 w-[80%] mx-auto py-2 my-2 mt-50 text-center bg-yellow-100 border border-primary text-adminprimary rounded-md `}
+        >
+          <div className="">
+            Your Ride Has Been Booked. Your Journey will start soon!
+          </div>
+        </motion.div>
       )}
     </>
   );

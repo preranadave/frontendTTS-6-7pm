@@ -8,8 +8,8 @@ import SignUpImage from "../../assets/images/sign-up.jpg";
 import Image from "../../assets/images/user.png";
 import axios from "axios";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-
 import { useUserAuth } from "../../Context/UserAuthContext";
+import { motion } from "framer-motion";
 function LogIn() {
   const [Message, SetMessage] = useState(false);
 
@@ -19,7 +19,18 @@ function LogIn() {
   const Navigate = useNavigate();
   const { logIn } = useUserAuth();
   const [error, setError] = useState("");
-
+  const PositionLeftXOpacity = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const PositionRightXOpacity = {
+    hidden: { opacity: 0, x: 150 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const PositionDownUpYOpacity = {
+    hidden: { opacity: 0, y: 150 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   const LoginUser = async (event) => {
     event.preventDefault();
@@ -28,15 +39,16 @@ function LogIn() {
     setError("");
     try {
       await logIn(Email.current.value, Password.current.value);
-      if (Message == false) {
-        setTimeout(() => {
-          SetMessage(false);
+      Navigate("/home");
+      // if (Message == false) {
+      //   setTimeout(() => {
+      //     SetMessage(false);
 
-          Navigate("/home");
-        
-          //props.onHide();
-        }, 1000);
-      }
+      //     Navigate("/home");
+
+      //     //props.onHide();
+      //   }, 1000);
+      // }
     } catch (err) {
       setError(err.message);
     }
@@ -57,7 +69,14 @@ function LogIn() {
             <div className="w-full">
               <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-5">
                 {/* Left Side */}
-                <div className="bg-primary h-full p-20 rounded-tl-[16px] rounded-tr-[16px] md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px]">
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={PositionLeftXOpacity}
+                  transition={{ duration: 0.5 }}
+                  className="bg-primary h-full p-20 rounded-tl-[16px] rounded-tr-[16px] md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px]"
+                >
                   <div className=" px-3 lg:items-start lg:text-left lg:max-w-[450px] ">
                     <h1 className="text-5xl lg:text-7xl font-bold text-adminprimary">
                       Your Ride,At Low Price.
@@ -69,18 +88,24 @@ function LogIn() {
                       repellat nobis quis, possimus est delectus!
                     </p>
                   </div>
-                </div>
+                </motion.div>
                 {/*Sign Up Form */}
-                <div>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={PositionRightXOpacity}
+                  transition={{ duration: 0.5 }}
+                >
                   {/* absolute -translate-y-6 w-[30%] mx-5 */}
 
-                  <div
+                  {/* <div
                     className={`px-5 w-[80%] mx-auto text-center bg-yellow-100 border border-primary text-adminprimary rounded-md p-2 my-2 ${
                       Message ? "opacity-100" : "opacity-0"
                     } duration-700 transition-all`}
                   >
                     <div className="">You Are Logged In Successfully!</div>
-                  </div>
+                  </div> */}
                   {error && (
                     <div
                       className={`px-5 w-[80%] mx-auto text-center bg-red-400 border border-red-700 text-adminprimary rounded-md p-2 my-2 ${
@@ -141,7 +166,7 @@ function LogIn() {
                       </form>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>

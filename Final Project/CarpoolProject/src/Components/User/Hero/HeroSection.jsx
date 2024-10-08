@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import SearchRide from "../Ride/SearchRide";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { useUserAuth } from "../../../Context/UserAuthContext";
+import WhyCarPool from "../Content/WhyCarPool";
+import HowItWorks from "../Content/HowItWorks";
 function HeroSection() {
   const PositionLeftXOpacity = {
     hidden: { opacity: 0, x: -50 },
@@ -20,20 +23,43 @@ function HeroSection() {
     hidden: { opacity: 0, y: 150 },
     visible: { opacity: 1, y: 0 },
   };
-  
+
   //declarations
   const HeroBgStyle = {
     backgroundImage: `url(${HeroImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-
     width: "98%",
     position: "relative",
   };
 
   const Navigate = useNavigate();
   const [RideDetails, setRideDetails] = useState([]);
+  const [UserData, setUserData] = useState();
+  const { user } = useUserAuth();
+  //fetch logged in user detials
+  useEffect(() => {
+    const fetchUserData = async () => {
+      // const user = auth.currentUser;
+     // console.log(user);
+      if (user) {
+        // Fetch user details from  User API
+        const response = await axios.get(`http://localhost:8000/Users`);
+        setUserData(response.data.filter((e) => e.UID == user.uid));
+        
+      }
+    };
+
+    fetchUserData();
+  }, [UserData]);
+  const IsUserDriver = () => {
+    if (UserData[0].IsDriver == true) {
+      Navigate("/create-ride");
+    } else {
+      Navigate("/create-driver-account");
+    }
+  };
   //fetch ride details
   const GetRides = async () => {
     try {
@@ -46,9 +72,9 @@ function HeroSection() {
   useEffect(() => {
     GetRides();
   }, [RideDetails]);
-  const [filteredRides, setFilteredRides] = useState(RideDetails);
 
-  const handleSearch = (fromloaction, tolocation, date, time, Seats) => {
+  const [filteredRides, setFilteredRides] = useState(RideDetails);
+  const handleSearch = (fromloaction, tolocation, date, Seats) => {
     const results = RideDetails.filter((ride) => {
       const matchesOrigin = ride.Origin.toLowerCase().includes(
         fromloaction.toLowerCase()
@@ -58,21 +84,17 @@ function HeroSection() {
         tolocation.toLowerCase()
       );
 
-      const matchesDate = date ? ride.RideDate === date : true; // If no date is provided, match all
+      const matchesDate = date && ride.RideDate === date.toLocaleDateString(); // If no date is provided, match all
 
-      const matchesTIme = time ? ride.RideTime === time : true; // If no date is provided, match all
-      const matchesSeats = ride.AvailableSeats === Seats; // If no date is provided, match all
+      // const matchesTIme = time ? ride.RideTime == time : true; // If no date is provided, match all
+      const matchesSeats = ride.AvailableSeats == Seats; // If no date is provided, match all
 
-      return (
-        matchesOrigin &&
-        matchesDestination &&
-        matchesDate &&
-        matchesTIme &&
-        matchesSeats
-      );
+      return matchesOrigin && matchesDestination && matchesDate && matchesSeats;
     });
+
     setFilteredRides(results);
   };
+
   return (
     <>
       <motion.div
@@ -107,9 +129,7 @@ function HeroSection() {
                 </p>
                 <button
                   className="btn-primary text-xl flex gap-2"
-                  onClick={() => {
-                    Navigate("/crate-driver-account");
-                  }}
+                  onClick={IsUserDriver}
                 >
                   <span>
                     <CiCirclePlus size={26} />
@@ -118,17 +138,21 @@ function HeroSection() {
                 </button>
               </motion.div>
               {/* Hero Passenger Ride */}
-              <motion.div  initial="hidden"
+              <motion.div
+                initial="hidden"
                 animate="visible"
                 exit="hidden"
                 variants={PositionRightXOpacity}
-                transition={{ duration: 0.5 }}>
+                transition={{ duration: 0.5 }}
+              >
                 <SearchRide onSearch={handleSearch}></SearchRide>
               </motion.div>
             </div>
           </div>
         </div>
       </motion.div>
+      <WhyCarPool></WhyCarPool>
+      <HowItWorks></HowItWorks>
     </>
   );
 }

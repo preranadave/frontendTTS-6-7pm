@@ -1,29 +1,28 @@
 import React, { useRef, useState } from "react";
-import { Modal } from "react-modal";
 import { useUserAuth } from "../../Context/UserAuthContext";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../firebase";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
 //import navbar
 import Navbar from "./Navbar/Navbar";
 
 import { Link, useNavigate } from "react-router-dom";
-import SignUpImage from "../../assets/images/sign-up.jpg";
 import Image from "../../assets/images/user.png";
 import axios from "axios";
 
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { motion } from "framer-motion";
 function SignUp(props) {
-  //declarations
-  // const SignUpBGStyle = {
-  //   backgroundImage: `url(${SignUpImage})`,
-  //   backgroundSize: "cover",
-  //   backgroundPosition: "center",
-  //   backgroundRepeat: "no-repeat",
+  const PositionLeftXOpacity = {
+    hidden: { opacity: 0, x: -150 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const PositionRightXOpacity = {
+    hidden: { opacity: 0, x: 150 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const PositionDownUpYOpacity = {
+    hidden: { opacity: 0, y: 150 },
+    visible: { opacity: 1, y: 0 },
+  };
 
-  //   width: "100%",
-  //   position: "relative",
-  // };
   const { signUp } = useUserAuth();
 
   const [error, setError] = useState("");
@@ -40,8 +39,6 @@ function SignUp(props) {
   const Password = useRef("");
   const Role = useRef("");
   const IsDriver = useRef("");
-  const [userEmail, setUserEmail] = useState();
-  const [userPass, setuserPass] = useState();
   //functions
   const ChangeProfilePic = () => {
     setUserImage(ProfileImage.current.value);
@@ -109,7 +106,14 @@ function SignUp(props) {
             <div className="w-full">
               <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-5">
                 {/* Left Side */}
-                <div className="bg-primary h-full p-20 rounded-tl-[16px] rounded-tr-[16px] md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px]">
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={PositionLeftXOpacity}
+                  transition={{ duration: 0.5 }}
+                  className="bg-primary h-full p-20 rounded-tl-[16px] rounded-tr-[16px] md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px]"
+                >
                   <div className=" px-3 lg:items-start lg:text-left lg:max-w-[450px] ">
                     <h1 className="text-5xl lg:text-7xl font-bold text-adminprimary">
                       Your Ride,At Low Price.
@@ -121,9 +125,15 @@ function SignUp(props) {
                       repellat nobis quis, possimus est delectus!
                     </p>
                   </div>
-                </div>
+                </motion.div>
                 {/*Sign Up Form */}
-                <div>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={PositionRightXOpacity}
+                  transition={{ duration: 0.5 }}
+                >
                   {/* absolute -translate-y-6 w-[30%] mx-5 */}
 
                   <div
@@ -224,7 +234,7 @@ function SignUp(props) {
                       </form>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
