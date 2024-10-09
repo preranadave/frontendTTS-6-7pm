@@ -7,10 +7,10 @@ function AdminLayout() {
   return (
     <>
       <div className="flex">
-        <div className="basis-[18%]">
+        <div className="md:basis-[18%] hidden md:block">
           <AdminSideBar></AdminSideBar>
         </div>
-        <div className="bg-gray-300/40 basis-[82%]">
+        <div className="bg-gray-300/40 md:basis-[82%]">
           <AdminHeader></AdminHeader>
         
           <div>

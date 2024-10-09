@@ -16,7 +16,7 @@ function AdminSideBar() {
     <>
       <div>
         <div className="">
-          <div className="w-[full] h-screen bg-adminprimary text-white px-10 py-5">
+          <div className="hidden md:block  w-[full] h-screen bg-adminprimary text-white px-10 py-5">
             {/* Heading */}
             <h1 className="text-3xl font-bold">Admin Panel</h1>
             {/* Side Navigation Menu */}

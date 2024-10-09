@@ -6,11 +6,18 @@ import axios from "axios";
 import { MdDelete } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import DeleteContact from "./DeleteContact";
 
 function ContactManagement() {
+  const Navigate = useNavigate();
+
   const [DeleteMessage, setDeleteMessage] = useState(false);
+  const [loaddelete, setLoadDelete] = useState(false);
+  const HandleDelete = (contact) => {
+    setLoadDelete(true);
+    Navigate(`/admin/dashboard/manage-contacts/delete-contact/${contact.id}`);
+  };
   //datatable variables
-  const [Search, setSearch] = useState();
   const coulumns = [
     {
       name: "Contact Name",
@@ -34,14 +41,14 @@ function ContactManagement() {
       name: "Action",
       cell: (row) => (
         <span>
-          <button className="bg-blue-400 text-white p-2 rounded"><span><FaPencilAlt/></span></button>
+          {/* <button className="bg-blue-400 text-white p-2 rounded">
+            <span>
+              <FaPencilAlt />
+            </span>
+          </button> */}
           <button
             className="bg-red-500 text-white p-2 rounded mx-2"
-            onClick={() => {
-              Navigate(
-                `/admin/dashboard/manage-drivers/delete-driver/${row.id}`
-              );
-            }}
+            onClick={()=>{HandleDelete(row)}}
           >
             <span>
               <MdDelete />
@@ -69,7 +76,15 @@ function ContactManagement() {
     <>
       <h1 className="text-xl font-bold p-4">Contact Management</h1>
       <div className=" bg-white  p-4 m-2 shadow-lg">
-        {/* <DeleteDriver isOpen={DeleteMessage} onHide={()=>{setDeleteMessage(false)}}></DeleteDriver> */}
+        {loaddelete && (
+          <DeleteContact
+            isOpen={DeleteMessage}
+            onHide={() => {
+              setDeleteMessage(false);
+            }}
+            onLoad={()=>{setLoadDelete(false)}}
+          ></DeleteContact>
+        )}
 
         <DataTable
           columns={coulumns}

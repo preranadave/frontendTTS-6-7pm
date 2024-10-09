@@ -151,8 +151,7 @@ function HeroSection() {
           </div>
         </div>
       </motion.div>
-      <WhyCarPool></WhyCarPool>
-      <HowItWorks></HowItWorks>
+    
     </>
   );
 }

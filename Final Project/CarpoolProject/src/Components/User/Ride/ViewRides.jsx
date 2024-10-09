@@ -10,6 +10,7 @@ import RideCards from "./RideCards";
 import SearchedRideList from "./SearchedRideList";
 import { motion } from "framer-motion";
 import PushNotification from "./PushNotification";
+import Footer from "../Footer/Footer";
 
 //images
 
@@ -116,6 +117,7 @@ function ViewRides() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

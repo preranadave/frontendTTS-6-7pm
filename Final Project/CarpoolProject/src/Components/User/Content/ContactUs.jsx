@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 
 function ContactUs() {
   const PositionLeftXOpacity = {
@@ -92,8 +93,8 @@ function ContactUs() {
                   } duration-700 transition-all`}
                 >
                   <div className="">
-                   Thanks for contacting us. One of our cordinator will
-                    reach you soon.
+                    Thanks for contacting us. One of our cordinator will reach
+                    you soon.
                   </div>
                 </div>
 
@@ -149,6 +150,7 @@ function ContactUs() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 }

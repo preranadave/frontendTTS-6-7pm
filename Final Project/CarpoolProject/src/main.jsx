@@ -170,6 +170,10 @@ createRoot(document.getElementById("root")).render(
               path="/admin/dashboard/manage-contacts"
               element={<ContactManagement></ContactManagement>}
             ></Route>
+            <Route
+              path="/admin/dashboard/manage-contacts/delete-contact/:id"
+              element={<ContactManagement></ContactManagement>}
+            ></Route>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -23,14 +23,11 @@ function ManageUserProfile() {
     visible: { opacity: 1, y: 0 },
   };
   const [selectedItem, setSelectedItem] = useState("Personal");
- // const [UserData, setUserData] = useState();
-  const [UserInfo,SetUserInfo]=useState();  
-  const {user}=useUserAuth()
-  const {
-    data,
-    loading,
-  } = FetchUserData();
-//  useEffect(()=>{  console.log("a"UserData)},[UserData])
+  // const [UserData, setUserData] = useState();
+  const [UserInfo, SetUserInfo] = useState();
+  const { user } = useUserAuth();
+  const { data } = FetchUserData();
+  //  useEffect(()=>{  console.log("a"UserData)},[UserData])
 
   const handleMenuClick = (item) => {
     setSelectedItem(item);
@@ -38,63 +35,62 @@ function ManageUserProfile() {
   const renderComponent = () => {
     switch (selectedItem) {
       case "Personal":
-        return <UpdatePersonalInfo  userdata={data[0]}/>;
+        return <UpdatePersonalInfo />;
       case "EmailPass":
         return <UpdateEmailPass userdata={data[0]} />;
 
       default:
-        return <UpdatePersonalInfo userdata={data[0]}/>;
+        return <UpdatePersonalInfo />;
     }
   };
 
   return (
     <>
       <Navbar></Navbar>
-      {loading && <div>Loading</div>}
-      {!loading && (
-      <div>
-        <div className=" md:mt-12 mt-5 md:w-[90%] w-[95%] flex items-center  bg-white  mx-auto rounded-2xl ">
-          <div className="min-h-[600px] md:min-h-[200px] rounded">
-            <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center gap-5">
-                {/* Left Side */}
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  variants={PositionLeftXOpacity}
-                  transition={{ duration: 0.5 }}
-                  className="md:block md:w-72 h-full p-20 rounded-tl-[16px] rounded-tr-[16px]  md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px]"
-                >
-                  <ul className="space-y-5 text-md w-52">
-                    <li
-                      className={`flex space-x-2 items-center justify-start p-2 rounded font-bold ${
-                        selectedItem == "Personal" && "bg-slate-200"
-                      }`}
-                      onClick={() => handleMenuClick("Personal")}
-                    >
-                      <FaUser size={20} />
-                      <NavLink>Personal Info</NavLink>
-                    </li>
-                    <li
-                      className={`flex space-x-2 items-center justify-start p-2 rounded  font-bold ${
-                        selectedItem == "EmailPass" && "bg-slate-200"
-                      }`}
-                      onClick={() => handleMenuClick("EmailPass")}
-                    >
-                      <MdOutlineSecurity size={20} />
-                      <NavLink>Email & Password</NavLink>
-                    </li>
-                  </ul>
-                </motion.div>
-                {/*Update Up Form */}
-                <div style={{ flex: 1 }}>{renderComponent()}</div>
+      
+        <div>
+          <div className=" md:mt-12 mt-5 md:w-[90%] w-[95%] flex items-center  bg-white  mx-auto rounded-2xl ">
+            <div className="min-h-[600px] md:min-h-[200px] rounded">
+              <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center gap-5">
+                  {/* Left Side */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={PositionLeftXOpacity}
+                    transition={{ duration: 0.5 }}
+                    className="md:block md:w-72 h-full p-20 rounded-tl-[16px] rounded-tr-[16px]  md:rounded-tr-[0px] md:rounded-tl-[16px] md:rounded-bl-[16px]"
+                  >
+                    <ul className="space-y-5 text-md w-52">
+                      <li
+                        className={`flex space-x-2 items-center justify-start p-2 rounded font-bold ${
+                          selectedItem == "Personal" && "bg-slate-200"
+                        }`}
+                        onClick={() => handleMenuClick("Personal")}
+                      >
+                        <FaUser size={20} />
+                        <NavLink>Personal Info</NavLink>
+                      </li>
+                      <li
+                        className={`flex space-x-2 items-center justify-start p-2 rounded  font-bold ${
+                          selectedItem == "EmailPass" && "bg-slate-200"
+                        }`}
+                        onClick={() => handleMenuClick("EmailPass")}
+                      >
+                        <MdOutlineSecurity size={20} />
+                        <NavLink>Email & Password</NavLink>
+                      </li>
+                    </ul>
+                  </motion.div>
+                  {/*Update Up Form */}
+                  <div style={{ flex: 1 }}>{renderComponent()}</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      )}
+      
     </>
   );
 }

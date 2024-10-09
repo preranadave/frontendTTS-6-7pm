@@ -10,7 +10,7 @@ function Header() {
   return (
     <>
       <div>
-        <div className="container bg-white w-[98%] p-3 rounded-lg m-2 flex items-center justify-between">
+        <div className="container bg-white w-[96%] md:w-[98%] p-3 rounded-lg m-2 flex items-center justify-between">
           {/* title */}
           <div>
             <h1 className="text-2xl  font-bold">Dashboard</h1>

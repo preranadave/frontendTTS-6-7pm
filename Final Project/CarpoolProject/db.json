@@ -157,13 +157,5 @@
       "RideStatus": "Cancel"
     }
   ],
-  "Contacts": [
-    {
-      "id": "0245",
-      "Name": "prerna",
-      "Email": "psdave@gmail.com",
-      "Phone": "8000000000",
-      "Message": "hello\n"
-    }
-  ]
+  "Contacts": []
 }

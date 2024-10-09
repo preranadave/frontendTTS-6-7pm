@@ -11,7 +11,6 @@ import {
 } from "firebase/auth";
 import firebase from "firebase/compat/app";
 function UpdateEmailPass({ userdata }) {
-    
   const PositionRightXOpacity = {
     hidden: { opacity: 0, x: 150 },
     visible: { opacity: 1, x: 0 },
@@ -35,9 +34,6 @@ function UpdateEmailPass({ userdata }) {
   const { editEmail, editPassword, user, reauthenticate, verifyBeforeEmail } =
     useUserAuth();
 
-  //   useEffect(() => {
-
-  //   }, [userdata]);
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -66,12 +62,12 @@ function UpdateEmailPass({ userdata }) {
           Promises.push(updatePassword(user, NewPassword.current.value));
         }
         await Promise.all(Promises).then(async () => {
-            SetMessage(true);
-            if (Message == false) {
-              setTimeout(() => {
-                SetMessage(false);
-              }, 8000);
-            }
+          SetMessage(true);
+          if (Message == false) {
+            setTimeout(() => {
+              SetMessage(false);
+            }, 8000);
+          }
         });
       });
     } catch (err) {
