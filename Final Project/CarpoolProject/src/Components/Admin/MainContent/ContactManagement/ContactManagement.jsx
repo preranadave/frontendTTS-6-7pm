@@ -60,7 +60,7 @@ function ContactManagement() {
   ];
   const [ContactData, SetContactData] = useState();
   //functions
-  const GetDrivers = async () => {
+  const GetContact = async () => {
     try {
       const response = await axios.get(`http://localhost:8000/Contacts`);
       SetContactData(response.data);
@@ -70,7 +70,7 @@ function ContactManagement() {
   };
 
   useEffect(() => {
-    GetDrivers();
+    GetContact();
   }, [ContactData]);
   return (
     <>

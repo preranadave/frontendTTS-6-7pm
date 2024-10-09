@@ -1,37 +1,20 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 function AdminDashboard() {
-  const FetchUser = () => {};
+  const [UserCount,SetUserCount]=useState();
+  
+  const [RideCount,SetRideCount]=useState();
+  
+  const [ContactCount,SetContactCount]=useState();
+  const FetchUser = () => {
+    axios.get(`http://localhost:8000/Users`).then((response)=>{
+
+    })
+  };
   const FetchRide = () => {};
-  const statistics = {
-    totalUsers: 150,
-    totalRides: 300,
-    totalContacts: 25,
-    totalDrivers: 50,
-    totalLocations: 10,
-  };
-  const data = {
-    labels: ["Users", "Rides", "Contacts", "Drivers", "Locations"],
-    datasets: [
-      {
-        label: "Statistics",
-        data: [
-          statistics.totalUsers,
-          statistics.totalRides,
-          statistics.totalContacts,
-          statistics.totalDrivers,
-          statistics.totalLocations,
-        ],
-        backgroundColor: [
-          "rgba(75, 192, 192, 0.6)",
-          "rgba(153, 102, 255, 0.6)",
-          "rgba(255, 159, 64, 0.6)",
-          "rgba(255, 99, 132, 0.6)",
-          "rgba(54, 162, 235, 0.6)",
-        ],
-      },
-    ],
-  };
+  const FetchContact=()=>{}
+  
   return (
     <>
       <div className="h-screen">

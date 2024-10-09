@@ -107,13 +107,6 @@ function Navbar() {
                   {" "}
                   <Link to="/view-rides">Search Ride</Link>
                 </li>
-                {/* <li className="hover:text-adminprimary active:text-primary">
-                  <Link>Why CarPool?</Link>
-                </li>
-                <li className="hover:text-adminprimary active:text-primary">
-                  {" "}
-                  <Link>How It Works?</Link>
-                </li> */}
                 <li className="group relative cursor-pointer hover:text-adminprimary active:text-primary">
                   <Link to={"/contact-us"} className="flex items-center gap-[2px]">
                     Contact Us{" "}
