@@ -1,6 +1,6 @@
 //library import
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //icon imports
 import { FaCarOn } from "react-icons/fa6";
@@ -11,7 +11,19 @@ import { FaHome } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { IoLocation } from "react-icons/io5";
 import { BiSolidContact } from "react-icons/bi";
+import { useUserAuth } from "../../../Context/UserAuthContext";
 function AdminSideBar() {
+  const { logOut, user } = useUserAuth();
+  const Navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      Navigate("/admin-login");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <>
       <div>
@@ -77,7 +89,7 @@ function AdminSideBar() {
 
                 <Link>
                   {" "}
-                  <li className="rounded-md p-2 transition-all duration-300 ease-in-out hover:bg-red-400/45 absolute bottom-11 text-xl font-bold flex gap-2 items-center">
+                  <li className="rounded-md p-2 transition-all duration-300 ease-in-out hover:bg-red-400/45 absolute bottom-11 text-xl font-bold flex gap-2 items-center"  onClick={handleLogout}>
                     <span>
                       <CiLogout size={30} />
                     </span>

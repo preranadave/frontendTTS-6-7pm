@@ -32,13 +32,13 @@ function ManageUserProfile() {
   const handleMenuClick = (item) => {
     setSelectedItem(item);
   };
+
   const renderComponent = () => {
     switch (selectedItem) {
       case "Personal":
         return <UpdatePersonalInfo />;
       case "EmailPass":
         return <UpdateEmailPass userdata={data[0]} />;
-
       default:
         return <UpdatePersonalInfo />;
     }

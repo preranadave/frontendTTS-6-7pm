@@ -51,7 +51,7 @@ function WhyCarPool() {
         variants={SlideYUp(0.1)}
         initial="hidden"
         whileInView="visible"
-        className="container py-10 bg-white shadow-[0_0_22px_rgba(0,0,0,0.15)] md:w-[98%] w-[96%] my-10  mx-auto rounded-2xl"
+        className="container py-10 overflow-hidden bg-white shadow-[0_0_22px_rgba(0,0,0,0.15)] md:w-[98%] w-[96%] my-10  mx-auto rounded-2xl"
       >
         {/* Header */}
         <motion.div

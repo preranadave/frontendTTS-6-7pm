@@ -29,6 +29,8 @@ import ConfirmJourney from "./Components/User/Ride/ConfirmJourney.jsx";
 import ManageUserProfile from "./Components/User/ManageUserProfile.jsx";
 import ContactUs from "./Components/User/Content/ContactUs.jsx";
 import ContactManagement from "./Components/Admin/MainContent/ContactManagement/ContactManagement.jsx";
+import AdminLogin from "./Components/Admin/AdminLogin.jsx";
+import AdminProtectedRoute from "./Components/Admin/AdminProtectedRoute.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -127,52 +129,54 @@ createRoot(document.getElementById("root")).render(
           ></Route>
 
           {/* Admin Routing */}
-          <Route path="/admin" element={<AdminLayout />}>
+          <Route path="/admin-login"  element={<AdminLogin></AdminLogin>}></Route>
+
+          <Route path="/admin" element={<AdminProtectedRoute><AdminLayout /></AdminProtectedRoute>}>
             <Route
               path="/admin/dashboard"
-              element={<AdminDashboard></AdminDashboard>}
+              element={<AdminProtectedRoute><AdminDashboard></AdminDashboard></AdminProtectedRoute>}
             ></Route>
             <Route
               path="/admin/dashboard/manage-users"
-              element={<UserManagement></UserManagement>}
+              element={<AdminProtectedRoute><UserManagement></UserManagement></AdminProtectedRoute>}
             ></Route>
 
             <Route
               path="/admin/dashboard/manage-users/:id"
-              element={<UserManagement></UserManagement>}
+              element={<AdminProtectedRoute><UserManagement></UserManagement></AdminProtectedRoute>}
             ></Route>
             <Route
               path="/admin/dashboard/manage-drivers"
-              element={<DriverManagement></DriverManagement>}
+              element={<AdminProtectedRoute><DriverManagement></DriverManagement></AdminProtectedRoute>}
             ></Route>
             <Route
               path="/admin/dashboard/manage-drivers/delete-driver/:id"
-              element={<DriverManagement></DriverManagement>}
+              element={<AdminProtectedRoute><DriverManagement></DriverManagement></AdminProtectedRoute>}
             ></Route>
             <Route
               path="/admin/dashboard/manage-locations"
-              element={<LocationManagement></LocationManagement>}
+              element={<AdminProtectedRoute><LocationManagement></LocationManagement></AdminProtectedRoute>}
             ></Route>
             <Route
               path="/admin/dashboard/manage-locations/delete-location/:id"
-              element={<LocationManagement></LocationManagement>}
+              element={<AdminProtectedRoute><LocationManagement></LocationManagement></AdminProtectedRoute>}
             ></Route>
 
             <Route
               path="/admin/dashboard/manage-rides"
-              element={<RidesManagement></RidesManagement>}
+              element={<AdminProtectedRoute><RidesManagement></RidesManagement></AdminProtectedRoute>}
             ></Route>
             <Route
               path="/admin/dashboard/manage-rides/delete-ride/:id"
-              element={<RidesManagement></RidesManagement>}
+              element={<AdminProtectedRoute><RidesManagement></RidesManagement></AdminProtectedRoute>}
             ></Route>
             <Route
               path="/admin/dashboard/manage-contacts"
-              element={<ContactManagement></ContactManagement>}
+              element={<AdminProtectedRoute><ContactManagement></ContactManagement></AdminProtectedRoute>}
             ></Route>
             <Route
               path="/admin/dashboard/manage-contacts/delete-contact/:id"
-              element={<ContactManagement></ContactManagement>}
+              element={<AdminProtectedRoute><ContactManagement></ContactManagement></AdminProtectedRoute>}
             ></Route>
           </Route>
         </Routes>

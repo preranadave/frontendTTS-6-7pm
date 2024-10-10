@@ -58,7 +58,7 @@ function HowItWorks() {
       variants={SlideYUp(0.1)}
       initial="hidden"
       whileInView="visible"
-      className="container py-10 bg-white shadow-[0_0_22px_rgba(0,0,0,0.15)] md:w-[98%] w-[96%] my-10  mx-auto rounded-2xl"
+      className="container overflow-hidden py-10 bg-white shadow-[0_0_22px_rgba(0,0,0,0.15)] md:w-[98%] w-[96%] my-10  mx-auto rounded-2xl"
     >
       <div className="space-y-2 p-2 text-center max-w-[890px] mx-auto ">
         <h1 className="uppercase font-semibold text-adminprimary text-lg">

@@ -107,13 +107,9 @@ function LogIn() {
                     <div className="">You Are Logged In Successfully!</div>
                   </div> */}
                   {error && (
-                    <div
-                      className={`px-5 w-[80%] mx-auto text-center bg-red-400 border border-red-700 text-adminprimary rounded-md p-2 my-2 ${
-                        Message ? "opacity-100" : "opacity-0"
-                      } duration-700 transition-all`}
-                    >
+
                       <div className="">{error}</div>
-                    </div>
+                    
                   )}
                   {/* <IoIosCloseCircleOutline
                     size={30}
