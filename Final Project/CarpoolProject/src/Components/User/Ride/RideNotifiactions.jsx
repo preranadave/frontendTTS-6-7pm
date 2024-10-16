@@ -25,7 +25,7 @@ function RideNotifiactions() {
 
   useEffect(() => {
     axios.get(`http://localhost:8000/RideNotification`).then((response) => {
-      SetNotificationList(response.data.filter((e) => e.UserUID == user.uid).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)));
+      SetNotificationList(response.data.filter((e) => e.UserUID == user.uid).sort((a, b) => Date.parse( new Date(b.timestamp.split("/").reverse().join("-"))) - Date.parse( new Date(a.timestamp.split("/").reverse().join("-")))));
     
     });
   }, [NotificationList]);

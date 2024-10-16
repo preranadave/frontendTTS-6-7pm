@@ -44,7 +44,7 @@ function ContactUs() {
     <div>
       <Navbar></Navbar>
 
-      <div className=" mt-12   md:w-[70%] w-[95%] flex items-center  bg-white md:mx-56 mx-auto rounded-2xl ">
+      <div className=" mt-12 mb-12 md:w-[70%] w-[95%] flex items-center  bg-white md:mx-56 mx-auto rounded-2xl ">
         <div className="min-h-[600px] md:min-h-[200px] rounded">
           <div className="w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-5">

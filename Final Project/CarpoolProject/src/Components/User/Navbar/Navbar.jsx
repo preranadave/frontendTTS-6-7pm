@@ -108,7 +108,10 @@ function Navbar() {
                   <Link to="/view-rides">Search Ride</Link>
                 </li>
                 <li className="group relative cursor-pointer hover:text-adminprimary active:text-primary">
-                  <Link to={"/contact-us"} className="flex items-center gap-[2px]">
+                  <Link
+                    to={"/contact-us"}
+                    className="flex items-center gap-[2px]"
+                  >
                     Contact Us{" "}
                   </Link>
                 </li>
@@ -147,15 +150,20 @@ function Navbar() {
                 <div className="hidden md:flex lg:flex">
                   <div className="md:absolute opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-1000 z-50">
                     <ul className="w-28 text-[14px] space-y-1 bg-primary -translate-x-10 p-2 shadow-md text-black rounded-md group-hover:-translate-y-2 mt-3 translate-y-3 duration-700  transition-all ease-in-out">
-                      <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
+                      <Link to={"/manage-profile"}>
                         {" "}
-                        <Link to={"/manage-profile"}>Profile</Link>
-                      </li>
-
-                      <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
+                        <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
+                          {" "}
+                          Profile
+                        </li>
+                      </Link>
+                      <Link to={"/user-rides"}>
                         {" "}
-                        <Link to={"/user-rides"}>Your Rides</Link>
-                      </li>
+                        <li className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all">
+                          {" "}
+                          Your Rides
+                        </li>
+                      </Link>
                       <li
                         className="p-2 hover:bg-white rounded-lg duration-700 ease-in-out transition-all"
                         onClick={handleLogout}
@@ -168,7 +176,7 @@ function Navbar() {
                 </div>
               </div>
             </div>
-           
+
             {/* Mobile Menu */}
             <div className="md:hidden">
               {MobileShowMenu ? (

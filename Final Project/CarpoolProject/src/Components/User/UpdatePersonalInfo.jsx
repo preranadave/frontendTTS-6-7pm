@@ -114,7 +114,7 @@ function UpdatePersonalInfo() {
                     src={UserImage}
                     className="w-20 h-20 rounded-full mx-auto my-2"
                   ></img>
-                  <input
+                  {/* <input
                     id="profileimage"
                     type="url"
                     className="py-2 px-4 rounded-lg w-full bg-gray-400/30 placeholder-black outline-none border-none"
@@ -122,25 +122,11 @@ function UpdatePersonalInfo() {
                     value={UserImage}
                     placeholder="Image URL"
                     onChange={ChangeProfilePic}
-                  />
+                  /> */}
                 </div>
 
-                <input
-                  type="text"
-                  name="naame"
-                  id="name"
-                  className="py-2 px-4 rounded-lg w-full bg-gray-400/30 placeholder-black outline-none border-none"
-                  placeholder="Name"
-                  // ref={UserName}
-                  value={UserNamevalue}
-                  onChange={ChangeUserName}
-                />
+                <div className="text-center flex justify-center">{UserNamevalue}</div>
 
-                <div className="flex justify-center">
-                  <button type="submit" className="btn-primary w-[50%]">
-                    Update
-                  </button>
-                </div>
               </div>
             </form>
           </div>
