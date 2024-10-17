@@ -134,7 +134,7 @@ function UpdateEmailPass({ userdata }) {
                 value={EmailValue}
                 onChange={handleEmailChange}
               />
-              <input
+              {/* <input
                 type="password"
                 name="password"
                 id="password"
@@ -143,7 +143,7 @@ function UpdateEmailPass({ userdata }) {
                 ref={Password}
                 value={PasswordValue}
                 disabled
-              />
+              /> */}
               <div className="flex">
                 <input
                   type={showPassword ? "text" : "password"}
